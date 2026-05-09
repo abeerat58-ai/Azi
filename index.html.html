@@ -112,6 +112,36 @@ td{font-size:13px;color:#203E49}
   h1{font-size:20px}.subtitle{font-size:12px}.panel-title{font-size:12.5px}
 }
 
+
+
+/* نسخة جوال مكثفة: عمودان للرسومات فقط، بدون تغيير نسخة الكمبيوتر */
+@media(max-width:640px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .panel.wide{grid-column:auto!important}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .panel{padding:8px!important;border-radius:14px!important;min-width:0!important}
+  .panel-title{font-size:10.8px!important;line-height:1.45!important;margin-bottom:2px!important;min-height:32px}
+  .chart{height:220px!important;min-height:220px!important}
+  #axisChart{height:260px!important;min-height:260px!important}
+  #questionChart{height:430px!important;min-height:430px!important}
+  .card{border-radius:14px!important;min-width:0!important}
+  .card-head{padding:8px!important;gap:6px!important;min-height:78px}
+  .q-title{font-size:10px!important;line-height:1.55!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .q-id{width:28px!important;height:28px!important;border-radius:10px!important;font-size:10px!important}
+  .compare-mini{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:4px!important;padding:6px!important}
+  .mini{min-height:45px!important;padding:5px!important;border-radius:10px!important}
+  .mini span{font-size:8.5px!important;line-height:1.35!important}.mini b{font-size:10px!important;line-height:1.35!important}
+  .survey-grid{grid-template-columns:1fr!important}
+  #questionChart svg text,#axisChart svg text,.js-plotly-plot svg text{font-size:8.5px!important}
+}
+@media(max-width:380px){
+  .grid,.cards,.kpis{gap:6px!important}
+  .panel{padding:7px!important}.panel-title{font-size:10px!important;min-height:30px}
+  .chart{height:205px!important;min-height:205px!important}
+  #axisChart{height:245px!important;min-height:245px!important}
+  #questionChart{height:405px!important;min-height:405px!important}
+}
 </style>
 
 <style id="question-chart-bold-style">
@@ -244,8 +274,8 @@ function renderDashboard(){
   if (dashboardRendered) return;
   dashboardRendered = true;
   const mobile = isMobileView();
-  const plotFont = mobile ? 10 : 12;
-  const chartH = mobile ? 315 : 430;
+  const plotFont = mobile ? 8.5 : 12;
+  const chartH = mobile ? 220 : 430;
   function cls(v){ if(v>0.05) return 'up'; if(v<-0.05) return 'down'; return 'neutral'; }
   document.getElementById('kOverall1').textContent = pct(DATA.overall.term1);
   document.getElementById('kOverall2').textContent = pct(DATA.overall.term2);
@@ -260,7 +290,7 @@ function renderDashboard(){
     marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
     text:[pct(DATA.overall.term1),pct(DATA.overall.term2)], textposition:'outside',
     hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
-  }], makeLayout({height:chartH, margin:mobile?{t:18,r:14,b:34,l:34}:{t:25,r:30,b:45,l:30}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:plotFont}}, xaxis:{tickfont:{size:mobile?11:14}}, bargap:0.45, showlegend:false}), cfg);
+  }], makeLayout({height:chartH, margin:mobile?{t:10,r:6,b:26,l:24}:{t:25,r:30,b:45,l:30}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:plotFont}}, xaxis:{tickfont:{size:mobile?8.5:14}}, bargap:0.45, showlegend:false}), cfg);
 
 
   Plotly.newPlot('trendChart', [
@@ -275,11 +305,11 @@ function renderDashboard(){
     },
     number:{
       suffix:'%',
-      font:{size:mobile?32:42,color:'#006B5E',family:'Cairo'}
+      font:{size:mobile?20:42,color:'#006B5E',family:'Cairo'}
     },
     title:{
       text:'مستوى الرضا الحالي',
-      font:{size:mobile?14:20,color:'#073B4C',family:'Cairo'}
+      font:{size:mobile?9.5:20,color:'#073B4C',family:'Cairo'}
     },
     gauge:{
       axis:{range:[0,100],tickwidth:1,tickcolor:'#073B4C'},
@@ -302,14 +332,14 @@ function renderDashboard(){
   }
   ], {
     ...makeLayout(),
-    height:mobile?315:430,
-    margin:mobile?{t:28,r:12,b:38,l:12}:{t:40,r:30,b:20,l:30},
+    height:mobile?220:430,
+    margin:mobile?{t:18,r:6,b:28,l:6}:{t:40,r:30,b:20,l:30},
     annotations:[
       {
         x:0.5,y:mobile?-0.11:-0.04,xref:'paper',yref:'paper',
         text:'بداية العام: <b>'+pct(DATA.overall.term1)+'</b> &nbsp;&nbsp; | &nbsp;&nbsp; نهاية العام: <b>'+pct(DATA.overall.term2)+'</b><br>التحسن العام: <b style="color:#00A878">'+pp(DATA.overall.delta)+'</b>',
         showarrow:false,
-        font:{family:'Cairo',size:mobile?10.5:15,color:'#073B4C'},
+        font:{family:'Cairo',size:mobile?8.5:15,color:'#073B4C'},
         align:'center'
       }
     ]
@@ -335,14 +365,14 @@ function renderDashboard(){
   .filter(x=>x.delta!==null && !x.question.includes("هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )"))
   .sort((a,b)=>a.delta-b.delta);
   Plotly.newPlot('questionChart', [{
-    type:'bar', orientation:'h', y:qs.map(x=>mobile?'س'+String(x.id).padStart(2,'0'):String(x.id).padStart(2,'0')+' - '+x.short), x:qs.map(x=>x.delta), width:mobile?0.42:thinBarWidthH,
+    type:'bar', orientation:'h', y:qs.map(x=>mobile?'س'+String(x.id).padStart(2,'0'):String(x.id).padStart(2,'0')+' - '+x.short), x:qs.map(x=>x.delta), width:mobile?0.32:thinBarWidthH,
     marker:{color:qs.map(x=>x.delta>=0?'#00A878':'#D62828'), line:{color:'#fff',width:1}},
     text:qs.map(x=>x.delta<0?'  '+pp(x.delta):pp(x.delta)), textposition:mobile?'auto':'outside',
       textangle:0,
       cliponaxis:false,
     customdata:qs.map(x=>[x.term1,x.term2,x.relative]),
     hovertemplate:'%{y}<br>الأول: %{customdata[0]:.1f}%<br>الثاني: %{customdata[1]:.1f}%<br>الفرق: %{x:.1f} نقطة<br>نسبة التحسن: %{customdata[2]:.1f}%<extra></extra>'
-  }], makeLayout({height:mobile?620:720, bargap:mobile?0.28:0.38, margin:mobile?{t:18,r:18,b:42,l:42}:{t:20,r:110,b:45,l:420}, xaxis:{title:mobile?'':'فرق النقاط المئوية', zeroline:true, zerolinecolor:'#073B4C', gridcolor:'#E8F0EE', tickfont:{size:plotFont}}, yaxis:{automargin:true,tickfont:{size:mobile?9.5:10.5}}, hoverlabel:{font:{family:'Cairo',size:11}}}), cfg);
+  }], makeLayout({height:mobile?430:720, bargap:mobile?0.18:0.38, margin:mobile?{t:14,r:10,b:34,l:30}:{t:20,r:110,b:45,l:420}, xaxis:{title:mobile?'':'فرق النقاط المئوية', zeroline:true, zerolinecolor:'#073B4C', gridcolor:'#E8F0EE', tickfont:{size:plotFont}}, yaxis:{automargin:true,tickfont:{size:mobile?8:10.5}}, hoverlabel:{font:{family:'Cairo',size:11}}}), cfg);
 
   function metricBox(x){
     return `<div class="compare-mini">
@@ -376,14 +406,14 @@ function renderDashboard(){
     const card = document.createElement('article');
     card.className = 'card';
     card.innerHTML = `<div class="card-head"><div class="q-title">${x.question}</div><div class="q-id">${String(x.id).padStart(2,'0')}</div></div>
-    <div id="mini_${x.id}" style="height:260px;padding:8px"></div>${metricBox(x)}`;
+    <div id="mini_${x.id}" style="height:${mobile?145:260}px;padding:${mobile?3:8}px"></div>${metricBox(x)}`;
     cards.appendChild(card);
     Plotly.newPlot('mini_'+x.id, [{
       type:'bar', x:['الأول','الثاني'], y:[x.term1,x.term2], width:thinBarWidth,
       marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
       text:[pct(x.term1),pct(x.term2)], textposition:'outside',
       hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
-    }], makeLayout({height:mobile?210:260, margin:mobile?{t:14,r:10,b:30,l:30}:{t:20,r:20,b:35,l:35}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:mobile?9:12}}, xaxis:{tickfont:{size:mobile?10:12}}, bargap:0.45, showlegend:false}), cfg);
+    }], makeLayout({height:mobile?145:260, margin:mobile?{t:8,r:4,b:20,l:22}:{t:20,r:20,b:35,l:35}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:mobile?7.5:12}}, xaxis:{tickfont:{size:mobile?8:12}}, bargap:0.45, showlegend:false}), cfg);
   });
   window.addEventListener('resize',()=>document.querySelectorAll('.js-plotly-plot').forEach(el=>Plotly.Plots.resize(el)));
 }
