@@ -141,6 +141,87 @@ td{font-size:13px;color:#203E49}
   .survey-grid,.grid,.cards,.group-cards{gap:6px}.panel,.card,.kpi{border-radius:14px}.q-title{font-size:8.8px}.panel-title{font-size:10px}.chart{height:195px!important}.card [id^="mini_"]{height:155px!important}.survey-donut{height:108px}.kpi-value{font-size:20px}
 }
 
+
+.compare-cards-mobile{display:none}
+.compare-mobile-card{background:linear-gradient(180deg,#FCFEFD 0%,#F6FAF9 100%);border:1px solid rgba(0,107,94,.12);border-radius:22px;padding:14px;box-shadow:0 10px 24px rgba(0,84,77,.07);margin-top:12px}
+.compare-mobile-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.compare-mobile-num{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,var(--moe-primary),var(--moe-secondary));color:#fff;font-size:13px;font-weight:800;flex:0 0 auto}
+.compare-mobile-question{font-size:14px;font-weight:800;line-height:1.8;color:#073B4C}
+.compare-mobile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.compare-mobile-pill{background:#FBFCFC;border:1px solid rgba(0,107,94,.12);border-radius:16px;padding:10px 8px;text-align:center}
+.compare-mobile-pill span{display:block;font-size:11px;font-weight:700;color:var(--muted);line-height:1.5;margin-bottom:4px}
+.compare-mobile-pill b{display:block;font-size:15px;font-weight:800;line-height:1.5;color:#073B4C}
+.compare-mobile-pill.full{grid-column:1/-1}
+.compare-mobile-sub{font-size:12px;font-weight:700;color:var(--muted)}
+@media(min-width:621px){
+  #compareCardsMobile{display:none !important}
+}
+@media(max-width:620px){
+  .grid{grid-template-columns:1fr;gap:12px}
+  .panel.wide{grid-column:auto}
+  .table-wrap{display:none}
+  .compare-cards-mobile{display:block}
+  .hero{padding:20px 14px 28px;border-bottom-left-radius:24px;border-bottom-right-radius:24px}
+  .badge{padding:6px 10px;font-size:11px;font-weight:700}
+  h1{font-size:22px;line-height:1.5}
+  .subtitle{font-size:12.5px;font-weight:500;line-height:1.85}
+  .logo-title{font-size:20px;font-weight:800}
+  .logo-sub{font-size:12px;font-weight:600}
+  .wrap{padding:0 10px;margin-top:-24px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .kpi{padding:14px;min-height:112px;border-radius:18px}
+  .kpi-label{font-size:11.5px;font-weight:700;line-height:1.65}
+  .kpi-value{font-size:22px;font-weight:800}
+  .kpi-note{font-size:10.5px;font-weight:500;line-height:1.6}
+  .panel{padding:14px;border-radius:20px}
+  .panel-title{font-size:15px;font-weight:700;line-height:1.6;display:block}
+  .panel-title span:last-child{display:block;margin-top:2px;font-size:11px;font-weight:600;color:var(--muted)}
+  .chart{height:260px}
+  .survey-section{padding:14px;border-radius:22px}
+  .survey-title{font-size:18px;font-weight:800}
+  .survey-grid{grid-template-columns:1fr;gap:12px}
+  .survey-card{min-height:auto;padding:14px;border-radius:18px}
+  .survey-card-title{font-size:15px;font-weight:700;margin-bottom:10px}
+  .survey-icon{width:36px;height:36px;border-radius:12px;font-weight:800}
+  .survey-chart-wrap{padding:10px;border-radius:16px}
+  .survey-donut{height:160px;max-width:230px}
+  .survey-bars-title span,.survey-bars-title b{font-size:10.5px;font-weight:700}
+  .survey-summary-pill{padding:8px 8px 7px}
+  .survey-summary-number{font-size:16px;font-weight:800}
+  .survey-summary-sub{font-size:10px;font-weight:600}
+  .survey-donut-legend-grid{grid-template-columns:1fr;gap:8px}
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{grid-column:1/-1;justify-content:space-between;padding:8px 10px;border-radius:14px}
+  .survey-donut-legend-grid .survey-legend-label{white-space:normal;overflow-wrap:anywhere;text-align:right;font-size:10.5px;line-height:1.4}
+  .survey-donut-legend-grid .survey-legend-pct{font-size:10.5px}
+  .survey-legend-item{padding:6px 10px}
+  .survey-legend-label{font-size:11px;font-weight:700}
+  .survey-legend-pct{font-size:11px;font-weight:700}
+  .metric-circles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .metric-circle-card{padding:12px 10px;border-radius:18px}
+  .metric-circle-label{font-size:11.5px;font-weight:700;margin-bottom:8px}
+  .metric-donut{width:96px;height:96px;margin-bottom:8px}
+  .metric-donut:before{inset:13px}
+  .metric-donut-value{font-size:16px;font-weight:800}
+  .metric-donut-note{font-size:10.5px;font-weight:600}
+  .metric-badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .metric-badge{border-radius:16px;padding:10px 8px}
+  .metric-badge:last-child{grid-column:1/-1}
+  .metric-badge span{font-size:10.5px;font-weight:700}
+  .metric-badge b{font-size:15px;font-weight:800}
+  .q-title{font-size:13px;font-weight:700;line-height:1.75}
+  .question-group{padding:12px;border-radius:18px;margin-top:14px}
+  .question-group-head{padding:12px 14px;border-radius:16px;gap:8px}
+  .question-group-title{font-size:17px;font-weight:800}
+  .question-group-sub{font-size:11px;font-weight:600;line-height:1.7}
+  .card{border-radius:20px}
+  .card-head{padding:12px 14px 10px}
+  .q-id{width:36px;height:36px;border-radius:12px;font-size:12px;font-weight:800}
+  th,td{font-size:12px;font-weight:600;line-height:1.6}
+  .pill{font-size:11px;font-weight:700}
+  .footer{font-size:11px;font-weight:600;padding:18px 10px 28px}
+}
+
 </style>
 
 
@@ -195,6 +276,7 @@ td{font-size:13px;color:#203E49}
 <section class="panel wide">
   <div class="panel-title"><span>جدول المقارنة التفصيلي لكل الأسئلة</span><span>الفصل الدراسي الأول، الفصل الدراسي الثاني، الفرق، نسبة التحسن</span></div>
   <div class="table-wrap"><table id="compareTable"></table></div>
+  <div id="compareCardsMobile" class="compare-cards-mobile"></div>
 </section>
 
 <section id="questionCards"></section>
@@ -206,11 +288,11 @@ const DATA = {"term1": {"participants": 1675, "columns": 19, "overallSat": 50.7,
 const cfg = {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true};
 const isMobileView = window.matchMedia('(max-width:620px)').matches;
 const plotFontSize = isMobileView ? 9 : 12;
-const mainChartHeight = isMobileView ? 210 : 430;
-const gaugeChartHeight = isMobileView ? 210 : 430;
-const axisChartHeight = isMobileView ? 300 : 460;
-const miniChartHeight = isMobileView ? 138 : 260;
-const miniChartBoxHeight = isMobileView ? 168 : 300;
+const mainChartHeight = isMobileView ? 250 : 430;
+const gaugeChartHeight = isMobileView ? 270 : 430;
+const axisChartHeight = isMobileView ? 360 : 460;
+const miniChartHeight = isMobileView ? 148 : 260;
+const miniChartBoxHeight = isMobileView ? 176 : 300;
 const surveyIcons = {1:'⚥',2:'▦',3:'⌖'};
 function findQuestion(term, id){ return DATA[term].questions.find(q=>q.id===id); }
 const surveyPalette = ['#00A19A','#1C78A8','#0B8077','#4BB7AF','#82D3CF','#0D5C63','#B8E4E1'];
@@ -219,28 +301,21 @@ function surveyLegendHtml(q, options={}){
   const allowWide = !!options.allowWide;
   return q.labels.map((label,i)=>{
     const wideClass = isGrid && ((allowWide && label.length > 18) || (!allowWide && label.length > 11)) ? ' legend-item-wide' : '';
-    return `<span class="survey-legend-item${wideClass}"><span class="survey-legend-dot" style="background:${surveyPalette[i % surveyPalette.length]}"></span><span class="survey-legend-label">${label}</span><span class="survey-legend-pct">${Number(q.percentages[i]||0).toFixed(1)}%</span></span>`;
+    return `<span class="survey-legend-item${wideClass}"><span class="survey-legend-dot" style="background:${surveyPalette[i % surveyPalette.length]}"></span><span class="survey-legend-label">${formatSurveyLabel(label)}</span><span class="survey-legend-pct">${Number(q.percentages[i]||0).toFixed(1)}%</span></span>`;
   }).join('');
 }
 function surveyLegendFromItems(items, palette=surveyPalette){
-  return items.map((item,i)=>`<span class="survey-legend-item"><span class="survey-legend-dot" style="background:${palette[i % palette.length]}"></span><span class="survey-legend-label">${item.label}</span><span class="survey-legend-pct">${Number(item.pct||0).toFixed(1)}%</span></span>`).join('');
+  return items.map((item,i)=>`<span class="survey-legend-item"><span class="survey-legend-dot" style="background:${palette[i % palette.length]}"></span><span class="survey-legend-label">${formatSurveyLabel(item.label)}</span><span class="survey-legend-pct">${Number(item.pct||0).toFixed(1)}%</span></span>`).join('');
+}
+function formatSurveyLabel(label){
+  return String(label || '').replace('عسير (أبها والخميس وتوابعها )','عسير (أبها والخميس وضواحيها)');
 }
 function sortQuestionByLabelLength(q, options={}){
   const rows = q.labels.map((label,i)=>({
-    label,
+    label: formatSurveyLabel(label),
     value:q.values[i]||0,
     pct:q.percentages[i]||0
-  })).sort((a,b)=>a.label.length - b.label.length || a.label.localeCompare(b.label,'ar'));
-
-  if(options.placeEarlyChildhoodCenter){
-    const idx = rows.findIndex(r => r.label === 'طفولة مبكرة');
-    if(idx !== -1){
-      const [target] = rows.splice(idx, 1);
-      const middleIndex = Math.floor(rows.length / 2);
-      rows.splice(middleIndex, 0, target);
-    }
-  }
-
+  })).sort((a,b)=> (b.pct - a.pct) || (b.value - a.value) || a.label.localeCompare(b.label,'ar'));
   return {
     ...q,
     labels: rows.map(r=>r.label),
@@ -348,7 +423,7 @@ function renderSurveyData(){
       </div>`;
     }
     const combinedBase = combineSurveyQuestions(item.id);
-    const qCombined = item.id===2 ? sortQuestionByLabelLength(combinedBase, {placeEarlyChildhoodCenter:true}) : ((item.id===3) ? sortQuestionByLabelLength(combinedBase) : combinedBase);
+    const qCombined = item.id===1 || item.id===2 || item.id===3 ? sortQuestionByLabelLength(combinedBase) : combinedBase;
     return `<div class="survey-card">
       <div class="survey-card-title"><span>${item.title}</span><span class="survey-icon">${surveyIcons[item.id]}</span></div>
       <div class="survey-chart-wrap">
@@ -384,7 +459,7 @@ function renderSurveyData(){
 
   items.filter(item=>item.id !== 'responses').forEach(item => {
     const combinedBase = combineSurveyQuestions(item.id);
-    const qCombined = item.id===2 ? sortQuestionByLabelLength(combinedBase, {placeEarlyChildhoodCenter:true}) : ((item.id===3) ? sortQuestionByLabelLength(combinedBase) : combinedBase);
+    const qCombined = item.id===1 || item.id===2 || item.id===3 ? sortQuestionByLabelLength(combinedBase) : combinedBase;
     renderSurveyDonut('surveyDonut_' + item.id, qCombined);
   });
 }
@@ -463,9 +538,9 @@ Plotly.newPlot('trendChart', [
   annotations:[
     {
       x:0.5,y:-0.04,xref:'paper',yref:'paper',
-      text:'بداية العام: <b>'+pct(DATA.overall.term1)+'</b> &nbsp;&nbsp; | &nbsp;&nbsp; نهاية العام: <b>'+pct(DATA.overall.term2)+'</b><br>التحسن العام: <b style="color:#00A878">'+pp(DATA.overall.delta)+'</b>',
+      text:(isMobileView ? 'بداية العام: '+pct(DATA.overall.term1)+' | نهاية العام: '+pct(DATA.overall.term2)+'<br>التحسن العام: <span style="color:#00A878">'+pp(DATA.overall.delta)+'</span>' : 'بداية العام: <b>'+pct(DATA.overall.term1)+'</b> &nbsp;&nbsp; | &nbsp;&nbsp; نهاية العام: <b>'+pct(DATA.overall.term2)+'</b><br>التحسن العام: <b style="color:#00A878">'+pp(DATA.overall.delta)+'</b>'),
       showarrow:false,
-      font:{family:'Cairo',size:isMobileView?9:15,color:'#073B4C'},
+      font:{family:'Cairo',size:isMobileView?10:15,color:'#073B4C'},
       align:'center'
     }
   ]
@@ -535,6 +610,23 @@ const tableRows = DATA.comparison.filter(x=>![1,2,3].includes(x.id)).map((x,i)=>
 <td>${x.responses1?ar(x.responses1):'—'} / ${x.responses2?ar(x.responses2):'—'}</td>
 </tr>`).join('');
 document.getElementById('compareTable').innerHTML = `<thead><tr><th>#</th><th>السؤال</th><th>الفصل الدراسي الأول</th><th>الفصل الدراسي الثاني</th><th>مقدار التحسن</th><th>نسبة التحسن</th><th>الحالة</th><th>الاستجابات 1 / 2</th></tr></thead><tbody>${tableRows}</tbody>`;
+
+const compareCardsMobileRows = DATA.comparison.filter(x=>![1,2,3].includes(x.id)).map((x,i)=>`
+<div class="compare-mobile-card">
+  <div class="compare-mobile-head">
+    <div class="compare-mobile-question">${x.question}</div>
+    <div class="compare-mobile-num">${String(i+1).padStart(2,'0')}</div>
+  </div>
+  <div class="compare-mobile-grid">
+    <div class="compare-mobile-pill"><span>الفصل الدراسي الأول</span><b>${pct(x.term1)}</b></div>
+    <div class="compare-mobile-pill"><span>الفصل الدراسي الثاني</span><b>${pct(x.term2)}</b></div>
+    <div class="compare-mobile-pill"><span>مقدار التحسن</span><b class="${cls(x.delta)}">${pp(x.delta)}</b></div>
+    <div class="compare-mobile-pill"><span>نسبة التحسن</span><b class="${cls(x.delta)}">${rel(x.relative)}</b></div>
+    <div class="compare-mobile-pill"><span>الحالة</span><b class="${cls(x.delta)}">${x.delta===null?'وصفي':x.trend}</b></div>
+    <div class="compare-mobile-pill"><span>الاستجابات 1 / 2</span><b>${x.responses1?ar(x.responses1):'—'} / ${x.responses2?ar(x.responses2):'—'}</b></div>
+  </div>
+</div>`).join('');
+document.getElementById('compareCardsMobile').innerHTML = compareCardsMobileRows;
 
 const cards = document.getElementById('questionCards');
 const questionGroups = [
