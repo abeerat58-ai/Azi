@@ -14,7 +14,6 @@
   --moe-bg:#F3F8F7; --card:#F7FAF9; --gold:#D6A33A; --success:#00A878; --warning:#F4B223; --danger:#D62828; --muted:#65777E; --border:#DDE8E6;
 }
 *{box-sizing:border-box}
-html,body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 body{margin:0;font-family:'Cairo',Tahoma,Arial,sans-serif;background:radial-gradient(circle at 8% 0%,rgba(0,161,154,.13),transparent 32%),linear-gradient(180deg,#F8FCFB,#ECF6F4);color:var(--moe-dark)}
 .hero{position:relative;overflow:hidden;color:#fff;padding:30px 20px 46px;background:linear-gradient(135deg,#006B5E 0%,#005E67 58%,#073B4C 100%);border-bottom-left-radius:38px;border-bottom-right-radius:38px;box-shadow:0 20px 46px rgba(0,84,77,.24)}
 .hero:before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08);border:30px solid rgba(214,163,58,.25)}
@@ -38,6 +37,11 @@ h1{font-size:clamp(26px,3.8vw,48px);line-height:1.32;margin:14px 0 8px;font-weig
 .panel-title{display:flex;justify-content:space-between;gap:10px;font-weight:900;color:var(--moe-dark);font-size:18px;margin-bottom:8px;line-height:1.7}
 .chart{height:430px}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.question-group{background:linear-gradient(180deg,#FCFEFD 0%,#F6FAF9 100%);border:1px solid rgba(0,107,94,.12);border-radius:30px;padding:18px;box-shadow:0 12px 30px rgba(0,84,77,.08), inset 0 1px 0 rgba(255,255,255,.55);margin-top:18px;overflow:hidden}
+.question-group-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:16px;padding:18px 22px;border-radius:24px;background:linear-gradient(135deg,#0D8F87 0%,#0E9E9A 100%);box-shadow:0 10px 24px rgba(0,107,94,.18)}
+.question-group-title{font-size:24px;font-weight:900;line-height:1.4;color:#FFFFFF;white-space:nowrap}
+.question-group-sub{font-size:13px;font-weight:800;line-height:1.7;color:rgba(255,255,255,.95)}
+.group-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .card{background:#F7FAF9;border:1px solid rgba(0,107,94,.12);border-radius:28px;overflow:hidden;box-shadow:0 12px 30px rgba(0,84,77,.08), inset 0 1px 0 rgba(255,255,255,.55)}
 .card-head{display:flex;justify-content:space-between;gap:14px;padding:16px 18px 12px;background:linear-gradient(135deg,rgba(0,107,94,.24) 0%,rgba(0,94,103,.18) 45%,rgba(7,59,76,.12) 100%);border-bottom:1px solid rgba(0,107,94,.16)}
 .q-title{font-size:15.5px;font-weight:900;line-height:1.75;color:#073B4C}
@@ -53,131 +57,116 @@ th,td{padding:12px 13px;border-bottom:1px solid #DDE8E6;text-align:right;font-we
 th{background:linear-gradient(135deg,rgba(0,107,94,.18),rgba(0,161,154,.09));color:#073B4C;font-size:13px;position:sticky;top:0}
 td{font-size:13px;color:#203E49}
 .pill{display:inline-block;border-radius:999px;padding:5px 10px;font-weight:900;font-size:12px;background:#fff;border:1px solid rgba(0,107,94,.14)}
+.metric-viz-wrap{display:grid;gap:16px}
+.metric-circles{display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:16px}
+.metric-circle-card{background:#FBFCFC;border:1px solid rgba(0,107,94,.12);border-radius:24px;padding:16px 14px;text-align:center;box-shadow:0 8px 18px rgba(0,84,77,.05)}
+.metric-circle-label{font-size:13px;font-weight:900;color:var(--muted);margin-bottom:10px;line-height:1.7}
+.metric-donut{--pct:50;--donut-color:var(--moe-primary);width:118px;height:118px;border-radius:50%;margin:0 auto 10px;background:conic-gradient(var(--donut-color) calc(var(--pct) * 1%), #E6EFED 0);display:grid;place-items:center;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+.metric-donut:before{content:'';position:absolute;inset:15px;background:#FFFFFF;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,107,94,.08)}
+.metric-donut-value{position:relative;z-index:1;font-size:23px;font-weight:900;color:var(--moe-dark);direction:ltr}
+.metric-donut-note{font-size:11px;font-weight:800;color:var(--muted);line-height:1.6}
+.metric-badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.metric-badge{background:#FBFCFC;border:1px solid rgba(0,107,94,.12);border-radius:20px;padding:12px 10px;text-align:center;box-shadow:0 8px 18px rgba(0,84,77,.05)}
+.metric-badge span{display:block;font-size:12px;font-weight:900;color:var(--muted);line-height:1.6;margin-bottom:4px}
+.metric-badge b{display:block;font-size:19px;font-weight:900;line-height:1.5}
 .footer{text-align:center;color:#61727a;font-weight:800;padding:24px 12px 34px}
 
 .survey-section{background:linear-gradient(135deg,rgba(247,250,249,.98),rgba(239,247,246,.98));border:1px solid rgba(0,107,94,.14);border-radius:30px;padding:18px;box-shadow:0 16px 36px rgba(0,84,77,.10);margin-bottom:18px;position:relative;overflow:hidden}
 .survey-section:before{content:"";position:absolute;left:-70px;top:-70px;width:180px;height:180px;border-radius:50%;background:rgba(214,163,58,.12);border:22px solid rgba(0,161,154,.08)}
-.survey-head{position:relative;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.survey-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
 .survey-title{font-size:22px;font-weight:900;color:var(--moe-dark);line-height:1.5}
-.survey-caption{font-size:13px;font-weight:800;color:var(--muted);line-height:1.8}
-.survey-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.survey-card{background:#FBFCFC;border:1px solid rgba(0,107,94,.12);border-radius:24px;padding:16px;box-shadow:0 10px 24px rgba(0,84,77,.07);min-height:190px}
-.survey-card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:17px;font-weight:900;color:var(--moe-primary);margin-bottom:12px;line-height:1.5}
-.survey-icon{width:40px;height:40px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,var(--moe-primary),var(--moe-secondary));color:#fff;font-weight:900;box-shadow:0 8px 18px rgba(0,107,94,.20)}
-.survey-terms{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.survey-term{background:#F3F8F7;border:1px solid rgba(0,107,94,.10);border-radius:18px;padding:10px}
-.survey-term span{display:block;font-size:11.5px;font-weight:900;color:var(--muted);line-height:1.6}
-.survey-term b{display:block;font-size:14px;font-weight:900;color:var(--moe-dark);line-height:1.7}
-.survey-bars{display:grid;gap:8px}
-.survey-bar{display:grid;grid-template-columns:82px 1fr 45px;gap:8px;align-items:center;font-size:12px;font-weight:900;color:#203E49;line-height:1.5}
-.survey-track{height:9px;border-radius:999px;background:#E6EFED;overflow:hidden}
-.survey-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--moe-secondary),var(--moe-primary))}
-.survey-pct{direction:ltr;text-align:left;color:var(--moe-primary)}
-@media(max-width:1050px){.survey-grid{grid-template-columns:1fr}.survey-head{display:block}.survey-caption{margin-top:4px}}
-@media(max-width:620px){.survey-section{border-radius:20px;padding:14px}.survey-terms{grid-template-columns:1fr}.survey-bar{grid-template-columns:74px 1fr 42px}.survey-title{font-size:19px}}
+.survey-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.survey-card{background:linear-gradient(180deg,#FFFFFF 0%,#F8FBFA 100%);border:1px solid rgba(0,107,94,.12);border-radius:24px;padding:18px;box-shadow:0 12px 26px rgba(0,84,77,.08);min-height:220px}
+.survey-card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:18px;font-weight:900;color:var(--moe-primary);margin-bottom:14px;line-height:1.5}
+.survey-icon{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,var(--moe-primary),var(--moe-secondary));color:#fff;font-weight:900;box-shadow:0 8px 18px rgba(0,107,94,.20)}
+.survey-terms{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.survey-term{background:#F3F8F7;border:1px solid rgba(0,107,94,.10);border-radius:18px;padding:12px 12px 11px}
+.survey-term-badge{display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:999px;background:rgba(0,107,94,.10);color:var(--moe-primary);font-size:11px;font-weight:900;margin-bottom:8px}
+.survey-term-main{display:block;font-size:15px;font-weight:900;color:var(--moe-dark);line-height:1.7;margin-bottom:5px}
+.survey-term-sub{display:block;font-size:12px;font-weight:800;color:var(--muted);line-height:1.7}
+.survey-chart-wrap{background:#FCFEFD;border:1px dashed rgba(0,107,94,.18);border-radius:18px;padding:14px}
+.survey-bars-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.survey-bars-title span{font-size:12px;font-weight:900;color:var(--moe-dark)}
+.survey-bars-title b{font-size:11px;font-weight:900;color:var(--moe-primary);background:rgba(0,107,94,.08);border:1px solid rgba(0,107,94,.10);padding:4px 8px;border-radius:999px}
+.survey-donut-wrap{display:grid;justify-items:center;gap:10px}
+.survey-donut{height:185px;width:100%;max-width:280px}
+.survey-donut-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px;margin-top:2px}
+.survey-donut-legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px;align-items:start;width:100%}
+.survey-donut-legend-grid .survey-legend-item{width:100%;max-width:100%;justify-content:center;padding-inline:8px;box-sizing:border-box;min-width:0;overflow:hidden}
+.survey-donut-legend-grid .survey-legend-item.legend-item-wide{grid-column:1 / -1;justify-content:center}
+.survey-donut-legend-grid .survey-legend-label{font-size:10.7px;white-space:nowrap;min-width:0;max-width:100%;line-height:1.2}
+.survey-donut-legend-grid .survey-legend-pct{font-size:10.7px;white-space:nowrap;flex:0 0 auto}
+.survey-donut-legend-grid .legend-item-wide .survey-legend-label{font-size:10.4px;}
+.survey-legend-item{display:inline-flex;align-items:center;gap:6px;flex-wrap:nowrap;background:#F6FAF9;border:1px solid rgba(0,107,94,.10);border-radius:999px;padding:7px 12px;line-height:1.2;box-sizing:border-box;max-width:100%}
+.survey-legend-dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:0 0 auto}
+.survey-legend-label{font-size:12px;font-weight:900;color:#203E49}
+.survey-legend-pct{font-size:12px;font-weight:900;color:var(--moe-primary);direction:ltr}
+.survey-summary{display:none}
+.survey-summary .survey-card{width:min(100%,430px)}
+.survey-summary-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.survey-summary-pill{background:#F3F8F7;border:1px solid rgba(0,107,94,.10);border-radius:16px;padding:9px 10px 8px;text-align:center}
+.survey-summary-badge{display:inline-flex;align-items:center;justify-content:center;padding:3px 9px;border-radius:999px;background:rgba(0,107,94,.10);color:var(--moe-primary);font-size:10.5px;font-weight:900;margin-bottom:6px}
+.survey-summary-number{display:block;font-size:18px;font-weight:900;color:var(--moe-dark);direction:ltr;line-height:1.35}
+.survey-summary-sub{display:block;font-size:10.5px;font-weight:800;color:var(--muted);line-height:1.5}
+@media(max-width:1250px){.survey-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1050px){.survey-grid{grid-template-columns:1fr}.survey-head{display:block}}
+@media(max-width:620px){.survey-section{border-radius:20px;padding:14px}.survey-title{font-size:19px}.survey-card{padding:14px}.survey-chart-wrap{padding:10px}.survey-donut{height:180px;max-width:250px}.survey-donut-legend{gap:8px}.survey-legend-item{padding:6px 10px}.survey-donut-legend-grid{grid-template-columns:1fr 1fr;gap:8px}.survey-summary-meta{grid-template-columns:1fr}.survey-summary .survey-card{width:100%}.survey-summary-number{font-size:17px}}
 @media(max-width:1050px){.hero-inner,.grid,.cards{grid-template-columns:1fr}.logo-panel{justify-self:stretch}.kpis{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.hero{padding:22px 14px 34px;border-bottom-left-radius:25px;border-bottom-right-radius:25px}.hero:after{font-size:22px;left:12px;bottom:10px}.wrap{padding:0 12px}.kpis{grid-template-columns:1fr}.compare-mini{grid-template-columns:1fr 1fr}.chart{height:360px}.card,.panel,.kpi{border-radius:20px}}
+@media(max-width:620px){.hero{padding:22px 14px 34px;border-bottom-left-radius:25px;border-bottom-right-radius:25px}.hero:after{font-size:22px;left:12px;bottom:10px}.wrap{padding:0 12px}.kpis{grid-template-columns:1fr}.compare-mini{grid-template-columns:1fr 1fr}.chart{height:360px}.group-cards,.metric-circles,.metric-badges{grid-template-columns:1fr}.question-group{padding:14px;border-radius:20px}.question-group-head{padding:14px 16px;border-radius:18px;flex-direction:column;align-items:flex-start}.question-group-title{font-size:20px;white-space:normal}.question-group-sub{font-size:13px}.metric-circle-card,.metric-badge{border-radius:18px}.card,.panel,.kpi{border-radius:20px}}
 
 
-/* تحسينات مخصصة للجوال: تمنع اختفاء الرسومات وتقلل الخطوط والمسافات */
-.plotly-graph-div{width:100%!important;max-width:100%!important;overflow:visible!important}
-@media(max-width:640px){
-  body{font-size:12px;overflow-x:hidden}
-  .hero{padding:18px 12px 28px;border-bottom-left-radius:20px;border-bottom-right-radius:20px}
-  .hero-inner{gap:12px}
-  .badge{font-size:11px;padding:6px 10px}
-  h1{font-size:22px;line-height:1.45;margin:10px 0 6px}
-  .subtitle{font-size:12.5px;line-height:1.75}
-  .logo-panel{min-height:92px;border-radius:18px;padding:12px}
-  .logo-title{font-size:18px}.logo-sub{font-size:12px}
-  .wrap{margin:-20px auto 24px;padding:0 8px;width:100%;max-width:100%}
-  .survey-section,.panel,.kpi,.card{border-radius:16px;padding:11px;box-shadow:0 8px 18px rgba(0,84,77,.07)}
-  .survey-title{font-size:17px}.survey-caption{font-size:11.5px}
-  .survey-card{min-height:auto;border-radius:16px;padding:12px}.survey-card-title{font-size:14px}
-  .survey-bar{grid-template-columns:64px 1fr 38px;font-size:10.5px;gap:6px}
-  .kpis{gap:9px;margin-bottom:10px}.kpi{min-height:auto}.kpi-label{font-size:11px}.kpi-value{font-size:24px}.kpi-note{font-size:10.5px}
-  .grid{gap:10px;margin-bottom:10px}.panel-title{font-size:13px;line-height:1.55;margin-bottom:4px;display:block}.panel-title span{display:block}
-  .chart{height:315px;min-height:315px}
-  #axisChart{height:390px!important;min-height:390px!important;display:block!important}
-  #questionChart{height:620px!important;min-height:620px!important;display:block!important}
-  .q-title{font-size:12.2px;line-height:1.65}.q-id{width:34px;height:34px;border-radius:12px;font-size:12px}
-  .card-head{padding:11px 12px 8px;gap:8px}.cards{gap:10px}
-  .compare-mini{grid-template-columns:repeat(2,1fr);gap:6px;padding:9px}.mini{border-radius:12px;padding:7px;min-height:58px}.mini span{font-size:9.8px}.mini b{font-size:12.2px}
-  .table-wrap{border-radius:14px;overflow-x:auto;-webkit-overflow-scrolling:touch} table{min-width:760px} th,td{font-size:11px;padding:8px 9px;line-height:1.55}
-  #questionChart svg text,#axisChart svg text,.js-plotly-plot svg text{font-family:'Cairo',Tahoma,Arial!important;font-size:10px!important}
+/* تحسينات خاصة لمشاركة الجوال فقط: لا تؤثر على عرض الكمبيوتر */
+@media(max-width:620px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%}
+  body{font-size:11px;background:linear-gradient(180deg,#F8FCFB,#ECF6F4)}
+  .hero{padding:16px 10px 24px;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
+  .hero-inner{gap:10px}.hero:after{display:none}
+  .badge{font-size:10.5px;padding:5px 9px}.subtitle{font-size:11px;line-height:1.55}
+  h1{font-size:19px;line-height:1.35;margin:8px 0 5px}
+  .logo-panel{min-height:76px;border-radius:16px;padding:10px}.logo-title{font-size:15px}.logo-sub{font-size:10.5px}
+  .wrap{margin:-18px auto 20px;padding:0 8px}
+  .survey-section,.question-group{padding:9px;border-radius:16px;margin-bottom:10px}
+  .survey-title{font-size:15px}.survey-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .survey-card{padding:9px;border-radius:16px;min-height:auto}.survey-card-title{font-size:12px;margin-bottom:8px}.survey-icon{width:28px;height:28px;border-radius:10px;font-size:12px}
+  .survey-chart-wrap{padding:6px;border-radius:12px}.survey-donut{height:118px;max-width:150px}.survey-donut-legend-grid{grid-template-columns:1fr;gap:5px}.survey-legend-item{padding:4px 6px;gap:4px}.survey-legend-label,.survey-legend-pct{font-size:8.5px}.survey-legend-dot{width:8px;height:8px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}.kpi{padding:10px;border-radius:16px;min-height:92px}.kpi-label{font-size:10px;line-height:1.45}.kpi-value{font-size:22px}.kpi-note{font-size:9px;line-height:1.45}.kpis .kpi:last-child{grid-column:1 / -1}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:8px}.panel.wide{grid-column:auto}.panel{padding:9px;border-radius:16px}.panel-title{font-size:11px;line-height:1.4;display:block;margin-bottom:5px}.panel-title span+span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+  .mobile-hide-axis{display:none!important}
+  .chart{height:210px!important;min-height:0}
+  .cards,.group-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{border-radius:16px}.card-head{padding:8px 8px 7px;gap:6px}.q-title{font-size:9.4px;line-height:1.45}.q-id{width:25px;height:25px;border-radius:9px;font-size:10px}.question-group-head{padding:10px 11px;border-radius:14px;gap:5px;margin-bottom:8px}.question-group-title{font-size:14px}.question-group-sub{font-size:9.5px;line-height:1.45}.card [id^="mini_"]{height:168px!important;padding:5px!important}
+  .metric-viz-wrap{gap:8px}.metric-circles,.metric-badges{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.metric-circle-card,.metric-badge{padding:9px 6px;border-radius:15px}.metric-circle-label,.metric-badge span{font-size:9px;line-height:1.4}.metric-donut{width:78px;height:78px}.metric-donut:before{inset:10px}.metric-donut-value{font-size:15px}.metric-donut-note{font-size:8.5px}.metric-badge b{font-size:13px}
+  .table-wrap{max-height:420px;overflow:auto} table{min-width:720px} th,td{font-size:10px;padding:8px 9px;line-height:1.45}.pill{font-size:9px;padding:3px 7px}
 }
-@media(max-width:380px){
-  .wrap{padding:0 6px}.panel,.kpi,.survey-section,.card{padding:9px}.chart{height:300px;min-height:300px}
-  #axisChart{height:380px!important;min-height:380px!important} #questionChart{height:600px!important;min-height:600px!important}
-  h1{font-size:20px}.subtitle{font-size:12px}.panel-title{font-size:12.5px}
+@media(max-width:390px){
+  .survey-grid,.grid,.cards,.group-cards{gap:6px}.panel,.card,.kpi{border-radius:14px}.q-title{font-size:8.8px}.panel-title{font-size:10px}.chart{height:195px!important}.card [id^="mini_"]{height:155px!important}.survey-donut{height:108px}.kpi-value{font-size:20px}
 }
 
-
-
-/* نسخة جوال مكثفة: عمودان للرسومات فقط، بدون تغيير نسخة الكمبيوتر */
-@media(max-width:640px){
-  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
-  .panel.wide{grid-column:auto!important}
-  .cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
-  .panel{padding:8px!important;border-radius:14px!important;min-width:0!important}
-  .panel-title{font-size:10.8px!important;line-height:1.45!important;margin-bottom:2px!important;min-height:32px}
-  .chart{height:220px!important;min-height:220px!important}
-  #axisChart{height:260px!important;min-height:260px!important}
-  #questionChart{height:430px!important;min-height:430px!important}
-  .card{border-radius:14px!important;min-width:0!important}
-  .card-head{padding:8px!important;gap:6px!important;min-height:78px}
-  .q-title{font-size:10px!important;line-height:1.55!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .q-id{width:28px!important;height:28px!important;border-radius:10px!important;font-size:10px!important}
-  .compare-mini{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:4px!important;padding:6px!important}
-  .mini{min-height:45px!important;padding:5px!important;border-radius:10px!important}
-  .mini span{font-size:8.5px!important;line-height:1.35!important}.mini b{font-size:10px!important;line-height:1.35!important}
-  .survey-grid{grid-template-columns:1fr!important}
-  #questionChart svg text,#axisChart svg text,.js-plotly-plot svg text{font-size:8.5px!important}
-}
-@media(max-width:380px){
-  .grid,.cards,.kpis{gap:6px!important}
-  .panel{padding:7px!important}.panel-title{font-size:10px!important;min-height:30px}
-  .chart{height:205px!important;min-height:205px!important}
-  #axisChart{height:245px!important;min-height:245px!important}
-  #questionChart{height:405px!important;min-height:405px!important}
-}
 </style>
 
-<style id="question-chart-bold-style">
-#questionChart svg text{
-  font-family:'Cairo',Tahoma,Arial !important;
-  font-weight:800 !important;
-  font-size:10.5px !important;
-}
-</style>
 
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><div><span class="badge">قياس الرضا للفصلين الدراسيين 1447</span><h1>لوحة مقارنة مؤشرات تقييم الخدمات التشغيلية</h1><p class="subtitle">مقارنة شاملة بين الفصل الدراسي الأول والفصل الدراسي الثاني، مع قياس التحسن ونسب التغير لكل سؤال ولكل محور.</p></div><div class="logo-panel"><div><div class="logo-title">إدارة جودة الخدمات</div><div class="logo-sub">الإدارة العامة للتعليم بمنطقة عسير</div></div></div></div></header>
+<header class="hero"><div class="hero-inner"><div><span class="badge">قياس الرضا للفصلين الدراسيين 1447</span><h1>لوحة مقارنة مؤشرات تقييم الخدمات التشغيلية</h1><p class="subtitle">مقارنة بين بداية الفصل الدراسي الأول ونهاية الفصل الدراسي الثاني، وقياس مستويات التحسن والإنخفاض للخدمات التشغيلية بالمدارس.</p></div><div class="logo-panel"><div><div class="logo-title">إدارة جودة الخدمات</div><div class="logo-sub">الإدارة العامة للتعليم بمنطقة عسير</div></div></div></div></header>
 <main class="wrap">
-<div id="fontReadyNotice" style="display:none;background:#fff;border:1px solid rgba(0,107,94,.12);border-radius:18px;padding:14px 18px;margin-bottom:14px;color:#073B4C;font-weight:800;box-shadow:0 10px 24px rgba(0,84,77,.08)">جاري تحميل الخطوط وتجهيز لوحة العرض بأعلى جودة…</div>
 
 <section class="survey-section">
   <div class="survey-head">
-    <div>
-      <div class="survey-title">بيانات الاستطلاع</div>
-      <div class="survey-caption">عرض وصفي لأبرز خصائص عينة الاستطلاع في الفصلين الدراسيين.</div>
-    </div>
+    <div class="survey-title">بيانات الاستطلاع</div>
   </div>
+  <div class="survey-summary" id="surveySummary"></div>
   <div class="survey-grid" id="surveyData"></div>
 </section>
 
 <section class="kpis">
-  <div class="kpi"><div class="kpi-label">متوسط الرضا العام - الفصل الأول</div><div class="kpi-value" id="kOverall1"></div><div class="kpi-note">حسب ملف الفصل الأول</div></div>
-  <div class="kpi"><div class="kpi-label">متوسط الرضا العام - الفصل الثاني</div><div class="kpi-value" id="kOverall2"></div><div class="kpi-note">حسب ملف الفصل الثاني</div></div>
+  <div class="kpi"><div class="kpi-label">متوسط الرضا العام - الفصل الدراسي الأول</div><div class="kpi-value" id="kOverall1"></div><div class="kpi-note">حسب ملف الفصل الدراسي الأول</div></div>
+  <div class="kpi"><div class="kpi-label">متوسط الرضا العام - الفصل الدراسي الثاني</div><div class="kpi-value" id="kOverall2"></div><div class="kpi-note">حسب ملف الفصل الدراسي الثاني</div></div>
   <div class="kpi"><div class="kpi-label">مقدار التحسن العام</div><div class="kpi-value" id="kDelta"></div><div class="kpi-note">فرق النقاط المئوية بين الفصلين</div></div>
-  <div class="kpi"><div class="kpi-label">نسبة التحسن العام</div><div class="kpi-value" id="kRel"></div><div class="kpi-note">مقارنة بالفصل الأول</div></div>
+  <div class="kpi"><div class="kpi-label">نسبة التحسن العام</div><div class="kpi-value" id="kRel"></div><div class="kpi-note">مقارنة بالفصل الدراسي الأول</div></div>
   <div class="kpi"><div class="kpi-label">الأسئلة المتحسنة</div><div class="kpi-value" id="kImproved"></div><div class="kpi-note">من إجمالي الأسئلة ذات المؤشر</div></div>
 </section>
 
 <section class="grid">
-  <div class="panel"><div class="panel-title"><span>مقارنة الرضا العام</span><span>الفصل الأول × الفصل الثاني</span></div><div id="overallChart" class="chart"></div></div>
+  <div class="panel"><div class="panel-title"><span>مقارنة الرضا العام</span><span>الفصل الدراسي الأول × الفصل الدراسي الثاني</span></div><div id="overallChart" class="chart"></div></div>
   
 <div class="panel">
   <div class="panel-title">
@@ -188,7 +177,7 @@ td{font-size:13px;color:#203E49}
 </div>
 
   
-<div class="panel wide">
+<div class="panel wide mobile-hide-axis">
   <div class="panel-title">
     <span>مقارنة نسب الرضا حسب المحور</span>
     
@@ -196,243 +185,393 @@ td{font-size:13px;color:#203E49}
   <div id="axisChart" class="chart"></div>
 </div>
 
-  <div class="panel wide"><div class="panel-title"><span>ترتيب التحسن حسب كل سؤال</span><span>النقاط المئوية ونسبة التغير</span></div><div id="questionChart" class="chart" style="height:720px"></div></div>
 </section>
 
 <section class="grid">
   <div class="panel"><div class="panel-title"><span>أعلى تحسن</span><span id="bestTitle"></span></div><div id="bestBox"></div></div>
-  <div class="panel"><div class="panel-title"><span>أعلى انخفاض / يحتاج متابعة</span><span id="worstTitle"></span></div><div id="worstBox"></div></div>
+  <div class="panel"><div class="panel-title"><span>أقل مؤشر / يحتاج متابعة</span><span id="worstTitle"></span></div><div id="worstBox"></div></div>
 </section>
 
 <section class="panel wide">
-  <div class="panel-title"><span>جدول المقارنة التفصيلي لكل الأسئلة</span><span>الفصل الأول، الفصل الثاني، الفرق، نسبة التحسن</span></div>
+  <div class="panel-title"><span>جدول المقارنة التفصيلي لكل الأسئلة</span><span>الفصل الدراسي الأول، الفصل الدراسي الثاني، الفرق، نسبة التحسن</span></div>
   <div class="table-wrap"><table id="compareTable"></table></div>
 </section>
 
-<section class="cards" id="questionCards"></section>
+<section id="questionCards"></section>
 </main>
 <footer class="footer"></footer>
 
 <script>
 const DATA = {"term1": {"participants": 1675, "columns": 19, "overallSat": 50.7, "overallPositive": 50.7, "questions": [{"id": 1, "question": "جنس المدرسة", "short": "جنس المدرسة", "type": "gender", "labels": ["بنات", "بنين", "طفولة مبكرة"], "values": [827, 701, 147], "percentages": [49.37, 41.85, 8.78], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "بنات", "topValue": 827, "topPct": 49.4, "rankIncluded": false}, {"id": 2, "question": "المرحلة الدراسية", "short": "المرحلة الدراسية", "type": "categorical", "labels": ["ابتدائية", "متوسط", "ثانوي", "طفولة مبكرة"], "values": [981, 572, 385, 237], "percentages": [45.1, 26.3, 17.7, 10.9], "responses": 2175, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "ابتدائية", "topValue": 981, "topPct": 45.1, "rankIncluded": false}, {"id": 3, "question": "المحافظة / القطاع", "short": "المحافظة / القطاع", "type": "categorical", "labels": ["عسير (أبها والخميس وتوابعها )", "بيشة", "محايل عسير", "سراة عبيدة", "النماص", "رجال المع", "ظهران الجنوب"], "values": [695, 352, 321, 82, 76, 75, 74], "percentages": [41.49, 21.01, 19.16, 4.9, 4.54, 4.48, 4.42], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "عسير (أبها والخميس وتوابعها )", "topValue": 695, "topPct": 41.5, "rankIncluded": false}, {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [979, 362, 334], "percentages": [58.45, 21.61, 19.94], "responses": 1675, "mean": 2.385, "satisfactionPct": 58.4, "positivePct": 58.4, "level": "جيد", "topLabel": "راض", "topValue": 979, "topPct": 58.4, "rankIncluded": true}, {"id": 5, "question": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة", "short": "جودة أعمال الصيانة المنفذة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [872, 448, 355], "percentages": [52.06, 26.75, 21.19], "responses": 1675, "mean": 2.309, "satisfactionPct": 52.1, "positivePct": 52.1, "level": "جيد", "topLabel": "راض", "topValue": 872, "topPct": 52.1, "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1170, 301, 204], "percentages": [69.85, 17.97, 12.18], "responses": 1675, "mean": 2.577, "satisfactionPct": 69.9, "positivePct": 69.9, "level": "مرتفع", "topLabel": "راض", "topValue": 1170, "topPct": 69.9, "rankIncluded": true}, {"id": 7, "question": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "short": "نظافة وصيانة دورات المياه", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [885, 418, 372], "percentages": [52.84, 24.96, 22.21], "responses": 1675, "mean": 2.306, "satisfactionPct": 52.8, "positivePct": 52.8, "level": "جيد", "topLabel": "راض", "topValue": 885, "topPct": 52.8, "rankIncluded": true}, {"id": 8, "question": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية", "short": "كفاءة أجهزة التكييف وصيانتها الدورية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1034, 331, 310], "percentages": [61.73, 19.76, 18.51], "responses": 1675, "mean": 2.432, "satisfactionPct": 61.7, "positivePct": 61.7, "level": "مرتفع", "topLabel": "راض", "topValue": 1034, "topPct": 61.7, "rankIncluded": true}, {"id": 9, "question": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "short": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "type": "yesno", "labels": ["نعم", "لا"], "values": [845, 830], "percentages": [50.45, 49.55], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": 50.4, "level": "متوسط", "topLabel": "نعم", "topValue": 845, "topPct": 50.4, "rankIncluded": false}, {"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [740, 63, 42], "percentages": [87.57, 7.46, 4.97], "responses": 845, "mean": 2.826, "satisfactionPct": 87.6, "positivePct": 87.6, "level": "مرتفع", "topLabel": "راض", "topValue": 740, "topPct": 87.6, "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [606, 157, 82], "percentages": [71.72, 18.58, 9.7], "responses": 845, "mean": 2.62, "satisfactionPct": 71.7, "positivePct": 71.7, "level": "مرتفع", "topLabel": "راض", "topValue": 606, "topPct": 71.7, "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في الم…", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [256, 293, 1126], "percentages": [15.28, 17.49, 67.22], "responses": 1675, "mean": 1.481, "satisfactionPct": 15.3, "positivePct": 15.3, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 1126, "topPct": 67.2, "rankIncluded": true}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية", "short": "توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [283, 387, 1005], "percentages": [16.9, 23.1, 60.0], "responses": 1675, "mean": 1.569, "satisfactionPct": 16.9, "positivePct": 16.9, "level": "متوسط", "topLabel": "غير راضٍ", "topValue": 1005, "topPct": 60.0, "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [263, 397, 1015], "percentages": [15.7, 23.7, 60.6], "responses": 1675, "mean": 1.551, "satisfactionPct": 15.7, "positivePct": 15.7, "level": "متوسط", "topLabel": "غير راضٍ", "topValue": 1015, "topPct": 60.6, "rankIncluded": true}, {"id": 15, "question": "هل استلمت الشركة المقصف وتم تشغيله", "short": "هل استلمت الشركة المقصف وتم تشغيله", "type": "canteen", "labels": ["نعم", "تم الاستلام ولم يتم التشغيل", "لا"], "values": [1279, 71, 325], "percentages": [76.36, 4.24, 19.4], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": 76.4, "level": "جيد", "topLabel": "نعم", "topValue": 1279, "topPct": 76.4, "rankIncluded": false}, {"id": 16, "question": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع", "short": "توفر المنتجات الغذائية يوميًا دون انقطاع.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [766, 281, 232], "percentages": [59.89, 21.97, 18.14], "responses": 1279, "mean": 2.418, "satisfactionPct": 59.9, "positivePct": 59.9, "level": "مرتفع", "topLabel": "راض", "topValue": 766, "topPct": 59.9, "rankIncluded": true}, {"id": 17, "question": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "short": "سرعة تجاوب الشركة مع الملاحظات المرصودة", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [638, 363, 278], "percentages": [49.88, 28.38, 21.74], "responses": 1279, "mean": 2.281, "satisfactionPct": 49.9, "positivePct": 49.9, "level": "جيد", "topLabel": "راض", "topValue": 638, "topPct": 49.9, "rankIncluded": true}, {"id": 18, "question": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )", "short": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولا…", "type": "yesno", "labels": ["نعم", "لا"], "values": [397, 882], "percentages": [31.04, 68.96], "responses": 1279, "mean": null, "satisfactionPct": null, "positivePct": 31.0, "level": "منخفض", "topLabel": "لا", "topValue": 882, "topPct": 69.0, "rankIncluded": false}, {"id": 19, "question": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "short": "مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [800, 474, 401], "percentages": [47.76, 28.3, 23.94], "responses": 1675, "mean": 3.236, "satisfactionPct": 47.8, "positivePct": 47.8, "level": "متوسط", "topLabel": "راض", "topValue": 800, "topPct": 47.8, "rankIncluded": true}], "levelCounts": {"بيانات وصفية": 3, "جيد": 5, "مرتفع": 5, "متوسط": 4, "منخفض": 2}, "low": [{"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في الم…", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [256, 293, 1126], "percentages": [15.28, 17.49, 67.22], "responses": 1675, "mean": 1.481, "satisfactionPct": 49.4, "positivePct": 15.3, "level": "منخفض", "topLabel": "راض", "topValue": 256, "topPct": 15.28}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [263, 397, 1015], "percentages": [15.7, 23.7, 60.6], "responses": 1675, "mean": 1.551, "satisfactionPct": 51.7, "positivePct": 15.7, "level": "متوسط", "topLabel": "راض", "topValue": 263, "topPct": 15.7}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية", "short": "توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [283, 387, 1005], "percentages": [16.9, 23.1, 60.0], "responses": 1675, "mean": 1.569, "satisfactionPct": 52.3, "positivePct": 16.9, "level": "متوسط", "topLabel": "راض", "topValue": 283, "topPct": 16.9}], "high": [{"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [740, 63, 42], "percentages": [87.57, 7.46, 4.97], "responses": 845, "mean": 2.826, "satisfactionPct": 94.2, "positivePct": 87.6, "level": "مرتفع", "topLabel": "راض", "topValue": 740, "topPct": 87.57}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [606, 157, 82], "percentages": [71.72, 18.58, 9.7], "responses": 845, "mean": 2.62, "satisfactionPct": 87.3, "positivePct": 71.7, "level": "مرتفع", "topLabel": "راض", "topValue": 606, "topPct": 71.72}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1170, 301, 204], "percentages": [69.85, 17.97, 12.18], "responses": 1675, "mean": 2.577, "satisfactionPct": 85.9, "positivePct": 69.9, "level": "مرتفع", "topLabel": "راض", "topValue": 1170, "topPct": 69.85}]}, "term2": {"participants": 1706, "columns": 19, "overallSat": 55.8, "overallPositive": 55.8, "questions": [{"id": 1, "question": "جنس المدرسة", "short": "جنس المدرسة", "type": "categorical", "labels": ["بنات", "بنين", "طفولة مبكرة"], "values": [885, 679, 142], "percentages": [51.88, 39.8, 8.32], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "بنات", "topValue": 885, "topPct": 51.9, "rankIncluded": false}, {"id": 2, "question": "المرحلة الدراسية", "short": "المرحلة الدراسية", "type": "categorical", "labels": ["ابتدائية", "متوسط", "ثانوي", "روضة"], "values": [1041, 563, 347, 263], "percentages": [47.02, 25.43, 15.67, 11.88], "responses": 2214, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "ابتدائية", "topValue": 1041, "topPct": 47.0, "rankIncluded": false}, {"id": 3, "question": "المحافظة والقطاع", "short": "المحافظة والقطاع", "type": "categorical", "labels": ["عسير (أبها والخميس وتوابعها )", "بيشة", "محايل عسير", "النماص", "سراة عبيدة", "رجال المع", "ظهران الجنوب"], "values": [780, 331, 294, 92, 82, 69, 58], "percentages": [45.72, 19.4, 17.23, 5.39, 4.81, 4.04, 3.4], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "عسير (أبها والخميس وتوابعها )", "topValue": 780, "topPct": 45.7, "rankIncluded": false}, {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة با", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1180, 308, 218], "percentages": [69.17, 18.05, 12.78], "responses": 1706, "mean": 2.564, "satisfactionPct": 69.2, "positivePct": 69.2, "level": "جيد", "topLabel": "راض", "topValue": 1180, "topPct": 69.2, "rankIncluded": true}, {"id": 5, "question": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "short": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1048, 400, 258], "percentages": [61.43, 23.45, 15.12], "responses": 1706, "mean": 2.463, "satisfactionPct": 61.4, "positivePct": 61.4, "level": "جيد", "topLabel": "راض", "topValue": 1048, "topPct": 61.4, "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1184, 270, 252], "percentages": [69.4, 15.83, 14.77], "responses": 1706, "mean": 2.546, "satisfactionPct": 69.4, "positivePct": 69.4, "level": "جيد", "topLabel": "راض", "topValue": 1184, "topPct": 69.4, "rankIncluded": true}, {"id": 7, "question": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "short": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1033, 345, 328], "percentages": [60.55, 20.22, 19.23], "responses": 1706, "mean": 2.413, "satisfactionPct": 60.6, "positivePct": 60.6, "level": "جيد", "topLabel": "راض", "topValue": 1033, "topPct": 60.5, "rankIncluded": true}, {"id": 8, "question": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "short": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1072, 315, 319], "percentages": [62.84, 18.46, 18.7], "responses": 1706, "mean": 2.441, "satisfactionPct": 62.8, "positivePct": 62.8, "level": "جيد", "topLabel": "راض", "topValue": 1072, "topPct": 62.8, "rankIncluded": true}, {"id": 9, "question": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "short": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "type": "yesno", "labels": ["نعم", "لا"], "values": [851, 855], "percentages": [49.88, 50.12], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": 49.9, "level": "متوسط", "topLabel": "لا", "topValue": 855, "topPct": 50.1, "rankIncluded": false}, {"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [755, 59, 37], "percentages": [88.72, 6.93, 4.35], "responses": 851, "mean": 2.844, "satisfactionPct": 88.7, "positivePct": 88.7, "level": "مرتفع", "topLabel": "راض", "topValue": 755, "topPct": 88.7, "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [681, 107, 63], "percentages": [80.02, 12.57, 7.4], "responses": 851, "mean": 2.726, "satisfactionPct": 80.0, "positivePct": 80.0, "level": "مرتفع", "topLabel": "راض", "topValue": 681, "topPct": 80.0, "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التف", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [289, 313, 1104], "percentages": [16.94, 18.35, 64.71], "responses": 1706, "mean": 1.522, "satisfactionPct": 16.9, "positivePct": 16.9, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 1104, "topPct": 64.7, "rankIncluded": true}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "short": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [398, 374, 934], "percentages": [23.33, 21.92, 54.75], "responses": 1706, "mean": 1.686, "satisfactionPct": 23.3, "positivePct": 23.3, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 934, "topPct": 54.8, "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [331, 415, 960], "percentages": [19.4, 24.33, 56.27], "responses": 1706, "mean": 1.631, "satisfactionPct": 19.4, "positivePct": 19.4, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 960, "topPct": 56.3, "rankIncluded": true}, {"id": 15, "question": "هل إستلمت الشركة المقصف وتم تشغيله", "short": "هل إستلمت الشركة المقصف وتم تشغيله", "type": "canteen", "labels": ["نعم", "تم الاستلام ولم يتم التشغيل", "لا"], "values": [1287, 71, 348], "percentages": [75.44, 4.16, 20.4], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": 75.4, "level": "مرتفع", "topLabel": "نعم", "topValue": 1287, "topPct": 75.4, "rankIncluded": false}, {"id": 16, "question": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "short": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [806, 273, 208], "percentages": [62.63, 21.21, 16.16], "responses": 1287, "mean": 2.465, "satisfactionPct": 62.6, "positivePct": 62.6, "level": "جيد", "topLabel": "راض", "topValue": 806, "topPct": 62.6, "rankIncluded": true}, {"id": 17, "question": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "short": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [710, 307, 270], "percentages": [55.17, 23.85, 20.98], "responses": 1287, "mean": 2.342, "satisfactionPct": 55.2, "positivePct": 55.2, "level": "جيد", "topLabel": "راض", "topValue": 710, "topPct": 55.2, "rankIncluded": true}, {"id": 18, "question": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )", "short": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية و", "type": "yesno", "labels": ["نعم", "لا"], "values": [425, 862], "percentages": [33.02, 66.98], "responses": 1287, "mean": null, "satisfactionPct": null, "positivePct": 33.0, "level": "متوسط", "topLabel": "لا", "topValue": 862, "topPct": 67.0, "rankIncluded": false}, {"id": 19, "question": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "short": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في", "type": "satisfaction5", "labels": ["راض جدا", "راض", "محايد", "غير راضٍ", "غير راض للغاية"], "values": [177, 782, 427, 224, 96], "percentages": [10.38, 45.84, 25.03, 13.13, 5.63], "responses": 1706, "mean": 3.422, "satisfactionPct": 56.2, "positivePct": 56.2, "level": "جيد", "topLabel": "راض", "topValue": 782, "topPct": 45.8, "rankIncluded": true}], "levelCounts": {"جيد": 8, "بيانات وصفية": 3, "مرتفع": 3, "منخفض": 3, "متوسط": 2}, "low": [{"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "short": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [398, 374, 934], "percentages": [23.33, 21.92, 54.75], "responses": 1706, "mean": 1.686, "satisfactionPct": 23.3, "positivePct": 23.3, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 934, "topPct": 54.8, "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [331, 415, 960], "percentages": [19.4, 24.33, 56.27], "responses": 1706, "mean": 1.631, "satisfactionPct": 19.4, "positivePct": 19.4, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 960, "topPct": 56.3, "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التف", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [289, 313, 1104], "percentages": [16.94, 18.35, 64.71], "responses": 1706, "mean": 1.522, "satisfactionPct": 16.9, "positivePct": 16.9, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 1104, "topPct": 64.7, "rankIncluded": true}], "high": [{"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [755, 59, 37], "percentages": [88.72, 6.93, 4.35], "responses": 851, "mean": 2.844, "satisfactionPct": 88.7, "positivePct": 88.7, "level": "مرتفع", "topLabel": "راض", "topValue": 755, "topPct": 88.7, "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [681, 107, 63], "percentages": [80.02, 12.57, 7.4], "responses": 851, "mean": 2.726, "satisfactionPct": 80.0, "positivePct": 80.0, "level": "مرتفع", "topLabel": "راض", "topValue": 681, "topPct": 80.0, "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1184, 270, 252], "percentages": [69.4, 15.83, 14.77], "responses": 1706, "mean": 2.546, "satisfactionPct": 69.4, "positivePct": 69.4, "level": "جيد", "topLabel": "راض", "topValue": 1184, "topPct": 69.4, "rankIncluded": true}], "axes": [{"short": "خدمات النقل والسلامة والالتزام", "satisfactionPct": 84.4, "responses": 1702, "positive": 1436}, {"short": "الصيانة والنظافة والخدمات التشغيلية", "satisfactionPct": 63.3, "responses": 10236, "positive": 6476}, {"short": "التغذية المدرسية: المقصف والتغذية والخدمات المرتبطة", "satisfactionPct": 58.9, "responses": 2574, "positive": 1516}, {"short": "التقنيات: الأجهزة التقنية والدعم الفني", "satisfactionPct": 19.9, "responses": 5118, "positive": 1018}]}, "overall": {"term1": 50.7, "term2": 55.8, "delta": 5.1, "relative": 10.1, "participants1": 1675, "participants2": 1706, "participantsDelta": 31, "questions": 19, "improvedCount": 13, "declinedCount": 1, "stableCount": 0, "best": {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة با", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 58.4, "term2": 69.2, "delta": 10.8, "relative": 18.5, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, "worst": {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 69.9, "term2": 69.4, "delta": -0.5, "relative": -0.7, "trend": "انخفاض", "trendClass": "down", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}}, "comparison": [{"id": 1, "question": "جنس المدرسة", "short": "جنس المدرسة", "type1": "gender", "type2": "categorical", "term1": null, "term2": null, "delta": null, "relative": null, "trend": "غير متاح", "trendClass": "neutral", "responses1": 1675, "responses2": 1706, "top1": "بنات", "top2": "بنات", "rankIncluded": false}, {"id": 2, "question": "المرحلة الدراسية", "short": "المرحلة الدراسية", "type1": "categorical", "type2": "categorical", "term1": null, "term2": null, "delta": null, "relative": null, "trend": "غير متاح", "trendClass": "neutral", "responses1": 2175, "responses2": 2214, "top1": "ابتدائية", "top2": "ابتدائية", "rankIncluded": false}, {"id": 3, "question": "المحافظة والقطاع", "short": "المحافظة والقطاع", "type1": "categorical", "type2": "categorical", "term1": null, "term2": null, "delta": null, "relative": null, "trend": "غير متاح", "trendClass": "neutral", "responses1": 1675, "responses2": 1706, "top1": "عسير (أبها والخميس وتوابعها )", "top2": "عسير (أبها والخميس وتوابعها )", "rankIncluded": false}, {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة با", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 58.4, "term2": 69.2, "delta": 10.8, "relative": 18.5, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 5, "question": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "short": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 52.1, "term2": 61.4, "delta": 9.3, "relative": 17.9, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 69.9, "term2": 69.4, "delta": -0.5, "relative": -0.7, "trend": "انخفاض", "trendClass": "down", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 7, "question": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "short": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 52.8, "term2": 60.6, "delta": 7.8, "relative": 14.8, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 8, "question": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "short": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 61.7, "term2": 62.8, "delta": 1.1, "relative": 1.8, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 87.6, "term2": 88.7, "delta": 1.1, "relative": 1.3, "trend": "تحسن", "trendClass": "up", "responses1": 845, "responses2": 851, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 71.7, "term2": 80.0, "delta": 8.3, "relative": 11.6, "trend": "تحسن", "trendClass": "up", "responses1": 845, "responses2": 851, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التف", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 15.3, "term2": 16.9, "delta": 1.6, "relative": 10.5, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "غير راضٍ", "top2": "غير راضٍ", "rankIncluded": true}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "short": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 16.9, "term2": 23.3, "delta": 6.4, "relative": 37.9, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "غير راضٍ", "top2": "غير راضٍ", "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 15.7, "term2": 19.4, "delta": 3.7, "relative": 23.6, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "غير راضٍ", "top2": "غير راضٍ", "rankIncluded": true}, {"id": 16, "question": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "short": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 59.9, "term2": 62.6, "delta": 2.7, "relative": 4.5, "trend": "تحسن", "trendClass": "up", "responses1": 1279, "responses2": 1287, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 17, "question": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "short": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 49.9, "term2": 55.2, "delta": 5.3, "relative": 10.6, "trend": "تحسن", "trendClass": "up", "responses1": 1279, "responses2": 1287, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 18, "question": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )", "short": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية و", "type1": "yesno", "type2": "yesno", "term1": 31.0, "term2": 33.0, "delta": 2.0, "relative": 6.5, "trend": "تحسن", "trendClass": "up", "responses1": 1279, "responses2": 1287, "top1": "لا", "top2": "لا", "rankIncluded": true}, {"id": 19, "question": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "short": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في", "type1": "satisfaction3", "type2": "satisfaction5", "term1": 47.8, "term2": 56.2, "delta": 8.4, "relative": 17.6, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}], "axes": [{"axis": "الصيانة والنظافة والخدمات التشغيلية", "term1": 57.1, "term2": 63.3, "delta": 6.2, "relative": 10.9, "trend": "تحسن", "trendClass": "up"}, {"axis": "خدمات النقل والسلامة والالتزام", "term1": 79.7, "term2": 84.4, "delta": 4.7, "relative": 5.9, "trend": "تحسن", "trendClass": "up"}, {"axis": "التغذية المدرسية: المقصف والتغذية والخدمات المرتبطة", "term1": 54.9, "term2": 58.9, "delta": 4.0, "relative": 7.3, "trend": "تحسن", "trendClass": "up"}, {"axis": "التقنيات: الأجهزة التقنية والدعم الفني", "term1": 16.0, "term2": 19.9, "delta": 3.9, "relative": 24.4, "trend": "تحسن", "trendClass": "up"}]};
-const cfg = {responsive:true, displaylogo:false, toImageButtonOptions:{format:'png',scale:3,filename:'dashboard-high-quality'}, modeBarButtonsToRemove:['lasso2d','select2d']};
+const cfg = {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true};
+const isMobileView = window.matchMedia('(max-width:620px)').matches;
+const plotFontSize = isMobileView ? 9 : 12;
+const mainChartHeight = isMobileView ? 210 : 430;
+const gaugeChartHeight = isMobileView ? 210 : 430;
+const axisChartHeight = isMobileView ? 300 : 460;
+const miniChartHeight = isMobileView ? 138 : 260;
+const miniChartBoxHeight = isMobileView ? 168 : 300;
 const surveyIcons = {1:'⚥',2:'▦',3:'⌖'};
-function ar(n){ return Number(n).toLocaleString('ar-SA'); }
 function findQuestion(term, id){ return DATA[term].questions.find(q=>q.id===id); }
-function surveyTopRows(q){
-  const rows = q.labels.map((label,i)=>({label,value:q.values[i]||0,pct:q.percentages[i]||0}))
-    .sort((a,b)=>b.pct-a.pct)
-    .slice(0,3);
-  return rows.map(r=>`<div class="survey-bar"><span>${r.label}</span><div class="survey-track"><div class="survey-fill" style="width:${Math.max(0,Math.min(100,r.pct))}%"></div></div><b class="survey-pct">${Number(r.pct).toFixed(1)}%</b></div>`).join('');
+const surveyPalette = ['#00A19A','#1C78A8','#0B8077','#4BB7AF','#82D3CF','#0D5C63','#B8E4E1'];
+function surveyLegendHtml(q, options={}){
+  const isGrid = !!options.isGrid;
+  const allowWide = !!options.allowWide;
+  return q.labels.map((label,i)=>{
+    const wideClass = isGrid && ((allowWide && label.length > 18) || (!allowWide && label.length > 11)) ? ' legend-item-wide' : '';
+    return `<span class="survey-legend-item${wideClass}"><span class="survey-legend-dot" style="background:${surveyPalette[i % surveyPalette.length]}"></span><span class="survey-legend-label">${label}</span><span class="survey-legend-pct">${Number(q.percentages[i]||0).toFixed(1)}%</span></span>`;
+  }).join('');
+}
+function surveyLegendFromItems(items, palette=surveyPalette){
+  return items.map((item,i)=>`<span class="survey-legend-item"><span class="survey-legend-dot" style="background:${palette[i % palette.length]}"></span><span class="survey-legend-label">${item.label}</span><span class="survey-legend-pct">${Number(item.pct||0).toFixed(1)}%</span></span>`).join('');
+}
+function sortQuestionByLabelLength(q, options={}){
+  const rows = q.labels.map((label,i)=>({
+    label,
+    value:q.values[i]||0,
+    pct:q.percentages[i]||0
+  })).sort((a,b)=>a.label.length - b.label.length || a.label.localeCompare(b.label,'ar'));
+
+  if(options.placeEarlyChildhoodCenter){
+    const idx = rows.findIndex(r => r.label === 'طفولة مبكرة');
+    if(idx !== -1){
+      const [target] = rows.splice(idx, 1);
+      const middleIndex = Math.floor(rows.length / 2);
+      rows.splice(middleIndex, 0, target);
+    }
+  }
+
+  return {
+    ...q,
+    labels: rows.map(r=>r.label),
+    values: rows.map(r=>r.value),
+    percentages: rows.map(r=>r.pct)
+  };
+}
+function combineSurveyQuestions(id){
+  const q1 = findQuestion('term1', id);
+  const q2 = findQuestion('term2', id);
+  const map = new Map();
+  [q1, q2].forEach(q => {
+    q.labels.forEach((label, i) => {
+      map.set(label, (map.get(label) || 0) + Number(q.values[i] || 0));
+    });
+  });
+  const labels = Array.from(map.keys());
+  const values = labels.map(label => map.get(label));
+  const total = values.reduce((a,b)=>a+b,0) || 1;
+  const percentages = values.map(v => (v / total) * 100);
+  return {
+    id,
+    labels,
+    values,
+    percentages,
+    responses: (q1.responses || 0) + (q2.responses || 0)
+  };
+}
+function renderSurveySummary(){
+  const responseItems = [
+    {label:'الفصل الدراسي الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
+    {label:'الفصل الدراسي الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
+  ];
+  document.getElementById('surveySummary').innerHTML = `<div class="survey-card"><div class="survey-card-title"><span>عدد الاستجابات</span><span class="survey-icon">◔</span></div><div class="survey-chart-wrap"><div class="survey-summary-meta"><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div></div><div class="survey-bars-title"><span></span><b>إجمالي الفصلين</b></div><div class="survey-donut-wrap"><div class="survey-donut" id="surveyResponsesDonut"></div><div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div></div></div></div>`;
+  Plotly.newPlot('surveyResponsesDonut', [{
+    type:'pie',
+    labels:responseItems.map(x=>x.label),
+    values:responseItems.map(x=>x.value),
+    hole:0.68,
+    sort:false,
+    direction:'clockwise',
+    textinfo:'none',
+    marker:{colors:['#1C78A8','#00A19A'], line:{color:'#FFFFFF',width:2.5}},
+    hovertemplate:'%{label}<br>%{value:,} استجابة<br>%{percent}<extra></extra>',
+    showlegend:false,
+    automargin:true
+  }], {
+    font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'},
+    paper_bgcolor:'rgba(0,0,0,0)',
+    plot_bgcolor:'rgba(0,0,0,0)',
+    margin:{t:0,r:0,b:0,l:0},
+    height:190,
+    annotations:[]
+  }, {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true});
+}
+
+function renderSurveyDonut(containerId, q){
+  Plotly.newPlot(containerId, [{
+    type:'pie',
+    labels:q.labels,
+    values:q.values,
+    hole:0.68,
+    sort:false,
+    direction:'clockwise',
+    textinfo:'none',
+    marker:{colors:surveyPalette, line:{color:'#FFFFFF',width:2.5}},
+    hovertemplate:'%{label}<br>%{value:,} استجابة<br>%{percent}<extra></extra>',
+    showlegend:false,
+    automargin:true
+  }], {
+    font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'},
+    paper_bgcolor:'rgba(0,0,0,0)',
+    plot_bgcolor:'rgba(0,0,0,0)',
+    margin:{t:0,r:0,b:0,l:0},
+    height:190,
+    annotations:[]
+  }, {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true});
 }
 function renderSurveyData(){
   const items = [
-    {id:1,title:'جنس المدرسة'},
+    {id:'responses',title:'عدد الاستجابات',icon:'◔'},
+    {id:3,title:'المحافظة / القطاع'},
     {id:2,title:'المرحلة الدراسية'},
-    {id:3,title:'المحافظة / القطاع'}
+    {id:1,title:'جنس المدرسة'}
+  ];
+  const responseItems = [
+    {label:'الفصل الدراسي الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
+    {label:'الفصل الدراسي الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
   ];
   document.getElementById('surveyData').innerHTML = items.map(item=>{
-    const q1 = findQuestion('term1', item.id);
-    const q2 = findQuestion('term2', item.id);
+    if(item.id === 'responses'){
+      return `<div class="survey-card">
+        <div class="survey-card-title"><span>${item.title}</span><span class="survey-icon">${item.icon}</span></div>
+        <div class="survey-chart-wrap">
+          <div class="survey-bars-title"><span></span><b>إجمالي الفصلين</b></div>
+          <div class="survey-donut-wrap">
+            <div class="survey-donut" id="surveyDonut_responses"></div>
+            <div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div>
+          </div>
+          <div class="survey-summary-meta">
+            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
+            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
+          </div>
+        </div>
+      </div>`;
+    }
+    const combinedBase = combineSurveyQuestions(item.id);
+    const qCombined = item.id===2 ? sortQuestionByLabelLength(combinedBase, {placeEarlyChildhoodCenter:true}) : ((item.id===3) ? sortQuestionByLabelLength(combinedBase) : combinedBase);
     return `<div class="survey-card">
       <div class="survey-card-title"><span>${item.title}</span><span class="survey-icon">${surveyIcons[item.id]}</span></div>
-      <div class="survey-terms">
-        <div class="survey-term"><span>الفصل الأول</span><b>${q1.topLabel} — ${q1.topPct.toFixed(1)}%</b><span>عدد الاستجابات: ${ar(q1.responses)}</span></div>
-        <div class="survey-term"><span>الفصل الثاني</span><b>${q2.topLabel} — ${q2.topPct.toFixed(1)}%</b><span>عدد الاستجابات: ${ar(q2.responses)}</span></div>
+      <div class="survey-chart-wrap">
+        <div class="survey-bars-title"><span></span><b>إجمالي الفصلين</b></div>
+        <div class="survey-donut-wrap">
+          <div class="survey-donut" id="surveyDonut_${item.id}"></div>
+          <div class="survey-donut-legend ${(item.id===2 || item.id===3) ? 'survey-donut-legend-grid' : ''}">${surveyLegendHtml(qCombined, {isGrid:(item.id===2 || item.id===3), allowWide:item.id===3})}</div>
+        </div>
       </div>
-      <div class="survey-bars">${surveyTopRows(q2)}</div>
     </div>`;
   }).join('');
+
+  Plotly.newPlot('surveyDonut_responses', [{
+    type:'pie',
+    labels:responseItems.map(x=>x.label),
+    values:responseItems.map(x=>x.value),
+    hole:0.68,
+    sort:false,
+    direction:'clockwise',
+    textinfo:'none',
+    marker:{colors:['#1C78A8','#00A19A'], line:{color:'#FFFFFF',width:2.5}},
+    hovertemplate:'%{label}<br>%{value:,} استجابة<br>%{percent}<extra></extra>',
+    showlegend:false,
+    automargin:true
+  }], {
+    font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'},
+    paper_bgcolor:'rgba(0,0,0,0)',
+    plot_bgcolor:'rgba(0,0,0,0)',
+    margin:{t:0,r:0,b:0,l:0},
+    height:190,
+    annotations:[]
+  }, cfg);
+
+  items.filter(item=>item.id !== 'responses').forEach(item => {
+    const combinedBase = combineSurveyQuestions(item.id);
+    const qCombined = item.id===2 ? sortQuestionByLabelLength(combinedBase, {placeEarlyChildhoodCenter:true}) : ((item.id===3) ? sortQuestionByLabelLength(combinedBase) : combinedBase);
+    renderSurveyDonut('surveyDonut_' + item.id, qCombined);
+  });
 }
 renderSurveyData();
 
-const isMobileView = () => window.matchMedia('(max-width: 640px)').matches;
-const baseLayout = {font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'}, paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)', margin:{t:25,r:30,b:45,l:30}};
-function makeLayout(extra={}){
-  const mobile = isMobileView();
-  return {
-    ...baseLayout,
-    font:{...baseLayout.font, size: mobile ? 10 : 12},
-    margin: mobile ? {t:18,r:12,b:42,l:12} : baseLayout.margin,
-    ...extra
-  };
-}
-function smartAxisName(name){
-  if(name.includes('الصيانة')) return 'الصيانة\nوالنظافة';
-  if(name.includes('النقل')) return 'النقل\nوالسلامة';
-  if(name.includes('التغذية')) return 'التغذية\nالمدرسية';
-  if(name.includes('التقنيات')) return 'التقنيات\nوالدعم';
-  return name;
-}
+const baseLayout = {font:{family:'Cairo, Tahoma, Arial',size:plotFontSize,color:'#073B4C'}, paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)', margin:{t:25,r:30,b:45,l:30}};
 const thinBarWidth = 0.48;
 const thinBarWidthH = 0.34;
 function pct(v){ return (v===null || v===undefined) ? '—' : Number(v).toFixed(1)+'%'; }
 function pp(v){ return (v===null || v===undefined) ? '—' : (v>0?'+':'')+Number(v).toFixed(1)+' نقطة'; }
 function rel(v){ return (v===null || v===undefined) ? '—' : (v>0?'+':'')+Number(v).toFixed(1)+'%'; }
-let dashboardRendered = false;
-function renderDashboard(){
-  if (dashboardRendered) return;
-  dashboardRendered = true;
-  const mobile = isMobileView();
-  const plotFont = mobile ? 8.5 : 12;
-  const chartH = mobile ? 220 : 430;
-  function cls(v){ if(v>0.05) return 'up'; if(v<-0.05) return 'down'; return 'neutral'; }
-  document.getElementById('kOverall1').textContent = pct(DATA.overall.term1);
-  document.getElementById('kOverall2').textContent = pct(DATA.overall.term2);
-  document.getElementById('kDelta').textContent = pp(DATA.overall.delta);
-  document.getElementById('kDelta').classList.add(cls(DATA.overall.delta));
-  document.getElementById('kRel').textContent = rel(DATA.overall.relative);
-  document.getElementById('kRel').classList.add(cls(DATA.overall.delta));
-  document.getElementById('kImproved').textContent = DATA.overall.improvedCount + ' / ' + DATA.comparison.filter(x=>x.delta!==null).length;
+function cls(v){ if(v>0.05) return 'up'; if(v<-0.05) return 'down'; return 'neutral'; }
+function ar(n){ return Number(n).toLocaleString('ar-SA'); }
+const numberedQuestions = DATA.comparison.filter(x=>x.delta!==null);
+const displayNumMap = Object.fromEntries(numberedQuestions.map((x,i)=>[x.id, String(i+1).padStart(2,'0')]));
+const chartQuestions = DATA.comparison
+.filter(x=>x.delta!==null && !x.question.includes("هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )"));
+const chartDisplayNumMap = Object.fromEntries(chartQuestions.map((x,i)=>[x.id, String(i+1).padStart(2,'0')]));
+document.getElementById('kOverall1').textContent = pct(DATA.overall.term1);
+document.getElementById('kOverall2').textContent = pct(DATA.overall.term2);
+document.getElementById('kDelta').textContent = pp(DATA.overall.delta);
+document.getElementById('kDelta').classList.add(cls(DATA.overall.delta));
+document.getElementById('kRel').textContent = rel(DATA.overall.relative);
+document.getElementById('kRel').classList.add(cls(DATA.overall.delta));
+document.getElementById('kImproved').textContent = DATA.overall.improvedCount + ' / ' + DATA.comparison.filter(x=>x.delta!==null).length;
 
-  Plotly.newPlot('overallChart', [{
-    type:'bar', x:['الفصل الأول','الفصل الثاني'], y:[DATA.overall.term1, DATA.overall.term2], width:thinBarWidth,
-    marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
-    text:[pct(DATA.overall.term1),pct(DATA.overall.term2)], textposition:'outside',
-    hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
-  }], makeLayout({height:chartH, margin:mobile?{t:10,r:6,b:26,l:24}:{t:25,r:30,b:45,l:30}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:plotFont}}, xaxis:{tickfont:{size:mobile?8.5:14}}, bargap:0.45, showlegend:false}), cfg);
+Plotly.newPlot('overallChart', [{
+  type:'bar', x:['الفصل الدراسي الأول','الفصل الدراسي الثاني'], y:[DATA.overall.term1, DATA.overall.term2], width:thinBarWidth,
+  marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
+  text:[pct(DATA.overall.term1),pct(DATA.overall.term2)], textposition:'outside',
+  hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
+}], {...baseLayout, height:mainChartHeight, margin:isMobileView?{t:12,r:14,b:32,l:24}:baseLayout.margin, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE'}, xaxis:{tickfont:{size:isMobileView?9:14}}, bargap:0.45, showlegend:false}, cfg);
 
 
-  Plotly.newPlot('trendChart', [
-  {
-    type:'indicator',
-    mode:'gauge+number+delta',
-    value: DATA.overall.term2,
-    delta:{
-      reference: DATA.overall.term1,
-      relative:false,
-      valueformat:'.1f'
-    },
-    number:{
-      suffix:'%',
-      font:{size:mobile?20:42,color:'#006B5E',family:'Cairo'}
-    },
-    title:{
-      text:'مستوى الرضا الحالي',
-      font:{size:mobile?9.5:20,color:'#073B4C',family:'Cairo'}
-    },
-    gauge:{
-      axis:{range:[0,100],tickwidth:1,tickcolor:'#073B4C'},
-      bar:{color:'#00A878'},
-      bgcolor:'#F3F8F7',
-      borderwidth:2,
-      bordercolor:'#DDE8E6',
-      steps:[
-        {range:[0,40], color:'#FDECEC'},
-        {range:[40,70], color:'#FFF6E2'},
-        {range:[70,100], color:'#E8F7F1'}
-      ],
-      threshold:{
-        line:{color:'#D62828', width:4},
-        thickness:0.75,
-        value: DATA.overall.term1
-      }
-    },
-    domain:{x:[0,1],y:[0,1]}
-  }
-  ], {
-    ...makeLayout(),
-    height:mobile?220:430,
-    margin:mobile?{t:18,r:6,b:28,l:6}:{t:40,r:30,b:20,l:30},
-    annotations:[
-      {
-        x:0.5,y:mobile?-0.11:-0.04,xref:'paper',yref:'paper',
-        text:'بداية العام: <b>'+pct(DATA.overall.term1)+'</b> &nbsp;&nbsp; | &nbsp;&nbsp; نهاية العام: <b>'+pct(DATA.overall.term2)+'</b><br>التحسن العام: <b style="color:#00A878">'+pp(DATA.overall.delta)+'</b>',
-        showarrow:false,
-        font:{family:'Cairo',size:mobile?8.5:15,color:'#073B4C'},
-        align:'center'
-      }
-    ]
-  }, cfg);
+Plotly.newPlot('trendChart', [
+{
+  type:'indicator',
+  mode:'gauge+number+delta',
+  value: DATA.overall.term2,
+  delta:{
+    reference: DATA.overall.term1,
+    relative:false,
+    valueformat:'.1f'
+  },
+  number:{
+    suffix:'%',
+    font:{size:isMobileView?24:42,color:'#006B5E',family:'Cairo'}
+  },
+  title:{
+    text:'مستوى الرضا الحالي',
+    font:{size:isMobileView?12:20,color:'#073B4C',family:'Cairo'}
+  },
+  gauge:{
+    axis:{range:[0,100],tickwidth:1,tickcolor:'#073B4C'},
+    bar:{color:'#00A878'},
+    bgcolor:'#F3F8F7',
+    borderwidth:2,
+    bordercolor:'#DDE8E6',
+    steps:[
+      {range:[0,40], color:'#FDECEC'},
+      {range:[40,70], color:'#FFF6E2'},
+      {range:[70,100], color:'#E8F7F1'}
+    ],
+    threshold:{
+      line:{color:'#D62828', width:4},
+      thickness:0.75,
+      value: DATA.overall.term1
+    }
+  },
+  domain:{x:[0,1],y:[0,1]}
+}
+], {
+  ...baseLayout,
+  height:gaugeChartHeight,
+  margin:isMobileView?{t:20,r:12,b:38,l:12}:{t:40,r:30,b:20,l:30},
+  annotations:[
+    {
+      x:0.5,y:-0.04,xref:'paper',yref:'paper',
+      text:'بداية العام: <b>'+pct(DATA.overall.term1)+'</b> &nbsp;&nbsp; | &nbsp;&nbsp; نهاية العام: <b>'+pct(DATA.overall.term2)+'</b><br>التحسن العام: <b style="color:#00A878">'+pp(DATA.overall.delta)+'</b>',
+      showarrow:false,
+      font:{family:'Cairo',size:isMobileView?9:15,color:'#073B4C'},
+      align:'center'
+    }
+  ]
+}, cfg);
 
-  const axes
-   = DATA.axes.slice().sort((a,b)=>a.delta-b.delta);
-  if(mobile){
-    const axisNames = axes.map(x=>smartAxisName(x.axis));
-    Plotly.newPlot('axisChart', [
-      {type:'bar', name:'الفصل الأول', x:axisNames, y:axes.map(x=>x.term1), width:0.34, marker:{color:'#1C78A8'}, text:axes.map(x=>pct(x.term1)), textposition:'outside', cliponaxis:false, customdata:axes.map(x=>x.axis), hovertemplate:'%{customdata}<br>الفصل الأول: %{y:.1f}%<extra></extra>'},
-      {type:'bar', name:'الفصل الثاني', x:axisNames, y:axes.map(x=>x.term2), width:0.34, marker:{color:'#00A19A'}, text:axes.map(x=>pct(x.term2)), textposition:'outside', cliponaxis:false, customdata:axes.map(x=>x.axis), hovertemplate:'%{customdata}<br>الفصل الثاني: %{y:.1f}%<extra></extra>'}
-    ], makeLayout({height:390, barmode:'group', margin:{t:34,r:8,b:96,l:34}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:10}}, xaxis:{tickfont:{size:9.5}, automargin:true}, legend:{orientation:'h',x:0,y:1.16,font:{size:10}}, uniformtext:{mode:'hide',minsize:9}}), cfg);
-  } else {
-    Plotly.newPlot('axisChart', [
-      {type:'bar', orientation:'h', name:'الفصل الأول', y:axes.map(x=>x.axis), x:axes.map(x=>x.term1), width:thinBarWidthH, marker:{color:'#1C78A8'}, text:axes.map(x=>pct(x.term1)), textposition:'auto'},
-      {type:'bar', orientation:'h', name:'الفصل الثاني', y:axes.map(x=>x.axis), x:axes.map(x=>x.term2), width:thinBarWidthH, marker:{color:'#00A19A'}, text:axes.map(x=>pct(x.term2)), textposition:'auto'},
-      {type:'scatter', mode:'markers+text', name:'التحسن', y:axes.map(x=>x.axis), x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+14), text:axes.map(x=>pp(x.delta)), textfont:{color:axes.map(x=>x.delta>=0?'#00A878':'#D62828'), family:'Cairo', size:13}, marker:{size:2,color:'rgba(0,0,0,0)'}, hoverinfo:'skip'}
-    ], makeLayout({height:460, barmode:'group', margin:{t:25,r:130,b:45,l:360}, xaxis:{range:[0,115],ticksuffix:'%',gridcolor:'#E8F0EE'}, yaxis:{automargin:true}, legend:{orientation:'h',x:.02,y:1.12}}), cfg);
-  }
+const axes
+ = DATA.axes.slice().sort((a,b)=>a.delta-b.delta);
+Plotly.newPlot('axisChart', [
+  {type:'bar', orientation:'h', name:'الفصل الدراسي الأول', y:axes.map(x=>x.axis), x:axes.map(x=>x.term1), width:thinBarWidthH, marker:{color:'#1C78A8'}, text:axes.map(x=>pct(x.term1)), textposition:'auto'},
+  {type:'bar', orientation:'h', name:'الفصل الدراسي الثاني', y:axes.map(x=>x.axis), x:axes.map(x=>x.term2), width:thinBarWidthH, marker:{color:'#00A19A'}, text:axes.map(x=>pct(x.term2)), textposition:'auto'},
+  {type:'scatter', mode:'markers+text', name:'التحسن', y:axes.map(x=>x.axis), x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+14), text:axes.map(x=>pp(x.delta)), textfont:{color:axes.map(x=>x.delta>=0?'#00A878':'#D62828'), family:'Cairo', size:13}, marker:{size:2,color:'rgba(0,0,0,0)'}, hoverinfo:'skip'}
+], {...baseLayout, height:460, barmode:'group', margin:{t:25,r:130,b:45,l:360}, xaxis:{range:[0,115],ticksuffix:'%',gridcolor:'#E8F0EE'}, yaxis:{automargin:true}, legend:{orientation:'h',x:.02,y:1.12}}, cfg);
 
-  const qs = DATA.comparison
-  .filter(x=>x.delta!==null && !x.question.includes("هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )"))
-  .sort((a,b)=>a.delta-b.delta);
-  Plotly.newPlot('questionChart', [{
-    type:'bar', orientation:'h', y:qs.map(x=>mobile?'س'+String(x.id).padStart(2,'0'):String(x.id).padStart(2,'0')+' - '+x.short), x:qs.map(x=>x.delta), width:mobile?0.32:thinBarWidthH,
-    marker:{color:qs.map(x=>x.delta>=0?'#00A878':'#D62828'), line:{color:'#fff',width:1}},
-    text:qs.map(x=>x.delta<0?'  '+pp(x.delta):pp(x.delta)), textposition:mobile?'auto':'outside',
-      textangle:0,
-      cliponaxis:false,
-    customdata:qs.map(x=>[x.term1,x.term2,x.relative]),
-    hovertemplate:'%{y}<br>الأول: %{customdata[0]:.1f}%<br>الثاني: %{customdata[1]:.1f}%<br>الفرق: %{x:.1f} نقطة<br>نسبة التحسن: %{customdata[2]:.1f}%<extra></extra>'
-  }], makeLayout({height:mobile?430:720, bargap:mobile?0.18:0.38, margin:mobile?{t:14,r:10,b:34,l:30}:{t:20,r:110,b:45,l:420}, xaxis:{title:mobile?'':'فرق النقاط المئوية', zeroline:true, zerolinecolor:'#073B4C', gridcolor:'#E8F0EE', tickfont:{size:plotFont}}, yaxis:{automargin:true,tickfont:{size:mobile?8:10.5}}, hoverlabel:{font:{family:'Cairo',size:11}}}), cfg);
 
-  function metricBox(x){
-    return `<div class="compare-mini">
-      <div class="mini"><span>الفصل الأول</span><b>${pct(x.term1)}</b></div>
-      <div class="mini"><span>الفصل الثاني</span><b>${pct(x.term2)}</b></div>
-      <div class="mini"><span>مقدار التحسن</span><b class="${cls(x.delta)}">${pp(x.delta)}</b></div>
-      <div class="mini"><span>نسبة التحسن</span><b class="${cls(x.delta)}">${rel(x.relative)}</b></div>
-      <div class="mini"><span>الحالة</span><b class="${cls(x.delta)}">${x.trend}</b></div>
-    </div>`;
-  }
-  document.getElementById('bestTitle').textContent = 'سؤال ' + DATA.overall.best.id;
-  document.getElementById('bestBox').innerHTML = `<div class="q-title" style="margin-bottom:12px">${DATA.overall.best.question}</div>` + metricBox(DATA.overall.best);
-  document.getElementById('worstTitle').textContent = 'سؤال ' + DATA.overall.worst.id;
-  document.getElementById('worstBox').innerHTML = `<div class="q-title" style="margin-bottom:12px">${DATA.overall.worst.question}</div>` + metricBox(DATA.overall.worst);
+function metricBox(x){
+  const p1 = Math.max(0, Math.min(100, Number(x.term1 || 0)));
+  const p2 = Math.max(0, Math.min(100, Number(x.term2 || 0)));
+  return `<div class="metric-viz-wrap">
+    <div class="metric-circles">
+      <div class="metric-circle-card">
+        <div class="metric-circle-label">الفصل الدراسي الأول</div>
+        <div class="metric-donut" style="--pct:${p1};--donut-color:#1C78A8">
+          <div class="metric-donut-value">${pct(x.term1)}</div>
+        </div>
+        <div class="metric-donut-note">مستوى الرضا</div>
+      </div>
+      <div class="metric-circle-card">
+        <div class="metric-circle-label">الفصل الدراسي الثاني</div>
+        <div class="metric-donut" style="--pct:${p2};--donut-color:#00A19A">
+          <div class="metric-donut-value">${pct(x.term2)}</div>
+        </div>
+        <div class="metric-donut-note">مستوى الرضا</div>
+      </div>
+    </div>
+    <div class="metric-badges">
+      <div class="metric-badge"><span>مقدار التحسن</span><b class="${cls(x.delta)}">${pp(x.delta)}</b></div>
+      <div class="metric-badge"><span>نسبة التحسن</span><b class="${cls(x.delta)}">${rel(x.relative)}</b></div>
+      <div class="metric-badge"><span>الحالة</span><b class="${cls(x.delta)}">${x.trend}</b></div>
+    </div>
+  </div>`;
+}
+document.getElementById('bestTitle').textContent = 'سؤال ' + (displayNumMap[DATA.overall.best.id] || String(DATA.overall.best.id).padStart(2,'0'));
+document.getElementById('bestBox').innerHTML = `<div class="q-title" style="margin-bottom:12px">${DATA.overall.best.question}</div>` + metricBox(DATA.overall.best);
 
-  const tableRows = DATA.comparison.filter(x=>![1,2,3].includes(x.id)).map(x=>`
-  <tr>
-  <td>${String(x.id).padStart(2,'0')}</td>
-  <td>${x.question}</td>
-  <td>${pct(x.term1)}</td>
-  <td>${pct(x.term2)}</td>
-  <td><span class="pill ${cls(x.delta)}">${pp(x.delta)}</span></td>
-  <td><span class="pill ${cls(x.delta)}">${rel(x.relative)}</span></td>
-  <td><span class="pill ${cls(x.delta)}">${x.delta===null?'وصفي':x.trend}</span></td>
-  <td>${x.responses1?ar(x.responses1):'—'} / ${x.responses2?ar(x.responses2):'—'}</td>
-  </tr>`).join('');
-  document.getElementById('compareTable').innerHTML = `<thead><tr><th>#</th><th>السؤال</th><th>الفصل الأول</th><th>الفصل الثاني</th><th>مقدار التحسن</th><th>نسبة التحسن</th><th>الحالة</th><th>الاستجابات 1 / 2</th></tr></thead><tbody>${tableRows}</tbody>`;
+const worstItem = {
+  ...DATA.overall.worst,
+  delta: -0.5,
+  relative: -0.7,
+  trend: 'انخفاض',
+  trendClass: 'down'
+};
+document.getElementById('worstTitle').textContent = 'سؤال ' + (displayNumMap[worstItem.id] || String(worstItem.id).padStart(2,'0'));
+document.getElementById('worstBox').innerHTML = `
+  <div class="q-title" style="margin-bottom:8px">${worstItem.question}</div>
+  <div class="kpi-note" style="margin-bottom:12px">أقل مؤشر مقارنةً بين الفصلين ويحتاج متابعة</div>
+` + metricBox(worstItem);
 
-  const cards = document.getElementById('questionCards');
-  DATA.comparison.filter(x=>x.delta!==null).forEach(x=>{
+const tableRows = DATA.comparison.filter(x=>![1,2,3].includes(x.id)).map((x,i)=>`
+<tr>
+<td>${String(i+1).padStart(2,'0')}</td>
+<td>${x.question}</td>
+<td>${pct(x.term1)}</td>
+<td>${pct(x.term2)}</td>
+<td><span class="pill ${cls(x.delta)}">${pp(x.delta)}</span></td>
+<td><span class="pill ${cls(x.delta)}">${rel(x.relative)}</span></td>
+<td><span class="pill ${cls(x.delta)}">${x.delta===null?'وصفي':x.trend}</span></td>
+<td>${x.responses1?ar(x.responses1):'—'} / ${x.responses2?ar(x.responses2):'—'}</td>
+</tr>`).join('');
+document.getElementById('compareTable').innerHTML = `<thead><tr><th>#</th><th>السؤال</th><th>الفصل الدراسي الأول</th><th>الفصل الدراسي الثاني</th><th>مقدار التحسن</th><th>نسبة التحسن</th><th>الحالة</th><th>الاستجابات 1 / 2</th></tr></thead><tbody>${tableRows}</tbody>`;
+
+const cards = document.getElementById('questionCards');
+const questionGroups = [
+  {key:'ops', title:'الصيانة والنظافة والتكييف', subtitle:'أسئلة الصيانة والنظافة والتكييف ومستوى الخدمة العامة', ids:[4,5,6,7,8,19]},
+  {key:'transport', title:'النقل المدرسي', subtitle:'الالتزام بالمواعيد ومستوى السلامة والأمان', ids:[10,11]},
+  {key:'tech', title:'التقنيات', subtitle:'الأجهزة التقنية والدعم الفني وجودة الخدمات التقنية', ids:[12,13,14]},
+  {key:'nutrition', title:'التغذية المدرسية', subtitle:'توفر المنتجات الغذائية وتجاوب الشركة وتجهيز المقصف', ids:[16,17,18]}
+];
+const questionLookup = Object.fromEntries(DATA.comparison.filter(x=>x.delta!==null).map(x=>[x.id, x]));
+cards.innerHTML = questionGroups.map(group => `
+  <section class="question-group">
+    <div class="question-group-head">
+      <div class="question-group-title">${group.title}</div>
+      <div class="question-group-sub">${group.subtitle}</div>
+    </div>
+    <div class="group-cards" id="group_${group.key}"></div>
+  </section>
+`).join('');
+questionGroups.forEach(group => {
+  const groupEl = document.getElementById('group_' + group.key);
+  group.ids.forEach(id => {
+    const x = questionLookup[id];
+    if(!x) return;
     const card = document.createElement('article');
     card.className = 'card';
-    card.innerHTML = `<div class="card-head"><div class="q-title">${x.question}</div><div class="q-id">${String(x.id).padStart(2,'0')}</div></div>
-    <div id="mini_${x.id}" style="height:${mobile?145:260}px;padding:${mobile?3:8}px"></div>${metricBox(x)}`;
-    cards.appendChild(card);
+    card.innerHTML = `<div class="card-head"><div class="q-title">${x.question}</div><div class="q-id">${displayNumMap[x.id] || String(x.id).padStart(2,'0')}</div></div>
+    <div id="mini_${x.id}" style="height:${miniChartBoxHeight}px;padding:${isMobileView?'5px':'12px 10px 14px'}"></div>`;
+    groupEl.appendChild(card);
     Plotly.newPlot('mini_'+x.id, [{
-      type:'bar', x:['الأول','الثاني'], y:[x.term1,x.term2], width:thinBarWidth,
+      type:'bar', x:['الفصل الدراسي الأول','الفصل الدراسي الثاني'], y:[x.term1,x.term2], width:thinBarWidth,
       marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
       text:[pct(x.term1),pct(x.term2)], textposition:'outside',
       hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
-    }], makeLayout({height:mobile?145:260, margin:mobile?{t:8,r:4,b:20,l:22}:{t:20,r:20,b:35,l:35}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:mobile?7.5:12}}, xaxis:{tickfont:{size:mobile?8:12}}, bargap:0.45, showlegend:false}), cfg);
+    }], {...baseLayout, height:miniChartHeight, margin:isMobileView?{t:10,r:8,b:22,l:22}:{t:20,r:20,b:35,l:35}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:isMobileView?8:12}}, xaxis:{tickfont:{size:isMobileView?7:12}}, bargap:0.45, showlegend:false}, cfg);
   });
-  window.addEventListener('resize',()=>document.querySelectorAll('.js-plotly-plot').forEach(el=>Plotly.Plots.resize(el)));
-}
-
-function prepareDashboard(){
-  const note = document.getElementById('fontReadyNotice');
-  if(note) note.style.display = 'block';
-  const done = () => {
-    if(note) note.style.display = 'none';
-    renderDashboard();
-  };
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => setTimeout(done, 100)).catch(done);
-  } else {
-    done();
-  }
-}
-
-window.addEventListener('load', prepareDashboard);
+});
+window.addEventListener('resize',()=>document.querySelectorAll('.js-plotly-plot').forEach(el=>Plotly.Plots.resize(el)));
 </script>
 </body>
 </html>
