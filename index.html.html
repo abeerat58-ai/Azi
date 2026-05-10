@@ -1904,6 +1904,95 @@ td{font-size:13px;color:#203E49}
   }
 }
 
+
+@media(max-width:620px){
+  /* بطاقات المؤشرات المختصرة: 3 بطاقات في صف واحد */
+  .kpis{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-bottom:10px !important;
+  }
+  .kpis .kpi,
+  .kpis .kpi:last-child{
+    grid-column:auto !important;
+    min-height:98px !important;
+    padding:10px 8px !important;
+    border-radius:18px !important;
+  }
+  .kpis .kpi:after{
+    width:72px !important;
+    height:72px !important;
+    left:-18px !important;
+    top:-18px !important;
+  }
+  .kpis .kpi-label{
+    font-size:9px !important;
+    line-height:1.35 !important;
+    font-weight:700 !important;
+  }
+  .kpis .kpi-value{
+    font-size:17px !important;
+    line-height:1.05 !important;
+    margin-top:6px !important;
+    font-weight:900 !important;
+  }
+  .kpis .kpi-note{
+    font-size:7.2px !important;
+    line-height:1.25 !important;
+    margin-top:4px !important;
+    font-weight:500 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* بطاقات الملخص: صف أول بطاقتين، وصف ثانٍ ثلاث بطاقات */
+  .kpis{
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-bottom:10px !important;
+  }
+  .kpis .kpi,
+  .kpis .kpi:last-child{
+    grid-column:auto !important;
+    min-height:96px !important;
+    padding:10px 8px !important;
+    border-radius:18px !important;
+  }
+  .kpis .kpi:nth-child(1),
+  .kpis .kpi:nth-child(2){
+    grid-column:span 3 !important;
+  }
+  .kpis .kpi:nth-child(3),
+  .kpis .kpi:nth-child(4),
+  .kpis .kpi:nth-child(5){
+    grid-column:span 2 !important;
+  }
+  .kpis .kpi:after{
+    width:68px !important;
+    height:68px !important;
+    left:-16px !important;
+    top:-16px !important;
+  }
+  .kpis .kpi-label{
+    font-size:8.8px !important;
+    line-height:1.3 !important;
+    font-weight:700 !important;
+  }
+  .kpis .kpi-value{
+    font-size:16px !important;
+    line-height:1.05 !important;
+    margin-top:5px !important;
+    font-weight:900 !important;
+  }
+  .kpis .kpi-note{
+    font-size:7px !important;
+    line-height:1.2 !important;
+    margin-top:4px !important;
+    font-weight:500 !important;
+  }
+}
+
 </style>
 
 
@@ -2576,6 +2665,159 @@ window.addEventListener('resize',()=>{document.querySelectorAll('.js-plotly-plot
   }
 }
 
+
+@media(max-width:620px){
+  /* بطاقات المؤشرات المختصرة: 3 بطاقات في صف واحد */
+  .kpis{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-bottom:10px !important;
+  }
+  .kpis .kpi,
+  .kpis .kpi:last-child{
+    grid-column:auto !important;
+    min-height:98px !important;
+    padding:10px 8px !important;
+    border-radius:18px !important;
+  }
+  .kpis .kpi:after{
+    width:72px !important;
+    height:72px !important;
+    left:-18px !important;
+    top:-18px !important;
+  }
+  .kpis .kpi-label{
+    font-size:9px !important;
+    line-height:1.35 !important;
+    font-weight:700 !important;
+  }
+  .kpis .kpi-value{
+    font-size:17px !important;
+    line-height:1.05 !important;
+    margin-top:6px !important;
+    font-weight:900 !important;
+  }
+  .kpis .kpi-note{
+    font-size:7.2px !important;
+    line-height:1.25 !important;
+    margin-top:4px !important;
+    font-weight:500 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* بطاقات الملخص: صف أول بطاقتين، وصف ثانٍ ثلاث بطاقات */
+  .kpis{
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-bottom:10px !important;
+  }
+  .kpis .kpi,
+  .kpis .kpi:last-child{
+    grid-column:auto !important;
+    min-height:96px !important;
+    padding:10px 8px !important;
+    border-radius:18px !important;
+  }
+  .kpis .kpi:nth-child(1),
+  .kpis .kpi:nth-child(2){
+    grid-column:span 3 !important;
+  }
+  .kpis .kpi:nth-child(3),
+  .kpis .kpi:nth-child(4),
+  .kpis .kpi:nth-child(5){
+    grid-column:span 2 !important;
+  }
+  .kpis .kpi:after{
+    width:68px !important;
+    height:68px !important;
+    left:-16px !important;
+    top:-16px !important;
+  }
+  .kpis .kpi-label{
+    font-size:8.8px !important;
+    line-height:1.3 !important;
+    font-weight:700 !important;
+  }
+  .kpis .kpi-value{
+    font-size:16px !important;
+    line-height:1.05 !important;
+    margin-top:5px !important;
+    font-weight:900 !important;
+  }
+  .kpis .kpi-note{
+    font-size:7px !important;
+    line-height:1.2 !important;
+    margin-top:4px !important;
+    font-weight:500 !important;
+  }
+}
+
+
+
+/* تعديل بطاقات مستوى التحسن أسفل الرسم مباشرة - مثل النموذج المرفق */
+.trend-summary-mobile{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  margin-top:10px !important;
+  direction:rtl !important;
+}
+.trend-summary-mobile .tbox{
+  background:rgba(252,254,253,.92) !important;
+  border:2px solid rgba(0,107,94,.12) !important;
+  border-radius:22px !important;
+  padding:14px 10px 13px !important;
+  min-height:68px !important;
+  text-align:center !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75) !important;
+}
+.trend-summary-mobile .tbox span{
+  display:block !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  color:#65777E !important;
+  line-height:1.2 !important;
+  margin-bottom:4px !important;
+}
+.trend-summary-mobile .tbox b{
+  display:block !important;
+  font-size:17px !important;
+  font-weight:900 !important;
+  line-height:1.15 !important;
+  color:#073B4C !important;
+  direction:ltr !important;
+  unicode-bidi:isolate !important;
+}
+.trend-summary-mobile .tbox b.up{color:#00A878 !important}
+
+@media(max-width:620px){
+  #trendChart.chart{display:block !important;height:214px !important;margin-bottom:0 !important}
+  .trend-summary-mobile{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-top:8px !important;
+  }
+  .trend-summary-mobile .tbox{
+    border-radius:16px !important;
+    padding:8px 4px 7px !important;
+    min-height:48px !important;
+    border-width:1.5px !important;
+  }
+  .trend-summary-mobile .tbox span{
+    font-size:7.5px !important;
+    font-weight:800 !important;
+    line-height:1.15 !important;
+    margin-bottom:2px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:11px !important;
+    font-weight:900 !important;
+    line-height:1.1 !important;
+  }
+}
 </style>
 <script>
 (function(){
