@@ -223,76 +223,1685 @@ td{font-size:13px;color:#203E49}
 }
 
 
-/* تنسيق محسن للجوال فقط - تعديل 2 */
-.survey-mobile-row{display:none}
+.axis-cards-mobile{display:none}
+.axis-mobile-card{background:#FBFCFC;border:1px solid rgba(0,107,94,.12);border-radius:16px;padding:10px;margin-top:8px;box-shadow:0 8px 18px rgba(0,84,77,.05)}
+.axis-mobile-title{font-size:10.5px;font-weight:500;line-height:1.5;color:#073B4C;margin-bottom:8px}
+.axis-mobile-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.axis-mobile-metric{background:#F4F8F7;border:1px solid rgba(0,107,94,.10);border-radius:12px;padding:7px 4px;text-align:center}
+.axis-mobile-metric span{display:block;font-size:7.2px;font-weight:400;color:var(--muted);line-height:1.35;margin-bottom:3px}
+.axis-mobile-metric b{display:block;font-size:10px;font-weight:600;line-height:1.4;color:#073B4C}
 @media(max-width:620px){
-  body{font-size:10.3px}
-  .hero{padding:14px 10px 22px;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
-  .badge{font-size:10px;font-weight:600;padding:5px 8px}
-  h1{font-size:17px;line-height:1.45;margin:7px 0 4px}
-  .subtitle{font-size:10px;font-weight:400;line-height:1.7}
-  .logo-panel{min-height:66px;padding:8px;border-radius:14px}
-  .logo-title{font-size:14px;font-weight:700}.logo-sub{font-size:9.5px;font-weight:500}
-  .wrap{margin:-16px auto 18px;padding:0 8px}
+  .grid{grid-template-columns:1fr !important;gap:10px !important;margin-bottom:10px !important}
+  .panel.wide{grid-column:auto !important}
+  .axis-panel{display:block !important}
+  #axisChart{display:none !important}
+  .axis-cards-mobile{display:block !important}
+  h1{font-size:16px !important;line-height:1.45 !important;margin:6px 0 4px !important;font-weight:800 !important}
+  .hero{padding:16px 10px 24px !important}
+  .subtitle{font-size:10.5px !important;line-height:1.55 !important;font-weight:400 !important}
+  .badge{font-size:9.5px !important;font-weight:500 !important}
+  .panel{padding:10px !important;border-radius:16px !important}
+  .panel-title{font-size:11px !important;line-height:1.45 !important;font-weight:600 !important;margin-bottom:6px !important}
+  .panel-title span+span{font-size:8px !important;font-weight:400 !important;line-height:1.4 !important}
+  .chart{height:220px !important}
+  #trendChart.chart{height:236px !important}
+  .survey-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important}
+  .survey-card{padding:8px !important;border-radius:14px !important}
+  .survey-card-title{font-size:10px !important;font-weight:400 !important;line-height:1.45 !important;margin-bottom:6px !important;color:var(--moe-primary) !important}
+  .survey-icon{width:24px !important;height:24px !important;border-radius:8px !important;font-size:10px !important}
+  .survey-chart-wrap{padding:5px !important;border-radius:10px !important}
+  .survey-donut{height:98px !important;max-width:128px !important}
+  .survey-donut-legend,.survey-donut-legend-grid{display:grid !important;grid-template-columns:1fr !important;gap:4px !important}
+  .survey-legend-item,.survey-donut-legend-grid .survey-legend-item,.survey-donut-legend-grid .survey-legend-item.legend-item-wide{display:flex !important;justify-content:space-between !important;align-items:center !important;padding:4px 5px !important;gap:4px !important;border-radius:10px !important;min-width:0 !important}
+  .survey-legend-dot{width:7px !important;height:7px !important;flex:0 0 auto !important}
+  .survey-legend-label,.survey-donut-legend-grid .survey-legend-label{font-size:7px !important;font-weight:400 !important;line-height:1.3 !important;white-space:normal !important;overflow-wrap:anywhere !important;text-align:right !important}
+  .survey-legend-pct,.survey-donut-legend-grid .survey-legend-pct{font-size:7px !important;font-weight:400 !important;line-height:1.3 !important;flex:0 0 auto !important}
+  .survey-summary-number{font-size:13px !important;font-weight:600 !important}
+  .survey-summary-badge,.survey-summary-sub{font-size:7px !important;font-weight:400 !important}
+  .q-title{font-size:7.7px !important;line-height:1.4 !important;font-weight:400 !important}
+  .card-head{padding:7px 7px 6px !important}
+  .q-id{width:23px !important;height:23px !important;border-radius:8px !important;font-size:9px !important;font-weight:600 !important}
+  .group-cards{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:7px !important}
+  .question-group-title{font-size:13px !important;font-weight:700 !important}
+  .question-group-sub{font-size:8.2px !important;line-height:1.35 !important;font-weight:400 !important}
+  .compare-mobile-card{padding:9px !important;border-radius:14px !important}
+  .compare-mobile-num{width:28px !important;height:28px !important;font-size:9px !important;font-weight:600 !important;border-radius:9px !important}
+  .compare-mobile-question{font-size:9px !important;line-height:1.45 !important;font-weight:400 !important}
+  .compare-mobile-pill{padding:6px 4px !important;border-radius:10px !important}
+  .compare-mobile-pill span{font-size:6.8px !important;line-height:1.3 !important;font-weight:400 !important;margin-bottom:2px !important}
+  .compare-mobile-pill b{font-size:9px !important;line-height:1.35 !important;font-weight:600 !important}
+}
 
-  .survey-section{padding:10px 8px 8px;border-radius:16px}
-  .survey-title{font-size:14px;font-weight:700}
-  #surveyData{display:none !important}
-  .survey-mobile-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;align-items:start}
-  .survey-mobile-card{background:linear-gradient(180deg,#FFFFFF 0%,#F8FBFA 100%);border:1px solid rgba(0,107,94,.10);border-radius:14px;padding:7px 5px;box-shadow:0 6px 14px rgba(0,84,77,.06);text-align:center;min-width:0}
-  .survey-mobile-title{font-size:8.8px;font-weight:700;line-height:1.4;color:var(--moe-primary);min-height:25px;display:flex;align-items:center;justify-content:center}
-  .survey-mobile-donut{height:66px;width:100%;max-width:72px;margin:4px auto}
-  .survey-mobile-main{font-size:9px;font-weight:700;line-height:1.4;color:#203E49;min-height:28px;display:flex;align-items:center;justify-content:center;text-align:center;word-break:break-word}
-  .survey-mobile-meta{font-size:8.2px;font-weight:600;color:var(--muted);line-height:1.35;margin-top:3px}
-  .survey-mobile-pct{display:block;font-size:10px;font-weight:800;color:var(--moe-primary);direction:ltr}
 
-  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:10px}
-  .kpi{padding:9px;border-radius:14px;min-height:84px}
-  .kpi-label{font-size:9.5px;font-weight:600;line-height:1.45}
-  .kpi-value{font-size:19px;font-weight:700;margin-top:4px}
-  .kpi-note{font-size:8.4px;font-weight:400;line-height:1.45}
+.trend-summary-mobile{display:none}
+.axis-mobile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.axis-mobile-card{background:#FBFCFC;border:1px solid rgba(0,107,94,.12);border-radius:14px;padding:8px;box-shadow:0 8px 18px rgba(0,84,77,.05)}
+.axis-mobile-title{font-size:9px;font-weight:600;line-height:1.45;color:#073B4C;min-height:30px;margin-bottom:4px}
+.axis-mini-chart{height:108px}
+.axis-mobile-delta{font-size:9px;font-weight:700;text-align:center;margin-top:2px}
+@media(max-width:620px){
+  .survey-grid{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:5px !important}
+  .survey-card{padding:5px !important;border-radius:12px !important}
+  .survey-card-title{font-size:8px !important;font-weight:400 !important;line-height:1.3 !important;margin-bottom:4px !important}
+  .survey-icon{width:16px !important;height:16px !important;border-radius:6px !important;font-size:8px !important}
+  .survey-chart-wrap{padding:4px !important;border-radius:8px !important}
+  .survey-donut{height:62px !important;max-width:74px !important}
+  .survey-donut-legend,.survey-donut-legend-grid{display:grid !important;grid-template-columns:1fr !important;gap:2px !important}
+  .survey-legend-item,.survey-donut-legend-grid .survey-legend-item,.survey-donut-legend-grid .survey-legend-item.legend-item-wide{padding:2px 3px !important;gap:3px !important;border-radius:7px !important}
+  .survey-legend-dot{width:5px !important;height:5px !important}
+  .survey-legend-label,.survey-donut-legend-grid .survey-legend-label{font-size:5.8px !important;font-weight:400 !important;line-height:1.15 !important}
+  .survey-legend-pct,.survey-donut-legend-grid .survey-legend-pct{font-size:5.8px !important;font-weight:400 !important;line-height:1.15 !important}
+  .survey-summary-number{font-size:10px !important;font-weight:700 !important}
+  .survey-summary-badge,.survey-summary-sub,.survey-bars-title b,.survey-bars-title span{font-size:6px !important;font-weight:400 !important}
+  .grid{grid-template-columns:1fr !important;gap:8px !important}
+  #trendChart.chart{height:208px !important}
+  .trend-summary-mobile{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:6px}
+  .trend-summary-mobile .tbox{background:#F7FAF9;border:1px solid rgba(0,107,94,.10);border-radius:10px;padding:6px 4px;text-align:center}
+  .trend-summary-mobile .tbox span{display:block;font-size:6.8px;font-weight:400;color:var(--muted);line-height:1.2;margin-bottom:2px}
+  .trend-summary-mobile .tbox b{display:block;font-size:9.5px;font-weight:800;line-height:1.25;color:#073B4C}
+  .axis-panel #axisChart{display:none !important}
+  .axis-cards-mobile{display:block !important}
+  .axis-mobile-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:6px !important}
+  .axis-mobile-card{padding:6px !important;border-radius:12px !important}
+  .axis-mobile-title{font-size:7.3px !important;font-weight:500 !important;line-height:1.25 !important;min-height:26px !important;margin-bottom:2px !important}
+  .axis-mini-chart{height:88px !important}
+  .axis-mobile-delta{font-size:7.2px !important;font-weight:700 !important}
+  .metric-circles{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:6px !important}
+  .metric-circle-card{padding:8px 6px !important;border-radius:14px !important}
+  .metric-circle-label{font-size:8px !important;font-weight:500 !important;margin-bottom:5px !important;line-height:1.25 !important}
+  .metric-donut{width:62px !important;height:62px !important;margin-bottom:5px !important}
+  .metric-donut:before{inset:9px !important}
+  .metric-donut-value{font-size:11px !important;font-weight:800 !important}
+  .metric-donut-note{font-size:7px !important;font-weight:400 !important;line-height:1.2 !important}
+  .metric-badges{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important}
+  .metric-badge{padding:7px 4px !important;border-radius:12px !important}
+  .metric-badge span{font-size:6.6px !important;font-weight:400 !important;line-height:1.15 !important}
+  .metric-badge b{font-size:9px !important;font-weight:800 !important;line-height:1.2 !important}
+  .q-title{font-size:7.2px !important;font-weight:400 !important;line-height:1.28 !important}
+  .compare-mobile-card{padding:8px !important;border-radius:12px !important;margin-top:7px !important}
+  .compare-mobile-num{width:24px !important;height:24px !important;font-size:8px !important;border-radius:8px !important}
+  .compare-mobile-question{font-size:8.3px !important;line-height:1.35 !important;font-weight:500 !important}
+  .compare-mobile-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:5px !important}
+  .compare-mobile-pill{padding:5px 3px !important;border-radius:8px !important}
+  .compare-mobile-pill span{font-size:5.8px !important;line-height:1.1 !important;font-weight:400 !important;margin-bottom:1px !important}
+  .compare-mobile-pill b{font-size:8px !important;line-height:1.15 !important;font-weight:800 !important}
+}
 
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}
-  .panel{padding:10px;border-radius:15px}
-  .panel-title{font-size:10.5px;font-weight:700;line-height:1.45;margin-bottom:6px}
-  .panel-title span+span{font-size:8.8px;font-weight:500;margin-top:1px}
-  .chart{height:198px!important}
 
-  .question-group{padding:10px;border-radius:16px}
-  .question-group-head{padding:9px 10px;border-radius:13px}
-  .question-group-title{font-size:13px;font-weight:700}
-  .question-group-sub{font-size:8.8px;font-weight:500}
-  .group-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-  .card{border-radius:15px}
-  .card-head{padding:8px 8px 6px}
-  .q-title{font-size:8.9px;font-weight:700;line-height:1.45}
-  .q-id{width:24px;height:24px;font-size:9px;font-weight:700}
+@media(max-width:620px){
+  /* بيانات الاستطلاع مثل النموذج: صف واحد قابل للسحب أفقياً */
+  .survey-grid{display:flex !important; flex-wrap:nowrap !important; overflow-x:auto !important; overflow-y:hidden !important; gap:10px !important; padding:4px 2px 10px !important; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch}
+  .survey-card{flex:0 0 255px !important; min-width:255px !important; max-width:255px !important; padding:12px !important; border-radius:18px !important; scroll-snap-align:start}
+  .survey-card-title{font-size:12px !important; font-weight:700 !important; line-height:1.45 !important; margin-bottom:10px !important}
+  .survey-icon{width:28px !important; height:28px !important; border-radius:10px !important; font-size:12px !important}
+  .survey-chart-wrap{padding:10px !important; border-radius:16px !important}
+  .survey-donut{height:176px !important; max-width:210px !important}
+  .survey-donut-legend,.survey-donut-legend-grid{display:flex !important; flex-wrap:wrap !important; gap:8px !important; grid-template-columns:none !important}
+  .survey-legend-item,.survey-donut-legend-grid .survey-legend-item,.survey-donut-legend-grid .survey-legend-item.legend-item-wide{padding:6px 10px !important; border-radius:999px !important; min-width:0 !important}
+  .survey-legend-label,.survey-donut-legend-grid .survey-legend-label{font-size:9px !important; font-weight:700 !important; line-height:1.3 !important}
+  .survey-legend-pct,.survey-donut-legend-grid .survey-legend-pct{font-size:9px !important; font-weight:800 !important; line-height:1.3 !important}
+  .survey-summary-number{font-size:18px !important; font-weight:800 !important}
+  .survey-summary-badge,.survey-summary-sub,.survey-bars-title b,.survey-bars-title span{font-size:9px !important}
 
-  .metric-circle-card{padding:8px 6px;border-radius:14px}
-  .metric-circle-label,.metric-badge span{font-size:8.8px;font-weight:600}
-  .metric-donut{width:72px;height:72px}.metric-donut:before{inset:10px}
-  .metric-donut-value{font-size:14px;font-weight:700}
-  .metric-donut-note{font-size:8.2px;font-weight:500}
-  .metric-badge{padding:8px 6px;border-radius:14px}
-  .metric-badge b{font-size:12.5px;font-weight:700}
+  /* مستوى التحسن: إلغاء اللخبطة وعرض نظيف للجوال */
+  #trendChart.chart{display:none !important}
+  .trend-summary-mobile{display:block !important; margin-top:4px}
+  .trend-mobile-shell{background:linear-gradient(180deg,#FCFEFD 0%,#F5FAF8 100%); border:1px solid rgba(0,107,94,.12); border-radius:20px; padding:16px 12px; text-align:center}
+  .trend-mobile-kicker{font-size:12px; font-weight:700; color:#073B4C; margin-bottom:6px}
+  .trend-mobile-value{font-size:38px; font-weight:900; color:#0B6E68; line-height:1.1; margin-bottom:10px}
+  .trend-mobile-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px}
+  .trend-mobile-box{background:#FFFFFF; border:1px solid rgba(0,107,94,.10); border-radius:14px; padding:8px 5px}
+  .trend-mobile-box span{display:block; font-size:8px; font-weight:500; color:var(--muted); line-height:1.3; margin-bottom:3px}
+  .trend-mobile-box b{display:block; font-size:14px; font-weight:900; color:#073B4C; line-height:1.2}
+  .trend-mobile-box b.up{color:#00A878}
 
-  .compare-cards-mobile{display:grid;gap:8px}
-  .compare-mobile-card{padding:10px;border-radius:16px;margin-top:0}
-  .compare-mobile-head{margin-bottom:8px;gap:8px}
-  .compare-mobile-num{width:28px;height:28px;border-radius:10px;font-size:10px;font-weight:700}
-  .compare-mobile-question{font-size:10.2px;font-weight:700;line-height:1.6}
-  .compare-mobile-topline{display:grid;grid-template-columns:1fr auto 1fr;gap:7px;align-items:center;margin-bottom:7px}
-  .compare-mobile-stat{background:#FBFCFC;border:1px solid rgba(0,107,94,.10);border-radius:12px;padding:7px 4px;text-align:center}
-  .compare-mobile-stat span{display:block;font-size:8px;font-weight:500;color:var(--muted);line-height:1.3;margin-bottom:2px}
-  .compare-mobile-stat b{display:block;font-size:12.5px;font-weight:700;line-height:1.4;color:#073B4C}
-  .compare-mobile-arrow{font-size:12px;font-weight:700;color:var(--muted)}
-  .compare-mobile-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-  .compare-mobile-pill{padding:7px 4px;border-radius:12px}
-  .compare-mobile-pill span{font-size:7.9px;font-weight:500;line-height:1.3}
-  .compare-mobile-pill b{font-size:11.5px;font-weight:700;line-height:1.4}
-  .compare-mobile-foot{margin-top:6px;text-align:center;font-size:8px;font-weight:500;color:var(--muted)}
+  /* مقارنة نسب الرضا حسب المحور: رسم بياني واحد فقط */
+  #axisChart.chart{display:block !important; height:290px !important}
+  .axis-cards-mobile{display:none !important}
 
-  .footer{font-size:9px;font-weight:500;padding:16px 10px 24px}
+  /* تهذيب أحجام أفضل/أقل */
+  .metric-circles{grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:8px !important}
+  .metric-circle-card{padding:10px 8px !important; border-radius:16px !important}
+  .metric-circle-label{font-size:9px !important; font-weight:600 !important; margin-bottom:7px !important}
+  .metric-donut{width:72px !important; height:72px !important; margin-bottom:6px !important}
+  .metric-donut-value{font-size:13px !important; font-weight:800 !important}
+  .metric-donut-note{font-size:7.2px !important; line-height:1.2 !important}
+  .metric-badges{grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:7px !important}
+  .metric-badge{padding:8px 5px !important; border-radius:13px !important}
+  .metric-badge span{font-size:7px !important; font-weight:500 !important}
+  .metric-badge b{font-size:10px !important; font-weight:800 !important}
+}
+
+
+@media(max-width:620px){
+  /* بيانات الاستطلاع: صف واحد ودواير أصغر */
+  .survey-grid{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;overflow-y:hidden !important;gap:8px !important;padding:4px 2px 10px !important;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .survey-card{flex:0 0 220px !important;min-width:220px !important;max-width:220px !important;padding:10px !important;border-radius:16px !important;scroll-snap-align:start}
+  .survey-card-title{font-size:11px !important;font-weight:700 !important;line-height:1.4 !important;margin-bottom:8px !important}
+  .survey-icon{width:24px !important;height:24px !important;font-size:10px !important;border-radius:8px !important}
+  .survey-chart-wrap{padding:8px !important;border-radius:14px !important}
+  .survey-donut{height:120px !important;max-width:140px !important}
+  .survey-donut-legend,.survey-donut-legend-grid{display:flex !important;flex-wrap:wrap !important;gap:6px !important;grid-template-columns:none !important}
+  .survey-legend-item,.survey-donut-legend-grid .survey-legend-item,.survey-donut-legend-grid .survey-legend-item.legend-item-wide{padding:5px 8px !important;border-radius:999px !important}
+  .survey-legend-label,.survey-donut-legend-grid .survey-legend-label{font-size:7.7px !important;font-weight:700 !important;line-height:1.25 !important}
+  .survey-legend-pct,.survey-donut-legend-grid .survey-legend-pct{font-size:7.7px !important;font-weight:800 !important;line-height:1.25 !important}
+  .survey-summary-number{font-size:14px !important;font-weight:800 !important}
+  .survey-summary-badge,.survey-summary-sub,.survey-bars-title b,.survey-bars-title span{font-size:7.5px !important}
+
+  /* مستوى التحسن: رجوع الرسمه مع ثلاث خانات بسيطة أسفلها */
+  #trendChart.chart{display:block !important;height:240px !important}
+  .trend-summary-mobile{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px}
+  .trend-summary-mobile .tbox{background:#F7FAF9;border:1px solid rgba(0,107,94,.10);border-radius:12px;padding:7px 4px;text-align:center}
+  .trend-summary-mobile .tbox span{display:block;font-size:7px;font-weight:500;color:var(--muted);line-height:1.2;margin-bottom:2px}
+  .trend-summary-mobile .tbox b{display:block;font-size:10px;font-weight:900;line-height:1.2;color:#073B4C}
+  .trend-summary-mobile .tbox b.up{color:#00A878}
+  .trend-mobile-shell,.trend-mobile-kicker,.trend-mobile-value,.trend-mobile-grid,.trend-mobile-box{all:unset}
+
+  /* مقارنة المحاور كرسم واحد أوضح */
+  #axisChart.chart{display:block !important;height:280px !important}
+  .axis-cards-mobile{display:none !important}
+}
+
+
+@media(max-width:620px){
+  /* بيانات الاستطلاع تماماً مثل النموذج: صف واحد وترتيب البطاقات كما هو */
+  .survey-grid{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;overflow-y:hidden !important;gap:12px !important;padding:4px 2px 12px !important;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .survey-card{flex:0 0 320px !important;min-width:320px !important;max-width:320px !important;padding:14px !important;border-radius:20px !important;scroll-snap-align:start}
+  .survey-card-title{font-size:13px !important;font-weight:800 !important;line-height:1.45 !important;margin-bottom:10px !important}
+  .survey-icon{width:30px !important;height:30px !important;border-radius:10px !important;font-size:12px !important}
+  .survey-chart-wrap{padding:12px !important;border-radius:18px !important}
+  .survey-bars-title b,.survey-bars-title span{font-size:10px !important;font-weight:700 !important}
+  .survey-donut{height:150px !important;max-width:175px !important}
+  .survey-donut-wrap{gap:10px !important}
+
+  /* بطاقات التصنيفات */
+  .survey-donut-legend,
+  .survey-donut-legend-grid{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;grid-auto-flow:row !important}
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:7px 11px !important;border-radius:999px !important;min-width:0 !important;gap:6px !important}
+  .survey-legend-item.legend-item-wide,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{grid-column:1 / -1 !important}
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),
+  .survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd){grid-column:1 / -1 !important;justify-self:center !important;min-width:58% !important}
+  .survey-legend-dot{width:9px !important;height:9px !important}
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label{font-size:9px !important;font-weight:700 !important;line-height:1.25 !important;white-space:normal !important;overflow-wrap:anywhere !important}
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct{font-size:9px !important;font-weight:800 !important;line-height:1.25 !important}
+
+  /* بطاقة الاستجابات */
+  .survey-summary-meta{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;margin-top:12px !important}
+  .survey-summary-pill{padding:12px 8px 10px !important;border-radius:16px !important}
+  .survey-summary-badge{font-size:9px !important;font-weight:700 !important}
+  .survey-summary-number{font-size:22px !important;font-weight:900 !important;line-height:1.1 !important}
+  .survey-summary-sub{font-size:9px !important;font-weight:600 !important}
+}
+
+
+.survey-mobile-fit{position:relative}
+@media(max-width:620px){
+  .survey-mobile-fit{overflow:hidden !important;width:100% !important;position:relative !important}
+  .survey-grid{display:flex !important;flex-wrap:nowrap !important;gap:12px !important;width:max-content !important;overflow:visible !important;padding:4px 0 8px !important;transform-origin:top right}
+  .survey-card{flex:0 0 320px !important;min-width:320px !important;max-width:320px !important;padding:14px !important;border-radius:20px !important}
+  .survey-card-title{font-size:13px !important;font-weight:800 !important;line-height:1.45 !important;margin-bottom:10px !important}
+  .survey-icon{width:30px !important;height:30px !important;border-radius:10px !important;font-size:12px !important}
+  .survey-chart-wrap{padding:12px !important;border-radius:18px !important}
+  .survey-bars-title b,.survey-bars-title span{font-size:10px !important;font-weight:700 !important}
+  .survey-donut{height:150px !important;max-width:175px !important}
+  .survey-donut-wrap{gap:10px !important}
+  .survey-donut-legend,.survey-donut-legend-grid{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;grid-auto-flow:row !important}
+  .survey-legend-item,.survey-donut-legend-grid .survey-legend-item,.survey-donut-legend-grid .survey-legend-item.legend-item-wide{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:7px 11px !important;border-radius:999px !important;min-width:0 !important;gap:6px !important}
+  .survey-legend-item.legend-item-wide,.survey-donut-legend-grid .survey-legend-item.legend-item-wide{grid-column:1 / -1 !important}
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),.survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd){grid-column:1 / -1 !important;justify-self:center !important;min-width:58% !important}
+  .survey-legend-dot{width:9px !important;height:9px !important}
+  .survey-legend-label,.survey-donut-legend-grid .survey-legend-label{font-size:9px !important;font-weight:700 !important;line-height:1.25 !important;white-space:normal !important;overflow-wrap:anywhere !important}
+  .survey-legend-pct,.survey-donut-legend-grid .survey-legend-pct{font-size:9px !important;font-weight:800 !important;line-height:1.25 !important}
+  .survey-summary-meta{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;margin-top:12px !important}
+  .survey-summary-pill{padding:12px 8px 10px !important;border-radius:16px !important}
+  .survey-summary-badge{font-size:9px !important;font-weight:700 !important}
+  .survey-summary-number{font-size:22px !important;font-weight:900 !important;line-height:1.1 !important}
+  .survey-summary-sub{font-size:9px !important;font-weight:600 !important}
+}
+
+
+@media(max-width:620px){
+  /* تعديل نهائي: بيانات الاستطلاع مثل المرجع - أربع بطاقات صغيرة بدون شريط تمرير */
+  .survey-mobile-fit{overflow:visible !important;width:100% !important}
+  .survey-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    width:100% !important;
+    gap:6px !important;
+    padding:0 !important;
+    overflow:visible !important;
+    transform:none !important;
+  }
+  .survey-card{
+    min-width:0 !important;
+    max-width:none !important;
+    width:auto !important;
+    flex:none !important;
+    padding:8px !important;
+    border-radius:14px !important;
+  }
+  .survey-card-title{
+    font-size:8.5px !important;
+    font-weight:800 !important;
+    line-height:1.3 !important;
+    margin-bottom:6px !important;
+    gap:6px !important;
+  }
+  .survey-icon{
+    width:16px !important;
+    height:16px !important;
+    border-radius:6px !important;
+    font-size:8px !important;
+    box-shadow:none !important;
+  }
+  .survey-chart-wrap{
+    padding:6px !important;
+    border-radius:12px !important;
+  }
+  .survey-bars-title b,.survey-bars-title span{
+    font-size:6.2px !important;
+    font-weight:700 !important;
+  }
+  .survey-donut-wrap{
+    gap:5px !important;
+  }
+  .survey-donut{
+    height:72px !important;
+    max-width:86px !important;
+    margin-inline:auto !important;
+  }
+  .survey-donut-legend,
+  .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:4px !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    padding:3px 5px !important;
+    border-radius:999px !important;
+    gap:4px !important;
+    min-width:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+  }
+  .survey-legend-item.legend-item-wide,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide,
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),
+  .survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd){
+    grid-column:1 / -1 !important;
+  }
+  .survey-legend-dot{
+    width:6px !important;
+    height:6px !important;
+  }
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label{
+    font-size:5.8px !important;
+    font-weight:700 !important;
+    line-height:1.15 !important;
+  }
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct{
+    font-size:5.8px !important;
+    font-weight:800 !important;
+    line-height:1.15 !important;
+  }
+  .survey-summary-meta{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin-top:8px !important;
+  }
+  .survey-summary-pill{
+    padding:7px 4px 6px !important;
+    border-radius:10px !important;
+  }
+  .survey-summary-badge{
+    font-size:5.8px !important;
+    font-weight:700 !important;
+  }
+  .survey-summary-number{
+    font-size:12px !important;
+    font-weight:900 !important;
+    line-height:1.1 !important;
+  }
+  .survey-summary-sub{
+    font-size:5.8px !important;
+    font-weight:600 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* ضبط نهائي لبيانات الاستطلاع: مثل المرجع، صف واحد، دوائر صغيرة، بدون شريط */
+  .survey-section{padding:12px !important;border-radius:20px !important}
+  .survey-mobile-fit{width:100% !important;overflow:hidden !important;position:relative !important}
+  .survey-grid{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    align-items:flex-start !important;
+    gap:10px !important;
+    width:max-content !important;
+    overflow:visible !important;
+    padding:0 !important;
+    transform-origin:top right;
+  }
+  .survey-card{
+    flex:0 0 196px !important;
+    width:196px !important;
+    min-width:196px !important;
+    max-width:196px !important;
+    padding:10px !important;
+    border-radius:18px !important;
+    min-height:350px !important;
+  }
+  .survey-card-title{
+    font-size:11px !important;
+    font-weight:800 !important;
+    line-height:1.35 !important;
+    margin-bottom:8px !important;
+    gap:6px !important;
+  }
+  .survey-icon{
+    width:22px !important;
+    height:22px !important;
+    border-radius:8px !important;
+    font-size:10px !important;
+    box-shadow:none !important;
+    flex:0 0 22px !important;
+  }
+  .survey-chart-wrap{
+    padding:9px !important;
+    border-radius:14px !important;
+  }
+  .survey-bars-title b,.survey-bars-title span{
+    font-size:8px !important;
+    font-weight:700 !important;
+  }
+  .survey-donut{
+    height:100px !important;
+    max-width:110px !important;
+    margin-inline:auto !important;
+  }
+  .survey-donut-wrap{gap:7px !important}
+  .survey-donut-legend,
+  .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:5px !important;
+    grid-auto-flow:row !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:4px !important;
+    min-width:0 !important;
+    padding:4px 6px !important;
+    border-radius:999px !important;
+  }
+  .survey-legend-item.legend-item-wide,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide,
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),
+  .survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd){
+    grid-column:1 / -1 !important;
+  }
+  .survey-legend-dot{width:7px !important;height:7px !important;flex:0 0 7px !important}
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label{
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1.2 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    text-align:right !important;
+  }
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct{
+    font-size:7px !important;
+    font-weight:800 !important;
+    line-height:1.2 !important;
+    flex:0 0 auto !important;
+  }
+  .survey-summary-meta{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:7px !important;
+    margin-top:9px !important;
+  }
+  .survey-summary-pill{
+    padding:8px 5px 7px !important;
+    border-radius:12px !important;
+  }
+  .survey-summary-badge{font-size:7px !important;font-weight:700 !important}
+  .survey-summary-number{font-size:16px !important;font-weight:900 !important;line-height:1.08 !important}
+  .survey-summary-sub{font-size:7px !important;font-weight:600 !important}
+}
+
+
+@media(max-width:620px){
+  /* ضبط بيانات الاستطلاع: صف واحد كامل مثل الكمبيوتر لكن مصغر جداً */
+  .survey-section{padding:12px !important;border-radius:20px !important;overflow:hidden !important}
+  .survey-mobile-fit{width:100% !important;overflow:hidden !important;position:relative !important}
+  .survey-grid{
+    --survey-scale:1;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    align-items:flex-start !important;
+    gap:8px !important;
+    width:max-content !important;
+    padding:0 !important;
+    overflow:visible !important;
+    transform:scale(var(--survey-scale)) !important;
+    transform-origin:top right !important;
+  }
+  .survey-card{
+    flex:0 0 170px !important;
+    width:170px !important;
+    min-width:170px !important;
+    max-width:170px !important;
+    padding:8px !important;
+    border-radius:16px !important;
+    min-height:302px !important;
+  }
+  .survey-card-title{
+    font-size:10px !important;
+    font-weight:800 !important;
+    line-height:1.3 !important;
+    margin-bottom:7px !important;
+    gap:5px !important;
+  }
+  .survey-icon{
+    width:20px !important;
+    height:20px !important;
+    border-radius:7px !important;
+    font-size:9px !important;
+    box-shadow:none !important;
+    flex:0 0 20px !important;
+  }
+  .survey-chart-wrap{padding:7px !important;border-radius:13px !important}
+  .survey-bars-title b,.survey-bars-title span{font-size:7px !important;font-weight:700 !important}
+  .survey-donut-wrap{gap:6px !important}
+  .survey-donut{height:88px !important;max-width:96px !important;margin-inline:auto !important}
+  .survey-donut-legend,
+  .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:4px !important;
+    grid-auto-flow:row !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:4px !important;
+    min-width:0 !important;
+    padding:3px 5px !important;
+    border-radius:999px !important;
+  }
+  .survey-legend-item.legend-item-wide,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide,
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),
+  .survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd){grid-column:1 / -1 !important}
+  .survey-legend-dot{width:6px !important;height:6px !important;flex:0 0 6px !important}
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label{font-size:6px !important;font-weight:700 !important;line-height:1.15 !important;white-space:normal !important;overflow-wrap:anywhere !important;text-align:right !important}
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct{font-size:6px !important;font-weight:800 !important;line-height:1.15 !important;flex:0 0 auto !important}
+  .survey-summary-meta{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:5px !important;margin-top:8px !important}
+  .survey-summary-pill{padding:7px 4px 6px !important;border-radius:11px !important}
+  .survey-summary-badge{font-size:6.2px !important;font-weight:700 !important}
+  .survey-summary-number{font-size:14px !important;font-weight:900 !important;line-height:1.08 !important}
+  .survey-summary-sub{font-size:6.2px !important;font-weight:600 !important}
+}
+
+
+@media(max-width:620px){
+  /* بيانات الاستطلاع: 4 بطاقات ظاهرة كلها في صف واحد بدون اختفاء */
+  .survey-section{padding:10px !important;border-radius:18px !important;overflow:hidden !important}
+  .survey-mobile-fit{width:100% !important;overflow:visible !important}
+  #surveyData.survey-grid,
+  .survey-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:6px !important;
+    width:100% !important;
+    padding:0 !important;
+    overflow:visible !important;
+    transform:none !important;
+  }
+  .survey-card{
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    flex:none !important;
+    padding:6px !important;
+    border-radius:12px !important;
+    min-height:265px !important;
+  }
+  .survey-card-title{
+    font-size:8px !important;
+    font-weight:800 !important;
+    line-height:1.2 !important;
+    margin-bottom:5px !important;
+    gap:4px !important;
+  }
+  .survey-icon{
+    width:14px !important;
+    height:14px !important;
+    border-radius:5px !important;
+    font-size:7px !important;
+    flex:0 0 14px !important;
+    box-shadow:none !important;
+  }
+  .survey-chart-wrap{padding:5px !important;border-radius:10px !important}
+  .survey-bars-title b,.survey-bars-title span{font-size:5.6px !important;font-weight:700 !important}
+  .survey-donut-wrap{gap:4px !important}
+  .survey-donut{height:62px !important;max-width:70px !important;margin-inline:auto !important}
+  .survey-donut-legend,
+  .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:3px !important;
+    width:100% !important;
+    grid-auto-flow:row !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    padding:2px 4px !important;
+    gap:3px !important;
+    border-radius:999px !important;
+    min-width:0 !important;
+  }
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),
+  .survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd),
+  .survey-legend-item.legend-item-wide,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{grid-column:1 / -1 !important}
+  .survey-legend-dot{width:5px !important;height:5px !important;flex:0 0 5px !important}
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label{
+    font-size:4.9px !important;
+    font-weight:700 !important;
+    line-height:1.1 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    text-align:right !important;
+  }
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct{
+    font-size:4.9px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    flex:0 0 auto !important;
+  }
+  .survey-summary-meta{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:4px !important;margin-top:6px !important}
+  .survey-summary-pill{padding:5px 3px 4px !important;border-radius:8px !important}
+  .survey-summary-badge{font-size:5.2px !important;font-weight:700 !important;line-height:1.1 !important}
+  .survey-summary-number{font-size:10px !important;font-weight:900 !important;line-height:1.05 !important}
+  .survey-summary-sub{font-size:5.2px !important;font-weight:600 !important;line-height:1.1 !important}
+}
+
+
+@media(max-width:620px){
+  /* بيانات الاستطلاع: 4 بطاقات في صف واحد وبنفس فكرة الكمبيوتر لكن مصغرة جداً */
+  .survey-section{padding:8px !important;border-radius:18px !important;overflow:hidden !important}
+  .survey-head{margin-bottom:8px !important}
+  .survey-title{font-size:14px !important;font-weight:800 !important}
+  .survey-mobile-fit{overflow:visible !important;width:100% !important}
+  #surveyData.survey-grid,
+  .survey-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    width:100% !important;
+    gap:5px !important;
+    padding:0 !important;
+    overflow:visible !important;
+    transform:none !important;
+    align-items:start !important;
+  }
+  #surveyData .survey-card,
+  .survey-card{
+    min-width:0 !important;
+    max-width:none !important;
+    width:auto !important;
+    flex:none !important;
+    padding:5px !important;
+    border-radius:12px !important;
+    min-height:220px !important;
+    box-shadow:0 4px 10px rgba(0,84,77,.05) !important;
+  }
+  .survey-card-title{
+    font-size:7px !important;
+    font-weight:800 !important;
+    line-height:1.15 !important;
+    margin-bottom:4px !important;
+    gap:3px !important;
+  }
+  .survey-icon{
+    width:12px !important;
+    height:12px !important;
+    border-radius:4px !important;
+    font-size:6px !important;
+    flex:0 0 12px !important;
+    box-shadow:none !important;
+  }
+  .survey-chart-wrap{
+    padding:4px !important;
+    border-radius:10px !important;
+  }
+  .survey-bars-title{margin-bottom:3px !important}
+  .survey-bars-title b,.survey-bars-title span{
+    font-size:4.9px !important;
+    font-weight:700 !important;
+    line-height:1.1 !important;
+  }
+  .survey-donut-wrap{gap:4px !important}
+  .survey-donut{
+    height:52px !important;
+    max-width:58px !important;
+    margin-inline:auto !important;
+  }
+
+  /* العناصر أسفل الدائرة مثل الكمبيوتر: عمودان ومتجاورة */
+  .survey-donut-legend,
+  .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:3px !important;
+    width:100% !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:grid !important;
+    grid-template-columns:7px 1fr auto !important;
+    align-items:center !important;
+    gap:2px !important;
+    min-width:0 !important;
+    padding:2px 3px !important;
+    border-radius:999px !important;
+  }
+  .survey-legend-item.legend-item-wide,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide,
+  .survey-donut-legend .survey-legend-item:last-child:nth-child(odd),
+  .survey-donut-legend-grid .survey-legend-item:last-child:nth-child(odd){grid-column:1 / -1 !important}
+  .survey-legend-dot{width:5px !important;height:5px !important;flex:0 0 5px !important}
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label{
+    font-size:4.5px !important;
+    font-weight:700 !important;
+    line-height:1.05 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    text-align:right !important;
+  }
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct{
+    font-size:4.5px !important;
+    font-weight:800 !important;
+    line-height:1.05 !important;
+    flex:0 0 auto !important;
+  }
+
+  /* بطاقة الاستجابات */
+  .survey-summary-meta{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:3px !important;
+    margin-top:5px !important;
+  }
+  .survey-summary-pill{
+    padding:4px 2px 3px !important;
+    border-radius:8px !important;
+  }
+  .survey-summary-badge{
+    font-size:4.8px !important;
+    font-weight:700 !important;
+    line-height:1.05 !important;
+  }
+  .survey-summary-number{
+    font-size:8.5px !important;
+    font-weight:900 !important;
+    line-height:1.0 !important;
+  }
+  .survey-summary-sub{
+    font-size:4.8px !important;
+    font-weight:600 !important;
+    line-height:1.05 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* نسخة جوال مضبوطة لبيانات الاستطلاع */
+  .survey-section{padding:8px !important;border-radius:18px !important;overflow:hidden !important}
+  .survey-head{margin-bottom:8px !important}
+  .survey-title{font-size:14px !important;font-weight:800 !important}
+  #surveyData.survey-grid,.survey-grid{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    width:100% !important;
+    gap:4px !important;
+    padding:0 !important;
+    overflow:visible !important;
+    transform:none !important;
+    align-items:start !important;
+  }
+  #surveyData .survey-card,.survey-card{
+    min-width:0 !important;
+    max-width:none !important;
+    width:auto !important;
+    flex:none !important;
+    padding:4px !important;
+    border-radius:12px !important;
+    min-height:205px !important;
+  }
+  .survey-card-title{font-size:6.5px !important;font-weight:800 !important;line-height:1.12 !important;margin-bottom:3px !important;gap:3px !important}
+  .survey-icon{width:11px !important;height:11px !important;border-radius:4px !important;font-size:6px !important;flex:0 0 11px !important;box-shadow:none !important}
+  .survey-chart-wrap{padding:4px !important;border-radius:9px !important}
+  .survey-bars-title{margin-bottom:2px !important}
+  .survey-bars-title b,.survey-bars-title span{font-size:4.6px !important;font-weight:700 !important;line-height:1.05 !important}
+  .survey-donut-wrap{gap:3px !important}
+  .survey-donut{height:48px !important;max-width:54px !important;margin-inline:auto !important}
+
+  /* ترتيب العناصر أسفل الدوائر: عنصران بجانب بعض مثل الكمبيوتر */
+  .survey-donut-legend,
+  .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    width:100% !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:2px !important;
+    min-width:0 !important;
+    padding:2px 3px !important;
+    border-radius:999px !important;
+  }
+  .survey-card-1 .survey-legend-item:last-child,
+  .survey-card-2 .survey-legend-item:last-child,
+  .survey-card-3 .survey-legend-item:first-child,
+  .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    grid-column:1 / -1 !important;
+  }
+  .survey-legend-dot{width:4px !important;height:4px !important;flex:0 0 4px !important}
+  .survey-legend-label,.survey-donut-legend-grid .survey-legend-label{font-size:4.2px !important;font-weight:700 !important;line-height:1.0 !important;white-space:normal !important;overflow-wrap:anywhere !important;text-align:right !important}
+  .survey-legend-pct,.survey-donut-legend-grid .survey-legend-pct{font-size:4.2px !important;font-weight:800 !important;line-height:1.0 !important;flex:0 0 auto !important}
+
+  /* الاستجابات: نسب وأرقام صغيرة جداً ومتناسقة */
+  .survey-card-responses .survey-donut-legend{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:2px !important}
+  .survey-card-responses .survey-summary-meta{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:3px !important;margin-top:5px !important}
+  .survey-card-responses .survey-summary-pill{padding:4px 2px 3px !important;border-radius:8px !important}
+  .survey-card-responses .survey-summary-badge{font-size:4.3px !important;font-weight:700 !important;line-height:1.0 !important}
+  .survey-card-responses .survey-summary-number{font-size:8px !important;font-weight:900 !important;line-height:1.0 !important}
+  .survey-card-responses .survey-summary-sub{font-size:4.3px !important;font-weight:600 !important;line-height:1.0 !important}
+}
+
+
+@media(max-width:620px){
+  /* ضبط نهائي لبيانات الاستطلاع فقط */
+  .survey-card-3 .survey-donut-legend-grid,
+  .survey-card-3 .survey-donut-legend{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+  }
+  .survey-card-3 .survey-legend-item,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item{
+    grid-template-columns:auto 1fr auto !important;
+    padding:1px 3px !important;
+    gap:2px !important;
+    min-height:14px !important;
+  }
+  .survey-card-3 .survey-legend-item:first-child,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item:first-child{
+    grid-column:1 / -1 !important;
+  }
+  .survey-card-3 .survey-legend-label,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-label{
+    font-size:3.9px !important;
+    font-weight:700 !important;
+    line-height:1.0 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .survey-card-3 .survey-legend-pct,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-pct{
+    font-size:3.9px !important;
+    font-weight:800 !important;
+    line-height:1.0 !important;
+  }
+  .survey-card-3 .survey-legend-dot{width:4px !important;height:4px !important;flex:0 0 4px !important}
+
+  .survey-card-1 .survey-donut-legend,
+  .survey-card-1 .survey-donut-legend-grid,
+  .survey-card-2 .survey-donut-legend,
+  .survey-card-2 .survey-donut-legend-grid,
+  .survey-card-responses .survey-donut-legend{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+  }
+  .survey-card-1 .survey-legend-item,
+  .survey-card-2 .survey-legend-item,
+  .survey-card-responses .survey-legend-item{
+    grid-template-columns:auto 1fr auto !important;
+    padding:1px 3px !important;
+    gap:2px !important;
+    min-height:14px !important;
+  }
+  .survey-card-1 .survey-legend-label,
+  .survey-card-2 .survey-legend-label,
+  .survey-card-responses .survey-legend-label{
+    font-size:3.9px !important;
+    font-weight:700 !important;
+    line-height:1.0 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .survey-card-1 .survey-legend-pct,
+  .survey-card-2 .survey-legend-pct,
+  .survey-card-responses .survey-legend-pct{
+    font-size:3.9px !important;
+    font-weight:800 !important;
+    line-height:1.0 !important;
+  }
+  .survey-card-1 .survey-legend-dot,
+  .survey-card-2 .survey-legend-dot,
+  .survey-card-responses .survey-legend-dot{width:4px !important;height:4px !important;flex:0 0 4px !important}
+
+  .survey-card-responses .survey-summary-meta{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    margin-top:4px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    padding:3px 2px 2px !important;
+    border-radius:7px !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    font-size:3.9px !important;
+    font-weight:700 !important;
+    line-height:1.0 !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:7px !important;
+    font-weight:900 !important;
+    line-height:1.0 !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:3.9px !important;
+    font-weight:600 !important;
+    line-height:1.0 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* المحافظة/القطاع: ترتيب مصفوف 2×N بعد العنصر الأول، وخط صغير جداً */
+  .survey-card-3 .survey-donut-legend,
+  .survey-card-3 .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    width:100% !important;
+    grid-auto-flow:row !important;
+  }
+  .survey-card-3 .survey-legend-item,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:2px !important;
+    min-width:0 !important;
+    min-height:12px !important;
+    padding:1px 3px !important;
+    border-radius:999px !important;
+  }
+  .survey-card-3 .survey-legend-item:first-child,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item:first-child{
+    grid-column:1 / -1 !important;
+  }
+  .survey-card-3 .survey-legend-item:last-child,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item:last-child{
+    grid-column:auto !important;
+  }
+  .survey-card-3 .survey-legend-dot{width:4px !important;height:4px !important;flex:0 0 4px !important}
+  .survey-card-3 .survey-legend-label,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-label{
+    font-size:3.6px !important;
+    font-weight:700 !important;
+    line-height:0.98 !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    text-align:right !important;
+  }
+  .survey-card-3 .survey-legend-pct,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-pct{
+    font-size:3.6px !important;
+    font-weight:800 !important;
+    line-height:0.98 !important;
+    flex:0 0 auto !important;
+  }
+
+  /* الجنس والمرحلة: صغيرتان ومتناسقتان */
+  .survey-card-1 .survey-legend-label,
+  .survey-card-2 .survey-legend-label,
+  .survey-card-1 .survey-donut-legend-grid .survey-legend-label,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-label{
+    font-size:3.8px !important;
+    line-height:0.98 !important;
+  }
+  .survey-card-1 .survey-legend-pct,
+  .survey-card-2 .survey-legend-pct,
+  .survey-card-1 .survey-donut-legend-grid .survey-legend-pct,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-pct{
+    font-size:3.8px !important;
+    line-height:0.98 !important;
+  }
+
+  /* عدد الاستجابات: النِّسَب والأرقام أصغر جداً وبجوار بعضها */
+  .survey-card-responses .survey-donut-legend{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    width:100% !important;
+  }
+  .survey-card-responses .survey-legend-item{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:2px !important;
+    min-width:0 !important;
+    min-height:12px !important;
+    padding:1px 3px !important;
+    border-radius:999px !important;
+  }
+  .survey-card-responses .survey-legend-dot{width:4px !important;height:4px !important;flex:0 0 4px !important}
+  .survey-card-responses .survey-legend-label{
+    font-size:3.4px !important;
+    font-weight:700 !important;
+    line-height:0.95 !important;
+    text-align:right !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .survey-card-responses .survey-legend-pct{
+    font-size:3.4px !important;
+    font-weight:800 !important;
+    line-height:0.95 !important;
+  }
+  .survey-card-responses .survey-summary-meta{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    margin-top:4px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    padding:2px 2px 2px !important;
+    border-radius:7px !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    font-size:3.6px !important;
+    font-weight:700 !important;
+    line-height:0.95 !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:6.4px !important;
+    font-weight:900 !important;
+    line-height:0.95 !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:3.6px !important;
+    font-weight:600 !important;
+    line-height:0.95 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* ترتيب نهائي لقسم المحافظة/القطاع: بعد أول عنصر يصبح العرض عنصرين جنب بعض */
+  .survey-card-3 .survey-donut-legend,
+  .survey-card-3 .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    width:100% !important;
+  }
+  .survey-card-3 .survey-legend-item,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item,
+  .survey-card-3 .survey-legend-item.legend-item-wide,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:2px !important;
+    min-width:0 !important;
+    min-height:11px !important;
+    padding:1px 3px !important;
+    border-radius:999px !important;
+    grid-column:auto !important;
+  }
+  .survey-card-3 .survey-legend-item:first-child,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item:first-child{
+    grid-column:1 / -1 !important;
+  }
+  .survey-card-3 .survey-legend-label,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-label{
+    font-size:3.35px !important;
+    font-weight:700 !important;
+    line-height:0.95 !important;
+    text-align:right !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .survey-card-3 .survey-legend-pct,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-pct{
+    font-size:3.35px !important;
+    font-weight:800 !important;
+    line-height:0.95 !important;
+  }
+
+  /* عدد الاستجابات: النصوص والنسب والأرقام أصغر جداً ومتجاورة */
+  .survey-card-responses .survey-donut-legend{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:1px !important;
+    width:100% !important;
+  }
+  .survey-card-responses .survey-legend-item{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:1px !important;
+    min-width:0 !important;
+    min-height:11px !important;
+    padding:1px 2px !important;
+    border-radius:999px !important;
+  }
+  .survey-card-responses .survey-legend-label{
+    font-size:3.15px !important;
+    font-weight:700 !important;
+    line-height:0.92 !important;
+    text-align:right !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .survey-card-responses .survey-legend-pct{
+    font-size:3.15px !important;
+    font-weight:800 !important;
+    line-height:0.92 !important;
+  }
+  .survey-card-responses .survey-summary-meta{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:1px !important;
+    margin-top:3px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    padding:2px 1px 2px !important;
+    border-radius:6px !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    font-size:3.15px !important;
+    font-weight:700 !important;
+    line-height:0.9 !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:6px !important;
+    font-weight:900 !important;
+    line-height:0.95 !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:3.15px !important;
+    font-weight:600 !important;
+    line-height:0.9 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* المرحلة الدراسية: عنصران جنب بعض مع آخر عنصر بعرض كامل */
+  .survey-card-2 .survey-donut-legend,
+  .survey-card-2 .survey-donut-legend-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:2px !important;
+    width:100% !important;
+  }
+  .survey-card-2 .survey-legend-item,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-item,
+  .survey-card-2 .survey-legend-item.legend-item-wide,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-item.legend-item-wide{
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:2px !important;
+    min-width:0 !important;
+    min-height:11px !important;
+    padding:1px 3px !important;
+    border-radius:999px !important;
+    grid-column:auto !important;
+  }
+  .survey-card-2 .survey-legend-item:last-child,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-item:last-child{
+    grid-column:1 / -1 !important;
+  }
+  .survey-card-2 .survey-legend-dot{width:4px !important;height:4px !important;flex:0 0 4px !important}
+  .survey-card-2 .survey-legend-label,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-label{
+    font-size:3.35px !important;
+    font-weight:700 !important;
+    line-height:0.95 !important;
+    text-align:right !important;
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+  .survey-card-2 .survey-legend-pct,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-pct{
+    font-size:3.35px !important;
+    font-weight:800 !important;
+    line-height:0.95 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* تخفيف الخطوط في بيانات الاستطلاع */
+  .survey-card-title{
+    font-size:5.8px !important;
+    font-weight:500 !important;
+  }
+  .survey-bars-title b,
+  .survey-bars-title span{
+    font-size:4.2px !important;
+    font-weight:400 !important;
+  }
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label,
+  .survey-card-1 .survey-legend-label,
+  .survey-card-2 .survey-legend-label,
+  .survey-card-3 .survey-legend-label,
+  .survey-card-responses .survey-legend-label{
+    font-size:3.6px !important;
+    font-weight:400 !important;
+  }
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct,
+  .survey-card-1 .survey-legend-pct,
+  .survey-card-2 .survey-legend-pct,
+  .survey-card-3 .survey-legend-pct,
+  .survey-card-responses .survey-legend-pct{
+    font-size:3.6px !important;
+    font-weight:500 !important;
+  }
+  .survey-summary-badge,
+  .survey-card-responses .survey-summary-badge{
+    font-size:3.2px !important;
+    font-weight:400 !important;
+  }
+  .survey-summary-number,
+  .survey-card-responses .survey-summary-number{
+    font-size:5.8px !important;
+    font-weight:500 !important;
+  }
+  .survey-summary-sub,
+  .survey-card-responses .survey-summary-sub{
+    font-size:3.2px !important;
+    font-weight:400 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* تخفيف خطوط بيانات الاستطلاع أكثر ومنع تقطيع الكلمات */
+  .survey-card-title{
+    font-size:5.2px !important;
+    font-weight:400 !important;
+    line-height:1.0 !important;
+  }
+  .survey-bars-title b,
+  .survey-bars-title span{
+    font-size:3.8px !important;
+    font-weight:400 !important;
+    line-height:1.0 !important;
+  }
+  .survey-legend-item,
+  .survey-donut-legend-grid .survey-legend-item{
+    gap:1px !important;
+  }
+  .survey-legend-label,
+  .survey-donut-legend-grid .survey-legend-label,
+  .survey-card-1 .survey-legend-label,
+  .survey-card-2 .survey-legend-label,
+  .survey-card-3 .survey-legend-label,
+  .survey-card-responses .survey-legend-label{
+    font-size:3.0px !important;
+    font-weight:400 !important;
+    line-height:0.92 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:clip !important;
+    overflow-wrap:normal !important;
+    word-break:keep-all !important;
+  }
+  .survey-legend-pct,
+  .survey-donut-legend-grid .survey-legend-pct,
+  .survey-card-1 .survey-legend-pct,
+  .survey-card-2 .survey-legend-pct,
+  .survey-card-3 .survey-legend-pct,
+  .survey-card-responses .survey-legend-pct{
+    font-size:3.0px !important;
+    font-weight:400 !important;
+    line-height:0.92 !important;
+    white-space:nowrap !important;
+  }
+  .survey-summary-badge,
+  .survey-card-responses .survey-summary-badge{
+    font-size:2.9px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+  }
+  .survey-summary-number,
+  .survey-card-responses .survey-summary-number{
+    font-size:5.2px !important;
+    font-weight:400 !important;
+    line-height:0.95 !important;
+    white-space:nowrap !important;
+  }
+  .survey-summary-sub,
+  .survey-card-responses .survey-summary-sub{
+    font-size:2.9px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+  }
+}
+
+
+@media(max-width:620px){
+  .survey-card-responses .survey-summary-badge{
+    font-size:2.8px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:4.9px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:2.8px !important;
+    font-weight:400 !important;
+    line-height:0.88 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-legend-label,
+  .survey-card-responses .survey-legend-pct{
+    font-size:2.95px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* إخفاء شارة "إجمالي الفصلين" في بيانات الاستطلاع */
+  .survey-bars-title{display:none !important}
+
+  /* المحافظة/القطاع والمرحلة الدراسية: خط عادي وأصغر */
+  .survey-card-2 .survey-legend-item,
+  .survey-card-3 .survey-legend-item,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-item,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-item{
+    padding:1px 2px !important;
+    gap:1px !important;
+  }
+  .survey-card-2 .survey-legend-label,
+  .survey-card-3 .survey-legend-label,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-label,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-label{
+    font-size:2.8px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:clip !important;
+    overflow-wrap:normal !important;
+    word-break:keep-all !important;
+  }
+  .survey-card-2 .survey-legend-pct,
+  .survey-card-3 .survey-legend-pct,
+  .survey-card-2 .survey-donut-legend-grid .survey-legend-pct,
+  .survey-card-3 .survey-donut-legend-grid .survey-legend-pct{
+    font-size:2.8px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    white-space:nowrap !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* إزالة الفراغ الأبيض في بيانات الاستطلاع */
+  .survey-section{
+    padding-bottom:6px !important;
+  }
+  #surveyData.survey-grid,
+  .survey-grid{
+    align-items:start !important;
+    grid-auto-rows:min-content !important;
+  }
+  #surveyData .survey-card,
+  .survey-card{
+    min-height:auto !important;
+    height:auto !important;
+    align-self:start !important;
+  }
+  .survey-chart-wrap{
+    padding-bottom:3px !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* ترتيب قسم مستوى التحسن */
+  #trendChart.chart{display:block !important;height:218px !important;margin-bottom:4px !important}
+  #trendChart .plot-container text{font-weight:400 !important}
+  .trend-summary-mobile{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:7px !important;
+    margin-top:0 !important;
+  }
+  .trend-summary-mobile .tbox{
+    background:#F7FAF9 !important;
+    border:1px solid rgba(0,107,94,.12) !important;
+    border-radius:13px !important;
+    padding:8px 4px !important;
+    text-align:center !important;
+  }
+  .trend-summary-mobile .tbox span{
+    display:block !important;
+    font-size:7px !important;
+    font-weight:400 !important;
+    color:var(--muted) !important;
+    line-height:1.2 !important;
+    margin-bottom:2px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    display:block !important;
+    font-size:10px !important;
+    font-weight:700 !important;
+    line-height:1.15 !important;
+    color:#073B4C !important;
+  }
+  .trend-summary-mobile .tbox b.up{color:#00A878 !important}
+}
+
+
+@media(max-width:620px){
+  /* مستوى التحسن: عرض نظيف بدون تداخل */
+  #trendChart.chart{display:none !important}
+  .trend-summary-mobile{display:block !important;margin-top:6px !important}
+  .trend-clean{
+    background:linear-gradient(180deg,#FCFEFD 0%,#F6FAF9 100%);
+    border:1px solid rgba(0,107,94,.12);
+    border-radius:20px;
+    padding:16px 14px;
+    text-align:center;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
+  }
+  .trend-clean-label{font-size:13px;font-weight:500;color:#65777E;line-height:1.4;margin-bottom:4px}
+  .trend-clean-value{font-size:42px;font-weight:800;color:#006B5E;line-height:1.05;margin-bottom:10px}
+  .trend-clean-track{height:12px;background:#E6EFED;border-radius:999px;overflow:hidden;margin:0 auto 12px;max-width:260px}
+  .trend-clean-track span{display:block;height:100%;background:linear-gradient(90deg,#00A878,#00A19A);border-radius:999px}
+  .trend-clean-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .trend-clean-cards div{background:#FFFFFF;border:1px solid rgba(0,107,94,.11);border-radius:14px;padding:8px 5px}
+  .trend-clean-cards span{display:block;font-size:8px;font-weight:400;color:#65777E;line-height:1.2;margin-bottom:3px}
+  .trend-clean-cards b{display:block;font-size:12px;font-weight:700;color:#073B4C;line-height:1.15}
+  .trend-clean-cards b.up{color:#00A878}
+}
+
+
+@media(max-width:620px){
+  /* رجوع رسم مستوى التحسن الأصلي مع تصغير النصوص */
+  #trendChart.chart{display:block !important;height:232px !important;margin-bottom:4px !important}
+  .trend-summary-mobile{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important;margin-top:2px !important}
+  .trend-summary-mobile .tbox{background:#F7FAF9 !important;border:1px solid rgba(0,107,94,.10) !important;border-radius:12px !important;padding:7px 3px !important;text-align:center !important}
+  .trend-summary-mobile .tbox span{display:block !important;font-size:6px !important;font-weight:400 !important;color:var(--muted) !important;line-height:1.1 !important;margin-bottom:2px !important}
+  .trend-summary-mobile .tbox b{display:block !important;font-size:9px !important;font-weight:500 !important;line-height:1.1 !important;color:#073B4C !important}
+  .trend-summary-mobile .tbox b.up{color:#00A878 !important}
+  .trend-clean,.trend-clean-label,.trend-clean-value,.trend-clean-track,.trend-clean-cards{all:unset !important}
+  #trendChart .gtitle text{font-size:8px !important}
+}
+
+
+@media(max-width:620px){
+  /* تصغير نصوص مستوى التحسن أكثر */
+  #trendChart.chart{height:226px !important}
+  .trend-summary-mobile{gap:5px !important;margin-top:1px !important}
+  .trend-summary-mobile .tbox{padding:5px 2px !important;border-radius:10px !important}
+  .trend-summary-mobile .tbox span{
+    font-size:4.8px !important;
+    font-weight:400 !important;
+    line-height:1.0 !important;
+    margin-bottom:1px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:7px !important;
+    font-weight:400 !important;
+    line-height:1.0 !important;
+  }
+  #trendChart .gtitle text,
+  #trendChart svg text{
+    font-weight:400 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* تصغير إضافي لنصوص مستوى التحسن */
+  .trend-summary-mobile{gap:4px !important;margin-top:0 !important}
+  .trend-summary-mobile .tbox{padding:4px 2px !important;border-radius:9px !important}
+  .trend-summary-mobile .tbox span{
+    font-size:3.9px !important;
+    font-weight:400 !important;
+    line-height:0.95 !important;
+    margin-bottom:1px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:5.8px !important;
+    font-weight:400 !important;
+    line-height:0.95 !important;
+  }
+  #trendChart.chart{height:222px !important}
+}
+
+
+@media(max-width:620px){
+  /* تصغير نصوص مستوى التحسن بشكل أوضح */
+  #trendChart.chart{height:218px !important;margin-bottom:2px !important}
+  .trend-summary-mobile{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:3px !important;margin-top:0 !important}
+  .trend-summary-mobile .tbox{padding:3px 1px !important;border-radius:8px !important}
+  .trend-summary-mobile .tbox span{
+    font-size:3.2px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    margin-bottom:1px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:5px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+  }
+  .trend-summary-mobile .tbox b.up{font-weight:400 !important}
+}
+
+
+@media(max-width:620px){
+  /* رجوع خانات بداية/نهاية/التحسن لحجمها الأول */
+  .trend-summary-mobile{gap:6px !important;margin-top:2px !important}
+  .trend-summary-mobile .tbox{padding:7px 3px !important;border-radius:12px !important}
+  .trend-summary-mobile .tbox span{
+    font-size:6px !important;
+    font-weight:400 !important;
+    line-height:1.1 !important;
+    margin-bottom:2px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:9px !important;
+    font-weight:500 !important;
+    line-height:1.1 !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* تصغير نصوص مستوى التحسن: بداية العام / نهاية العام / التحسن + عنوان الرسم */
+  #trendChart.chart{height:216px !important;margin-bottom:2px !important}
+  .trend-summary-mobile{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:3px !important;margin-top:0 !important}
+  .trend-summary-mobile .tbox{padding:4px 1px !important;border-radius:8px !important}
+  .trend-summary-mobile .tbox span{
+    font-size:3.6px !important;
+    font-weight:400 !important;
+    line-height:0.9 !important;
+    margin-bottom:1px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:5.2px !important;
+    font-weight:400 !important;
+    line-height:0.95 !important;
+  }
+  .trend-summary-mobile .tbox b.up{font-weight:400 !important}
+}
+
+
+@media(max-width:620px){
+  /* تكبير خفيف لبطاقات بداية/نهاية/التحسن */
+  .trend-summary-mobile{gap:4px !important;margin-top:2px !important}
+  .trend-summary-mobile .tbox{
+    padding:5px 2px !important;
+    border-radius:10px !important;
+  }
+  .trend-summary-mobile .tbox span{
+    font-size:4.6px !important;
+    font-weight:700 !important;
+    line-height:1.0 !important;
+    margin-bottom:1px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:6.8px !important;
+    font-weight:700 !important;
+    line-height:1.0 !important;
+  }
+  .trend-summary-mobile .tbox b.up{font-weight:700 !important}
+}
+
+
+@media(max-width:620px){
+  /* أعلى تحسن + أقل مؤشر: اجعل البطاقات الثلاث في صف واحد */
+  .metric-badges{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important}
+  .metric-badge{padding:7px 4px !important;border-radius:12px !important}
+  .metric-badge:last-child{grid-column:auto !important}
+  .metric-badge span{font-size:6.6px !important;font-weight:400 !important;line-height:1.1 !important;margin-bottom:1px !important}
+  .metric-badge b{font-size:9px !important;font-weight:800 !important;line-height:1.1 !important}
+
+  /* جدول المقارنة التفصيلي: اجعل آخر بطاقة مع البطاقتين اللي فوقها */
+  .compare-mobile-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:5px !important}
+  .compare-mobile-pill{padding:5px 3px !important;border-radius:8px !important}
+  .compare-mobile-pill.full{grid-column:auto !important}
+  .compare-mobile-pill span{font-size:5.6px !important;line-height:1.05 !important;font-weight:400 !important;margin-bottom:1px !important}
+  .compare-mobile-pill b{font-size:7.8px !important;line-height:1.1 !important;font-weight:700 !important}
+}
+
+
+@media(max-width:620px){
+  .logo-title{font-size:8px !important;font-weight:600 !important;line-height:1.05 !important}
+  .logo-sub{font-size:6px !important;font-weight:500 !important;line-height:1.05 !important;margin-top:1px !important}
+  .logo-panel{min-height:54px !important;padding:6px !important;border-radius:12px !important}
+}
+
+
+@media(max-width:620px){
+  /* تحسين صندوق الهوية في الهيدر - للجوال فقط */
+  .hero-inner{grid-template-columns:1fr auto !important;align-items:start !important;gap:8px !important}
+  .logo-panel{
+    width:112px !important;
+    min-height:40px !important;
+    padding:5px 7px !important;
+    border-radius:14px !important;
+    background:linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(245,250,249,.96) 100%) !important;
+    box-shadow:0 6px 14px rgba(0,84,77,.10), inset 0 0 0 1px rgba(0,107,94,.08) !important;
+    justify-self:end !important;
+  }
+  .logo-panel > div{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important}
+  .logo-title{
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1.02 !important;
+    letter-spacing:0 !important;
+    color:var(--moe-primary) !important;
+  }
+  .logo-sub{
+    font-size:5.4px !important;
+    font-weight:500 !important;
+    line-height:1.02 !important;
+    margin-top:1px !important;
+    color:var(--moe-blue) !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* تحسين نهائي لصندوق الهوية في الهيدر - أوضح وأخف */
+  .hero-inner{
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+  }
+  .logo-panel{
+    width:118px !important;
+    min-height:34px !important;
+    padding:4px 7px !important;
+    border-radius:12px !important;
+    background:rgba(255,255,255,.92) !important;
+    box-shadow:0 5px 12px rgba(0,84,77,.10), inset 0 0 0 1px rgba(0,107,94,.07) !important;
+    justify-self:start !important;
+    margin-top:4px !important;
+  }
+  .logo-title{
+    font-size:6.8px !important;
+    font-weight:700 !important;
+    line-height:1.05 !important;
+    color:#006B5E !important;
+  }
+  .logo-sub{
+    font-size:4.8px !important;
+    font-weight:500 !important;
+    line-height:1.05 !important;
+    margin-top:1px !important;
+    color:#0B5E67 !important;
+  }
 }
 
 </style>
@@ -308,8 +1917,7 @@ td{font-size:13px;color:#203E49}
     <div class="survey-title">بيانات الاستطلاع</div>
   </div>
   <div class="survey-summary" id="surveySummary"></div>
-  <div class="survey-grid" id="surveyData"></div>
-  <div id="surveyMobileRow" class="survey-mobile-row"></div>
+  <div class="survey-mobile-fit" id="surveyFitWrap"><div class="survey-grid" id="surveyData"></div></div>
 </section>
 
 <section class="kpis">
@@ -328,16 +1936,17 @@ td{font-size:13px;color:#203E49}
     <span>مستوى التحسن</span>
     
   </div>
-  <div id="trendChart" class="chart"></div>
+  <div id="trendChart" class="chart"></div><div id="trendSummaryMobile" class="trend-summary-mobile"></div>
 </div>
 
   
-<div class="panel wide mobile-hide-axis">
+<div class="panel wide axis-panel">
   <div class="panel-title">
     <span>مقارنة نسب الرضا حسب المحور</span>
     
   </div>
   <div id="axisChart" class="chart"></div>
+  <div id="axisCardsMobile" class="axis-cards-mobile"></div>
 </div>
 
 </section>
@@ -361,11 +1970,11 @@ td{font-size:13px;color:#203E49}
 const DATA = {"term1": {"participants": 1675, "columns": 19, "overallSat": 50.7, "overallPositive": 50.7, "questions": [{"id": 1, "question": "جنس المدرسة", "short": "جنس المدرسة", "type": "gender", "labels": ["بنات", "بنين", "طفولة مبكرة"], "values": [827, 701, 147], "percentages": [49.37, 41.85, 8.78], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "بنات", "topValue": 827, "topPct": 49.4, "rankIncluded": false}, {"id": 2, "question": "المرحلة الدراسية", "short": "المرحلة الدراسية", "type": "categorical", "labels": ["ابتدائية", "متوسط", "ثانوي", "طفولة مبكرة"], "values": [981, 572, 385, 237], "percentages": [45.1, 26.3, 17.7, 10.9], "responses": 2175, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "ابتدائية", "topValue": 981, "topPct": 45.1, "rankIncluded": false}, {"id": 3, "question": "المحافظة / القطاع", "short": "المحافظة / القطاع", "type": "categorical", "labels": ["عسير (أبها والخميس وتوابعها )", "بيشة", "محايل عسير", "سراة عبيدة", "النماص", "رجال المع", "ظهران الجنوب"], "values": [695, 352, 321, 82, 76, 75, 74], "percentages": [41.49, 21.01, 19.16, 4.9, 4.54, 4.48, 4.42], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "عسير (أبها والخميس وتوابعها )", "topValue": 695, "topPct": 41.5, "rankIncluded": false}, {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [979, 362, 334], "percentages": [58.45, 21.61, 19.94], "responses": 1675, "mean": 2.385, "satisfactionPct": 58.4, "positivePct": 58.4, "level": "جيد", "topLabel": "راض", "topValue": 979, "topPct": 58.4, "rankIncluded": true}, {"id": 5, "question": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة", "short": "جودة أعمال الصيانة المنفذة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [872, 448, 355], "percentages": [52.06, 26.75, 21.19], "responses": 1675, "mean": 2.309, "satisfactionPct": 52.1, "positivePct": 52.1, "level": "جيد", "topLabel": "راض", "topValue": 872, "topPct": 52.1, "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1170, 301, 204], "percentages": [69.85, 17.97, 12.18], "responses": 1675, "mean": 2.577, "satisfactionPct": 69.9, "positivePct": 69.9, "level": "مرتفع", "topLabel": "راض", "topValue": 1170, "topPct": 69.9, "rankIncluded": true}, {"id": 7, "question": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "short": "نظافة وصيانة دورات المياه", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [885, 418, 372], "percentages": [52.84, 24.96, 22.21], "responses": 1675, "mean": 2.306, "satisfactionPct": 52.8, "positivePct": 52.8, "level": "جيد", "topLabel": "راض", "topValue": 885, "topPct": 52.8, "rankIncluded": true}, {"id": 8, "question": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية", "short": "كفاءة أجهزة التكييف وصيانتها الدورية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1034, 331, 310], "percentages": [61.73, 19.76, 18.51], "responses": 1675, "mean": 2.432, "satisfactionPct": 61.7, "positivePct": 61.7, "level": "مرتفع", "topLabel": "راض", "topValue": 1034, "topPct": 61.7, "rankIncluded": true}, {"id": 9, "question": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "short": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "type": "yesno", "labels": ["نعم", "لا"], "values": [845, 830], "percentages": [50.45, 49.55], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": 50.4, "level": "متوسط", "topLabel": "نعم", "topValue": 845, "topPct": 50.4, "rankIncluded": false}, {"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [740, 63, 42], "percentages": [87.57, 7.46, 4.97], "responses": 845, "mean": 2.826, "satisfactionPct": 87.6, "positivePct": 87.6, "level": "مرتفع", "topLabel": "راض", "topValue": 740, "topPct": 87.6, "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [606, 157, 82], "percentages": [71.72, 18.58, 9.7], "responses": 845, "mean": 2.62, "satisfactionPct": 71.7, "positivePct": 71.7, "level": "مرتفع", "topLabel": "راض", "topValue": 606, "topPct": 71.7, "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في الم…", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [256, 293, 1126], "percentages": [15.28, 17.49, 67.22], "responses": 1675, "mean": 1.481, "satisfactionPct": 15.3, "positivePct": 15.3, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 1126, "topPct": 67.2, "rankIncluded": true}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية", "short": "توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [283, 387, 1005], "percentages": [16.9, 23.1, 60.0], "responses": 1675, "mean": 1.569, "satisfactionPct": 16.9, "positivePct": 16.9, "level": "متوسط", "topLabel": "غير راضٍ", "topValue": 1005, "topPct": 60.0, "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [263, 397, 1015], "percentages": [15.7, 23.7, 60.6], "responses": 1675, "mean": 1.551, "satisfactionPct": 15.7, "positivePct": 15.7, "level": "متوسط", "topLabel": "غير راضٍ", "topValue": 1015, "topPct": 60.6, "rankIncluded": true}, {"id": 15, "question": "هل استلمت الشركة المقصف وتم تشغيله", "short": "هل استلمت الشركة المقصف وتم تشغيله", "type": "canteen", "labels": ["نعم", "تم الاستلام ولم يتم التشغيل", "لا"], "values": [1279, 71, 325], "percentages": [76.36, 4.24, 19.4], "responses": 1675, "mean": null, "satisfactionPct": null, "positivePct": 76.4, "level": "جيد", "topLabel": "نعم", "topValue": 1279, "topPct": 76.4, "rankIncluded": false}, {"id": 16, "question": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع", "short": "توفر المنتجات الغذائية يوميًا دون انقطاع.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [766, 281, 232], "percentages": [59.89, 21.97, 18.14], "responses": 1279, "mean": 2.418, "satisfactionPct": 59.9, "positivePct": 59.9, "level": "مرتفع", "topLabel": "راض", "topValue": 766, "topPct": 59.9, "rankIncluded": true}, {"id": 17, "question": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "short": "سرعة تجاوب الشركة مع الملاحظات المرصودة", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [638, 363, 278], "percentages": [49.88, 28.38, 21.74], "responses": 1279, "mean": 2.281, "satisfactionPct": 49.9, "positivePct": 49.9, "level": "جيد", "topLabel": "راض", "topValue": 638, "topPct": 49.9, "rankIncluded": true}, {"id": 18, "question": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )", "short": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولا…", "type": "yesno", "labels": ["نعم", "لا"], "values": [397, 882], "percentages": [31.04, 68.96], "responses": 1279, "mean": null, "satisfactionPct": null, "positivePct": 31.0, "level": "منخفض", "topLabel": "لا", "topValue": 882, "topPct": 69.0, "rankIncluded": false}, {"id": 19, "question": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "short": "مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [800, 474, 401], "percentages": [47.76, 28.3, 23.94], "responses": 1675, "mean": 3.236, "satisfactionPct": 47.8, "positivePct": 47.8, "level": "متوسط", "topLabel": "راض", "topValue": 800, "topPct": 47.8, "rankIncluded": true}], "levelCounts": {"بيانات وصفية": 3, "جيد": 5, "مرتفع": 5, "متوسط": 4, "منخفض": 2}, "low": [{"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في الم…", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [256, 293, 1126], "percentages": [15.28, 17.49, 67.22], "responses": 1675, "mean": 1.481, "satisfactionPct": 49.4, "positivePct": 15.3, "level": "منخفض", "topLabel": "راض", "topValue": 256, "topPct": 15.28}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [263, 397, 1015], "percentages": [15.7, 23.7, 60.6], "responses": 1675, "mean": 1.551, "satisfactionPct": 51.7, "positivePct": 15.7, "level": "متوسط", "topLabel": "راض", "topValue": 263, "topPct": 15.7}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية", "short": "توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [283, 387, 1005], "percentages": [16.9, 23.1, 60.0], "responses": 1675, "mean": 1.569, "satisfactionPct": 52.3, "positivePct": 16.9, "level": "متوسط", "topLabel": "راض", "topValue": 283, "topPct": 16.9}], "high": [{"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [740, 63, 42], "percentages": [87.57, 7.46, 4.97], "responses": 845, "mean": 2.826, "satisfactionPct": 94.2, "positivePct": 87.6, "level": "مرتفع", "topLabel": "راض", "topValue": 740, "topPct": 87.57}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [606, 157, 82], "percentages": [71.72, 18.58, 9.7], "responses": 845, "mean": 2.62, "satisfactionPct": 87.3, "positivePct": 71.7, "level": "مرتفع", "topLabel": "راض", "topValue": 606, "topPct": 71.72}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1170, 301, 204], "percentages": [69.85, 17.97, 12.18], "responses": 1675, "mean": 2.577, "satisfactionPct": 85.9, "positivePct": 69.9, "level": "مرتفع", "topLabel": "راض", "topValue": 1170, "topPct": 69.85}]}, "term2": {"participants": 1706, "columns": 19, "overallSat": 55.8, "overallPositive": 55.8, "questions": [{"id": 1, "question": "جنس المدرسة", "short": "جنس المدرسة", "type": "categorical", "labels": ["بنات", "بنين", "طفولة مبكرة"], "values": [885, 679, 142], "percentages": [51.88, 39.8, 8.32], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "بنات", "topValue": 885, "topPct": 51.9, "rankIncluded": false}, {"id": 2, "question": "المرحلة الدراسية", "short": "المرحلة الدراسية", "type": "categorical", "labels": ["ابتدائية", "متوسط", "ثانوي", "روضة"], "values": [1041, 563, 347, 263], "percentages": [47.02, 25.43, 15.67, 11.88], "responses": 2214, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "ابتدائية", "topValue": 1041, "topPct": 47.0, "rankIncluded": false}, {"id": 3, "question": "المحافظة والقطاع", "short": "المحافظة والقطاع", "type": "categorical", "labels": ["عسير (أبها والخميس وتوابعها )", "بيشة", "محايل عسير", "النماص", "سراة عبيدة", "رجال المع", "ظهران الجنوب"], "values": [780, 331, 294, 92, 82, 69, 58], "percentages": [45.72, 19.4, 17.23, 5.39, 4.81, 4.04, 3.4], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": null, "level": "بيانات وصفية", "topLabel": "عسير (أبها والخميس وتوابعها )", "topValue": 780, "topPct": 45.7, "rankIncluded": false}, {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة با", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1180, 308, 218], "percentages": [69.17, 18.05, 12.78], "responses": 1706, "mean": 2.564, "satisfactionPct": 69.2, "positivePct": 69.2, "level": "جيد", "topLabel": "راض", "topValue": 1180, "topPct": 69.2, "rankIncluded": true}, {"id": 5, "question": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "short": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1048, 400, 258], "percentages": [61.43, 23.45, 15.12], "responses": 1706, "mean": 2.463, "satisfactionPct": 61.4, "positivePct": 61.4, "level": "جيد", "topLabel": "راض", "topValue": 1048, "topPct": 61.4, "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1184, 270, 252], "percentages": [69.4, 15.83, 14.77], "responses": 1706, "mean": 2.546, "satisfactionPct": 69.4, "positivePct": 69.4, "level": "جيد", "topLabel": "راض", "topValue": 1184, "topPct": 69.4, "rankIncluded": true}, {"id": 7, "question": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "short": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1033, 345, 328], "percentages": [60.55, 20.22, 19.23], "responses": 1706, "mean": 2.413, "satisfactionPct": 60.6, "positivePct": 60.6, "level": "جيد", "topLabel": "راض", "topValue": 1033, "topPct": 60.5, "rankIncluded": true}, {"id": 8, "question": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "short": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1072, 315, 319], "percentages": [62.84, 18.46, 18.7], "responses": 1706, "mean": 2.441, "satisfactionPct": 62.8, "positivePct": 62.8, "level": "جيد", "topLabel": "راض", "topValue": 1072, "topPct": 62.8, "rankIncluded": true}, {"id": 9, "question": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "short": "هل تتوفر خدمة النقل المدرسي بالمدرسة", "type": "yesno", "labels": ["نعم", "لا"], "values": [851, 855], "percentages": [49.88, 50.12], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": 49.9, "level": "متوسط", "topLabel": "لا", "topValue": 855, "topPct": 50.1, "rankIncluded": false}, {"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [755, 59, 37], "percentages": [88.72, 6.93, 4.35], "responses": 851, "mean": 2.844, "satisfactionPct": 88.7, "positivePct": 88.7, "level": "مرتفع", "topLabel": "راض", "topValue": 755, "topPct": 88.7, "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [681, 107, 63], "percentages": [80.02, 12.57, 7.4], "responses": 851, "mean": 2.726, "satisfactionPct": 80.0, "positivePct": 80.0, "level": "مرتفع", "topLabel": "راض", "topValue": 681, "topPct": 80.0, "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التف", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [289, 313, 1104], "percentages": [16.94, 18.35, 64.71], "responses": 1706, "mean": 1.522, "satisfactionPct": 16.9, "positivePct": 16.9, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 1104, "topPct": 64.7, "rankIncluded": true}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "short": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [398, 374, 934], "percentages": [23.33, 21.92, 54.75], "responses": 1706, "mean": 1.686, "satisfactionPct": 23.3, "positivePct": 23.3, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 934, "topPct": 54.8, "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [331, 415, 960], "percentages": [19.4, 24.33, 56.27], "responses": 1706, "mean": 1.631, "satisfactionPct": 19.4, "positivePct": 19.4, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 960, "topPct": 56.3, "rankIncluded": true}, {"id": 15, "question": "هل إستلمت الشركة المقصف وتم تشغيله", "short": "هل إستلمت الشركة المقصف وتم تشغيله", "type": "canteen", "labels": ["نعم", "تم الاستلام ولم يتم التشغيل", "لا"], "values": [1287, 71, 348], "percentages": [75.44, 4.16, 20.4], "responses": 1706, "mean": null, "satisfactionPct": null, "positivePct": 75.4, "level": "مرتفع", "topLabel": "نعم", "topValue": 1287, "topPct": 75.4, "rankIncluded": false}, {"id": 16, "question": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "short": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [806, 273, 208], "percentages": [62.63, 21.21, 16.16], "responses": 1287, "mean": 2.465, "satisfactionPct": 62.6, "positivePct": 62.6, "level": "جيد", "topLabel": "راض", "topValue": 806, "topPct": 62.6, "rankIncluded": true}, {"id": 17, "question": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "short": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [710, 307, 270], "percentages": [55.17, 23.85, 20.98], "responses": 1287, "mean": 2.342, "satisfactionPct": 55.2, "positivePct": 55.2, "level": "جيد", "topLabel": "راض", "topValue": 710, "topPct": 55.2, "rankIncluded": true}, {"id": 18, "question": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )", "short": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية و", "type": "yesno", "labels": ["نعم", "لا"], "values": [425, 862], "percentages": [33.02, 66.98], "responses": 1287, "mean": null, "satisfactionPct": null, "positivePct": 33.0, "level": "متوسط", "topLabel": "لا", "topValue": 862, "topPct": 67.0, "rankIncluded": false}, {"id": 19, "question": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "short": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في", "type": "satisfaction5", "labels": ["راض جدا", "راض", "محايد", "غير راضٍ", "غير راض للغاية"], "values": [177, 782, 427, 224, 96], "percentages": [10.38, 45.84, 25.03, 13.13, 5.63], "responses": 1706, "mean": 3.422, "satisfactionPct": 56.2, "positivePct": 56.2, "level": "جيد", "topLabel": "راض", "topValue": 782, "topPct": 45.8, "rankIncluded": true}], "levelCounts": {"جيد": 8, "بيانات وصفية": 3, "مرتفع": 3, "منخفض": 3, "متوسط": 2}, "low": [{"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "short": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [398, 374, 934], "percentages": [23.33, 21.92, 54.75], "responses": 1706, "mean": 1.686, "satisfactionPct": 23.3, "positivePct": 23.3, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 934, "topPct": 54.8, "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [331, 415, 960], "percentages": [19.4, 24.33, 56.27], "responses": 1706, "mean": 1.631, "satisfactionPct": 19.4, "positivePct": 19.4, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 960, "topPct": 56.3, "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التف", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [289, 313, 1104], "percentages": [16.94, 18.35, 64.71], "responses": 1706, "mean": 1.522, "satisfactionPct": 16.9, "positivePct": 16.9, "level": "منخفض", "topLabel": "غير راضٍ", "topValue": 1104, "topPct": 64.7, "rankIncluded": true}], "high": [{"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [755, 59, 37], "percentages": [88.72, 6.93, 4.35], "responses": 851, "mean": 2.844, "satisfactionPct": 88.7, "positivePct": 88.7, "level": "مرتفع", "topLabel": "راض", "topValue": 755, "topPct": 88.7, "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [681, 107, 63], "percentages": [80.02, 12.57, 7.4], "responses": 851, "mean": 2.726, "satisfactionPct": 80.0, "positivePct": 80.0, "level": "مرتفع", "topLabel": "راض", "topValue": 681, "topPct": 80.0, "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type": "satisfaction3", "labels": ["راض", "محايد", "غير راضٍ"], "values": [1184, 270, 252], "percentages": [69.4, 15.83, 14.77], "responses": 1706, "mean": 2.546, "satisfactionPct": 69.4, "positivePct": 69.4, "level": "جيد", "topLabel": "راض", "topValue": 1184, "topPct": 69.4, "rankIncluded": true}], "axes": [{"short": "خدمات النقل والسلامة والالتزام", "satisfactionPct": 84.4, "responses": 1702, "positive": 1436}, {"short": "الصيانة والنظافة والخدمات التشغيلية", "satisfactionPct": 63.3, "responses": 10236, "positive": 6476}, {"short": "التغذية المدرسية: المقصف والتغذية والخدمات المرتبطة", "satisfactionPct": 58.9, "responses": 2574, "positive": 1516}, {"short": "التقنيات: الأجهزة التقنية والدعم الفني", "satisfactionPct": 19.9, "responses": 5118, "positive": 1018}]}, "overall": {"term1": 50.7, "term2": 55.8, "delta": 5.1, "relative": 10.1, "participants1": 1675, "participants2": 1706, "participantsDelta": 31, "questions": 19, "improvedCount": 13, "declinedCount": 1, "stableCount": 0, "best": {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة با", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 58.4, "term2": 69.2, "delta": 10.8, "relative": 18.5, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, "worst": {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 69.9, "term2": 69.4, "delta": -0.5, "relative": -0.7, "trend": "انخفاض", "trendClass": "down", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}}, "comparison": [{"id": 1, "question": "جنس المدرسة", "short": "جنس المدرسة", "type1": "gender", "type2": "categorical", "term1": null, "term2": null, "delta": null, "relative": null, "trend": "غير متاح", "trendClass": "neutral", "responses1": 1675, "responses2": 1706, "top1": "بنات", "top2": "بنات", "rankIncluded": false}, {"id": 2, "question": "المرحلة الدراسية", "short": "المرحلة الدراسية", "type1": "categorical", "type2": "categorical", "term1": null, "term2": null, "delta": null, "relative": null, "trend": "غير متاح", "trendClass": "neutral", "responses1": 2175, "responses2": 2214, "top1": "ابتدائية", "top2": "ابتدائية", "rankIncluded": false}, {"id": 3, "question": "المحافظة والقطاع", "short": "المحافظة والقطاع", "type1": "categorical", "type2": "categorical", "term1": null, "term2": null, "delta": null, "relative": null, "trend": "غير متاح", "trendClass": "neutral", "responses1": 1675, "responses2": 1706, "top1": "عسير (أبها والخميس وتوابعها )", "top2": "عسير (أبها والخميس وتوابعها )", "rankIncluded": false}, {"id": 4, "question": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة بالمدرسة", "short": "ما مدى رضاكم عن سرعة الاستجابة للبلاغات المتعلقة بالصيانة با", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 58.4, "term2": 69.2, "delta": 10.8, "relative": 18.5, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 5, "question": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "short": "ما مدى رضاكم عن جودة أعمال الصيانة المنفذة.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 52.1, "term2": 61.4, "delta": 9.3, "relative": 17.9, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 6, "question": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "short": "ما مدى رضاكم عن مستوى نظافة الفصول والممرات والمرافق.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 69.9, "term2": 69.4, "delta": -0.5, "relative": -0.7, "trend": "انخفاض", "trendClass": "down", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 7, "question": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "short": "ما مدى رضاكم عن نظافة وصيانة دورات المياه", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 52.8, "term2": 60.6, "delta": 7.8, "relative": 14.8, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 8, "question": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "short": "ما مدى رضاكم عن كفاءة أجهزة التكييف وصيانتها الدورية.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 61.7, "term2": 62.8, "delta": 1.1, "relative": 1.8, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 10, "question": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "short": "ما مدى رضاكم عن التزام الحافلات بمواعيد الحضور والانصراف.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 87.6, "term2": 88.7, "delta": 1.1, "relative": 1.3, "trend": "تحسن", "trendClass": "up", "responses1": 845, "responses2": 851, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 11, "question": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "short": "ما مدى رضاكم عن مستوى السلامة والأمان في النقل المدرسي", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 71.7, "term2": 80.0, "delta": 8.3, "relative": 11.6, "trend": "تحسن", "trendClass": "up", "responses1": 845, "responses2": 851, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 12, "question": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التفاعلية، الطابعات) في المدرسة.", "short": "ما مدى رضاكم عن جودة الأجهزة التقنية (الحواسيب، الشاشات التف", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 15.3, "term2": 16.9, "delta": 1.6, "relative": 10.5, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "غير راضٍ", "top2": "غير راضٍ", "rankIncluded": true}, {"id": 13, "question": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "short": "ما مدى رضاكم عن توفر الدعم الفني عند حدوث أعطال تقنية.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 16.9, "term2": 23.3, "delta": 6.4, "relative": 37.9, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "غير راضٍ", "top2": "غير راضٍ", "rankIncluded": true}, {"id": 14, "question": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "short": "ما مدى رضاكم بشكل عام عن جودة الخدمات التقنية في المدرسة.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 15.7, "term2": 19.4, "delta": 3.7, "relative": 23.6, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "غير راضٍ", "top2": "غير راضٍ", "rankIncluded": true}, {"id": 16, "question": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "short": "ما مدى رضاكم عن توفر المنتجات الغذائية يوميًا دون انقطاع.", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 59.9, "term2": 62.6, "delta": 2.7, "relative": 4.5, "trend": "تحسن", "trendClass": "up", "responses1": 1279, "responses2": 1287, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 17, "question": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "short": "ما مدى رضاكم عن سرعة تجاوب الشركة مع الملاحظات المرصودة", "type1": "satisfaction3", "type2": "satisfaction3", "term1": 49.9, "term2": 55.2, "delta": 5.3, "relative": 10.6, "trend": "تحسن", "trendClass": "up", "responses1": 1279, "responses2": 1287, "top1": "راض", "top2": "راض", "rankIncluded": true}, {"id": 18, "question": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية والطاولات ... )", "short": "هل تم تجهيز المقصف عن طريق المتعهد مثل (الأجهزة الكهربائية و", "type1": "yesno", "type2": "yesno", "term1": 31.0, "term2": 33.0, "delta": 2.0, "relative": 6.5, "trend": "تحسن", "trendClass": "up", "responses1": 1279, "responses2": 1287, "top1": "لا", "top2": "لا", "rankIncluded": true}, {"id": 19, "question": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في المدرسة؟", "short": "بشكل عام، ما مدى رضاكم عن مستوى الخدمات التشغيلية المقدمة في", "type1": "satisfaction3", "type2": "satisfaction5", "term1": 47.8, "term2": 56.2, "delta": 8.4, "relative": 17.6, "trend": "تحسن", "trendClass": "up", "responses1": 1675, "responses2": 1706, "top1": "راض", "top2": "راض", "rankIncluded": true}], "axes": [{"axis": "الصيانة والنظافة والخدمات التشغيلية", "term1": 57.1, "term2": 63.3, "delta": 6.2, "relative": 10.9, "trend": "تحسن", "trendClass": "up"}, {"axis": "خدمات النقل والسلامة والالتزام", "term1": 79.7, "term2": 84.4, "delta": 4.7, "relative": 5.9, "trend": "تحسن", "trendClass": "up"}, {"axis": "التغذية المدرسية: المقصف والتغذية والخدمات المرتبطة", "term1": 54.9, "term2": 58.9, "delta": 4.0, "relative": 7.3, "trend": "تحسن", "trendClass": "up"}, {"axis": "التقنيات: الأجهزة التقنية والدعم الفني", "term1": 16.0, "term2": 19.9, "delta": 3.9, "relative": 24.4, "trend": "تحسن", "trendClass": "up"}]};
 const cfg = {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true};
 const isMobileView = window.matchMedia('(max-width:620px)').matches;
-const plotFontSize = isMobileView ? 9 : 12;
-const mainChartHeight = isMobileView ? 220 : 430;
-const gaugeChartHeight = isMobileView ? 220 : 430;
-const axisChartHeight = isMobileView ? 240 : 460;
-const miniChartHeight = isMobileView ? 128 : 260;
+const plotFontSize = isMobileView ? 8 : 12;
+const mainChartHeight = isMobileView ? 230 : 430;
+const gaugeChartHeight = isMobileView ? 240 : 430;
+const axisChartHeight = isMobileView ? 300 : 460;
+const miniChartHeight = isMobileView ? 120 : 260;
 const miniChartBoxHeight = isMobileView ? 146 : 300;
 const surveyIcons = {1:'⚥',2:'▦',3:'⌖'};
 function findQuestion(term, id){ return DATA[term].questions.find(q=>q.id===id); }
@@ -397,6 +2006,33 @@ function sortQuestionByLabelLength(q, options={}){
     percentages: rows.map(r=>r.pct)
   };
 }
+function orderSurveyQuestionById(id, q){
+  const wantedMap = {
+    1: ['بنات','بنين','طفولة مبكرة'],
+    2: ['ابتدائية','متوسط','ثانوي','روضة','طفولة مبكرة'],
+    3: ['عسير (أبها والخميس وضواحيها)','بيشة','محايل عسير','النماص','سراة عبيدة','رجال ألمع','ظهران الجنوب']
+  };
+  const wanted = wantedMap[id];
+  if(!wanted) return q;
+  const rows = q.labels.map((label,i)=>({
+    label: formatSurveyLabel(label),
+    value:q.values[i]||0,
+    pct:q.percentages[i]||0
+  }));
+  const ordered = [];
+  wanted.forEach(name=>{
+    const idx = rows.findIndex(r => r.label === name);
+    if(idx !== -1) ordered.push(rows.splice(idx,1)[0]);
+  });
+  rows.sort((a,b)=> (b.pct - a.pct) || (b.value - a.value) || a.label.localeCompare(b.label,'ar'));
+  const finalRows = ordered.concat(rows);
+  return {
+    ...q,
+    labels: finalRows.map(r=>r.label),
+    values: finalRows.map(r=>r.value),
+    percentages: finalRows.map(r=>r.pct)
+  };
+}
 function combineSurveyQuestions(id){
   const q1 = findQuestion('term1', id);
   const q2 = findQuestion('term2', id);
@@ -420,10 +2056,10 @@ function combineSurveyQuestions(id){
 }
 function renderSurveySummary(){
   const responseItems = [
-    {label:'الفصل الدراسي الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
-    {label:'الفصل الدراسي الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
+    {label:'الفصل الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
+    {label:'الفصل الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
   ];
-  document.getElementById('surveySummary').innerHTML = `<div class="survey-card"><div class="survey-card-title"><span>عدد الاستجابات</span><span class="survey-icon">◔</span></div><div class="survey-chart-wrap"><div class="survey-summary-meta"><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div></div><div class="survey-bars-title"><span></span><b>إجمالي الفصلين</b></div><div class="survey-donut-wrap"><div class="survey-donut" id="surveyResponsesDonut"></div><div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div></div></div></div>`;
+  document.getElementById('surveySummary').innerHTML = `<div class="survey-card"><div class="survey-card-title"><span>عدد الاستجابات</span><span class="survey-icon">◔</span></div><div class="survey-chart-wrap"><div class="survey-summary-meta"><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div></div><div class="survey-bars-title"><span></span><b></b></div><div class="survey-donut-wrap"><div class="survey-donut" id="surveyResponsesDonut"></div><div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div></div></div></div>`;
   Plotly.newPlot('surveyResponsesDonut', [{
     type:'pie',
     labels:responseItems.map(x=>x.label),
@@ -437,11 +2073,11 @@ function renderSurveySummary(){
     showlegend:false,
     automargin:true
   }], {
-    font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'},
+    font:{family:'Cairo, Tahoma, Arial',size:isMobileView?9:12,color:'#073B4C'},
     paper_bgcolor:'rgba(0,0,0,0)',
     plot_bgcolor:'rgba(0,0,0,0)',
     margin:{t:0,r:0,b:0,l:0},
-    height:190,
+    height:isMobileView?120:190,
     annotations:[]
   }, {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true});
 }
@@ -460,14 +2096,22 @@ function renderSurveyDonut(containerId, q){
     showlegend:false,
     automargin:true
   }], {
-    font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'},
+    font:{family:'Cairo, Tahoma, Arial',size:isMobileView?9:12,color:'#073B4C'},
     paper_bgcolor:'rgba(0,0,0,0)',
     plot_bgcolor:'rgba(0,0,0,0)',
     margin:{t:0,r:0,b:0,l:0},
-    height:190,
+    height:isMobileView?120:190,
     annotations:[]
   }, {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true});
 }
+function fitSurveyGridMobile(){
+  const wrap = document.getElementById('surveyFitWrap');
+  const grid = document.getElementById('surveyData');
+  if(!wrap || !grid) return;
+  wrap.style.height = '';
+  grid.style.removeProperty('--survey-scale');
+}
+
 function renderSurveyData(){
   const items = [
     {id:'responses',title:'عدد الاستجابات',icon:'◔'},
@@ -476,32 +2120,32 @@ function renderSurveyData(){
     {id:1,title:'جنس المدرسة'}
   ];
   const responseItems = [
-    {label:'الفصل الدراسي الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
-    {label:'الفصل الدراسي الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
+    {label:'الفصل الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
+    {label:'الفصل الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
   ];
   document.getElementById('surveyData').innerHTML = items.map(item=>{
     if(item.id === 'responses'){
-      return `<div class="survey-card">
+      return `<div class="survey-card survey-card-responses">
         <div class="survey-card-title"><span>${item.title}</span><span class="survey-icon">${item.icon}</span></div>
         <div class="survey-chart-wrap">
-          <div class="survey-bars-title"><span></span><b>إجمالي الفصلين</b></div>
+          <div class="survey-bars-title"><span></span><b></b></div>
           <div class="survey-donut-wrap">
             <div class="survey-donut" id="surveyDonut_responses"></div>
             <div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div>
           </div>
           <div class="survey-summary-meta">
-            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
-            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الدراسي الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
+            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
+            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
           </div>
         </div>
       </div>`;
     }
     const combinedBase = combineSurveyQuestions(item.id);
-    const qCombined = item.id===1 || item.id===2 || item.id===3 ? sortQuestionByLabelLength(combinedBase) : combinedBase;
-    return `<div class="survey-card">
+    const qCombined = orderSurveyQuestionById(item.id, sortQuestionByLabelLength(combinedBase));
+    return `<div class="survey-card survey-card-${item.id}">
       <div class="survey-card-title"><span>${item.title}</span><span class="survey-icon">${surveyIcons[item.id]}</span></div>
       <div class="survey-chart-wrap">
-        <div class="survey-bars-title"><span></span><b>إجمالي الفصلين</b></div>
+        <div class="survey-bars-title"><span></span><b></b></div>
         <div class="survey-donut-wrap">
           <div class="survey-donut" id="surveyDonut_${item.id}"></div>
           <div class="survey-donut-legend ${(item.id===2 || item.id===3) ? 'survey-donut-legend-grid' : ''}">${surveyLegendHtml(qCombined, {isGrid:(item.id===2 || item.id===3), allowWide:item.id===3})}</div>
@@ -523,7 +2167,7 @@ function renderSurveyData(){
     showlegend:false,
     automargin:true
   }], {
-    font:{family:'Cairo, Tahoma, Arial',size:12,color:'#073B4C'},
+    font:{family:'Cairo, Tahoma, Arial',size:isMobileView?9:12,color:'#073B4C'},
     paper_bgcolor:'rgba(0,0,0,0)',
     plot_bgcolor:'rgba(0,0,0,0)',
     margin:{t:0,r:0,b:0,l:0},
@@ -533,48 +2177,11 @@ function renderSurveyData(){
 
   items.filter(item=>item.id !== 'responses').forEach(item => {
     const combinedBase = combineSurveyQuestions(item.id);
-    const qCombined = item.id===1 || item.id===2 || item.id===3 ? sortQuestionByLabelLength(combinedBase) : combinedBase;
+    const qCombined = orderSurveyQuestionById(item.id, sortQuestionByLabelLength(combinedBase));
     renderSurveyDonut('surveyDonut_' + item.id, qCombined);
   });
 }
-
-function renderSurveyMobileRow(){
-  const responseItems = [
-    {label:'الفصل الدراسي الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
-    {label:'الفصل الدراسي الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
-  ];
-  const mobileItems = [
-    {key:'responses', title:'الاستجابات', labels:responseItems.map(x=>x.label), values:responseItems.map(x=>x.value), percentages:responseItems.map(x=>x.pct), summaryType:'responses'},
-    {...sortQuestionByLabelLength(combineSurveyQuestions(3)), key:3, title:'المحافظة / القطاع', summaryType:'top'},
-    {...sortQuestionByLabelLength(combineSurveyQuestions(2)), key:2, title:'المرحلة الدراسية', summaryType:'top'},
-    {...sortQuestionByLabelLength(combineSurveyQuestions(1)), key:1, title:'جنس المدرسة', summaryType:'top'}
-  ];
-  const container = document.getElementById('surveyMobileRow');
-  if(!container) return;
-  container.innerHTML = mobileItems.map(item=>{
-    let mainHtml = '';
-    if(item.summaryType === 'responses'){
-      const total = item.values.reduce((a,b)=>a+b,0);
-      mainHtml = `<div class="survey-mobile-main">${ar(total)}</div><div class="survey-mobile-meta">إجمالي الفصلين<span class="survey-mobile-pct">${Number(item.percentages[1]).toFixed(1)}% / ${Number(item.percentages[0]).toFixed(1)}%</span></div>`;
-    } else {
-      const topLabel = formatSurveyLabel(item.labels[0] || '—');
-      const topPct = Number(item.percentages[0] || 0).toFixed(1);
-      mainHtml = `<div class="survey-mobile-main">${topLabel}</div><div class="survey-mobile-meta">الأعلى<span class="survey-mobile-pct">${topPct}%</span></div>`;
-    }
-    return `<div class="survey-mobile-card"><div class="survey-mobile-title">${item.title}</div><div class="survey-mobile-donut" id="surveyMobileDonut_${item.key}"></div>${mainHtml}</div>`;
-  }).join('');
-
-  mobileItems.forEach(item=>{
-    Plotly.newPlot('surveyMobileDonut_' + item.key, [{
-      type:'pie', labels:item.labels, values:item.values, hole:0.7, sort:false, direction:'clockwise', textinfo:'none',
-      marker:{colors: item.key==='responses' ? ['#1C78A8','#00A19A'] : surveyPalette, line:{color:'#FFFFFF',width:1.5}},
-      hovertemplate:'%{label}<br>%{percent}<extra></extra>', showlegend:false, automargin:true
-    }], {paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)', margin:{t:0,r:0,b:0,l:0}, height:66, font:{family:'Cairo, Tahoma, Arial',size:8,color:'#073B4C'}}, cfg);
-  });
-}
 renderSurveyData();
-renderSurveyMobileRow();
-
 
 const baseLayout = {font:{family:'Cairo, Tahoma, Arial',size:plotFontSize,color:'#073B4C'}, paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)', margin:{t:25,r:30,b:45,l:30}};
 const thinBarWidth = 0.48;
@@ -602,13 +2209,13 @@ Plotly.newPlot('overallChart', [{
   marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
   text:[pct(DATA.overall.term1),pct(DATA.overall.term2)], textposition:'outside',
   hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
-}], {...baseLayout, height:mainChartHeight, margin:isMobileView?{t:12,r:14,b:32,l:24}:baseLayout.margin, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE'}, xaxis:{tickfont:{size:isMobileView?9:14}}, bargap:0.45, showlegend:false}, cfg);
+}], {...baseLayout, height:mainChartHeight, margin:isMobileView?{t:12,r:14,b:32,l:24}:baseLayout.margin, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE'}, xaxis:{tickfont:{size:isMobileView?7:14}}, bargap:0.45, showlegend:false}, cfg);
 
 
 Plotly.newPlot('trendChart', [
 {
   type:'indicator',
-  mode:'gauge+number+delta',
+  mode:isMobileView?'gauge+number':'gauge+number+delta',
   value: DATA.overall.term2,
   delta:{
     reference: DATA.overall.term1,
@@ -617,11 +2224,11 @@ Plotly.newPlot('trendChart', [
   },
   number:{
     suffix:'%',
-    font:{size:isMobileView?24:42,color:'#006B5E',family:'Cairo'}
+    font:{size:isMobileView?22:42,color:'#006B5E',family:'Cairo'}
   },
   title:{
     text:'مستوى الرضا الحالي',
-    font:{size:isMobileView?12:20,color:'#073B4C',family:'Cairo'}
+    font:{size:isMobileView?2.2:20,color:'#073B4C',family:'Cairo'}
   },
   gauge:{
     axis:{range:[0,100],tickwidth:1,tickcolor:'#073B4C'},
@@ -640,32 +2247,60 @@ Plotly.newPlot('trendChart', [
       value: DATA.overall.term1
     }
   },
-  domain:{x:[0,1],y:[0,1]}
+  domain:isMobileView?{x:[0,1],y:[0.10,1]}:{x:[0,1],y:[0,1]}
 }
 ], {
   ...baseLayout,
   height:gaugeChartHeight,
-  margin:isMobileView?{t:20,r:12,b:38,l:12}:{t:40,r:30,b:20,l:30},
-  annotations:[
-    {
-      x:0.5,y:-0.04,xref:'paper',yref:'paper',
-      text:(isMobileView ? 'بداية العام: '+pct(DATA.overall.term1)+' | نهاية العام: '+pct(DATA.overall.term2)+'<br>التحسن العام: <span style="color:#00A878">'+pp(DATA.overall.delta)+'</span>' : 'بداية العام: <b>'+pct(DATA.overall.term1)+'</b> &nbsp;&nbsp; | &nbsp;&nbsp; نهاية العام: <b>'+pct(DATA.overall.term2)+'</b><br>التحسن العام: <b style="color:#00A878">'+pp(DATA.overall.delta)+'</b>'),
-      showarrow:false,
-      font:{family:'Cairo',size:isMobileView?10:15,color:'#073B4C'},
-      align:'center'
-    }
-  ]
+  margin:isMobileView?{t:24,r:14,b:18,l:14}:{t:40,r:30,b:20,l:30},
+  annotations:[]
 }, cfg);
+const trendSummaryMobile = document.getElementById('trendSummaryMobile');
+if(trendSummaryMobile){
+  trendSummaryMobile.innerHTML = `
+    <div class="tbox"><span>بداية العام</span><b>${pct(DATA.overall.term1)}</b></div>
+    <div class="tbox"><span>نهاية العام</span><b>${pct(DATA.overall.term2)}</b></div>
+    <div class="tbox"><span>التحسن</span><b class="up">${pp(DATA.overall.delta)}</b></div>`;
+}
 
-const axes
- = DATA.axes.slice().sort((a,b)=>a.delta-b.delta);
-Plotly.newPlot('axisChart', [
-  {type:'bar', orientation:'h', name:'الفصل الدراسي الأول', y:axes.map(x=>x.axis), x:axes.map(x=>x.term1), width:thinBarWidthH, marker:{color:'#1C78A8'}, text:axes.map(x=>pct(x.term1)), textposition:'auto'},
-  {type:'bar', orientation:'h', name:'الفصل الدراسي الثاني', y:axes.map(x=>x.axis), x:axes.map(x=>x.term2), width:thinBarWidthH, marker:{color:'#00A19A'}, text:axes.map(x=>pct(x.term2)), textposition:'auto'},
-  {type:'scatter', mode:'markers+text', name:'التحسن', y:axes.map(x=>x.axis), x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+14), text:axes.map(x=>pp(x.delta)), textfont:{color:axes.map(x=>x.delta>=0?'#00A878':'#D62828'), family:'Cairo', size:13}, marker:{size:2,color:'rgba(0,0,0,0)'}, hoverinfo:'skip'}
-], {...baseLayout, height:460, barmode:'group', margin:{t:25,r:130,b:45,l:360}, xaxis:{range:[0,115],ticksuffix:'%',gridcolor:'#E8F0EE'}, yaxis:{automargin:true}, legend:{orientation:'h',x:.02,y:1.12}}, cfg);
-
-
+const axes = DATA.axes.slice().sort((a,b)=>a.delta-b.delta);
+const axisMobileLabels = axes.map(x=>{
+  if(x.axis.includes('الصيانة')) return 'الصيانة والنظافة';
+  if(x.axis.includes('النقل')) return 'النقل';
+  if(x.axis.includes('التغذية')) return 'التغذية';
+  if(x.axis.includes('التقنيات')) return 'التقنيات';
+  return x.axis;
+});
+if(isMobileView){
+  const connectorX = [];
+  const connectorY = [];
+  axes.forEach((x,i)=>{
+    connectorX.push(x.term1, x.term2, null);
+    connectorY.push(axisMobileLabels[i], axisMobileLabels[i], null);
+  });
+  Plotly.newPlot('axisChart', [
+    {type:'scatter', mode:'lines', x:connectorX, y:connectorY, line:{color:'#C9D9D5', width:4}, hoverinfo:'skip', showlegend:false},
+    {type:'scatter', mode:'markers+text', name:'الفصل الدراسي الأول', x:axes.map(x=>x.term1), y:axisMobileLabels, marker:{color:'#1C78A8', size:10}, text:axes.map(x=>pct(x.term1)), textposition:'middle left', textfont:{size:8, color:'#1C78A8', family:'Cairo'}},
+    {type:'scatter', mode:'markers+text', name:'الفصل الدراسي الثاني', x:axes.map(x=>x.term2), y:axisMobileLabels, marker:{color:'#00A19A', size:10}, text:axes.map(x=>pct(x.term2)), textposition:'middle right', textfont:{size:8, color:'#00A19A', family:'Cairo'}},
+    {type:'scatter', mode:'text', name:'التحسن', x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+10), y:axisMobileLabels, text:axes.map(x=>pp(x.delta)), textfont:{size:8, color:'#00A878', family:'Cairo'}, hoverinfo:'skip', showlegend:false}
+  ], {
+    font:{family:'Cairo, Tahoma, Arial',size:9,color:'#073B4C'},
+    paper_bgcolor:'rgba(0,0,0,0)',
+    plot_bgcolor:'rgba(0,0,0,0)',
+    height:280,
+    margin:{t:18,r:36,b:28,l:100},
+    xaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:8}},
+    yaxis:{automargin:true,tickfont:{size:8}},
+    legend:{orientation:'h',x:0.04,y:1.15,font:{size:8}},
+    showlegend:true
+  }, cfg);
+} else {
+  Plotly.newPlot('axisChart', [
+    {type:'bar', orientation:'h', name:'الفصل الدراسي الأول', y:axes.map(x=>x.axis), x:axes.map(x=>x.term1), width:thinBarWidthH, marker:{color:'#1C78A8'}, text:axes.map(x=>pct(x.term1)), textposition:'auto'},
+    {type:'bar', orientation:'h', name:'الفصل الدراسي الثاني', y:axes.map(x=>x.axis), x:axes.map(x=>x.term2), width:thinBarWidthH, marker:{color:'#00A19A'}, text:axes.map(x=>pct(x.term2)), textposition:'auto'},
+    {type:'scatter', mode:'markers+text', name:'التحسن', y:axes.map(x=>x.axis), x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+14), text:axes.map(x=>pp(x.delta)), textfont:{color:axes.map(x=>x.delta>=0?'#00A878':'#D62828'), family:'Cairo', size:13}, marker:{size:2,color:'rgba(0,0,0,0)'}, hoverinfo:'skip'}
+  ], {...baseLayout, height:460, barmode:'group', margin:{t:25,r:130,b:45,l:360}, xaxis:{range:[0,115],ticksuffix:'%',gridcolor:'#E8F0EE'}, yaxis:{automargin:true}, legend:{orientation:'h',x:.02,y:1.12}}, cfg);
+}
 function metricBox(x){
   const p1 = Math.max(0, Math.min(100, Number(x.term1 || 0)));
   const p2 = Math.max(0, Math.min(100, Number(x.term2 || 0)));
@@ -728,17 +2363,14 @@ const compareCardsMobileRows = DATA.comparison.filter(x=>![1,2,3].includes(x.id)
     <div class="compare-mobile-question">${x.question}</div>
     <div class="compare-mobile-num">${String(i+1).padStart(2,'0')}</div>
   </div>
-  <div class="compare-mobile-topline">
-    <div class="compare-mobile-stat"><span>الأول</span><b>${pct(x.term1)}</b></div>
-    <div class="compare-mobile-arrow">←</div>
-    <div class="compare-mobile-stat"><span>الثاني</span><b>${pct(x.term2)}</b></div>
-  </div>
   <div class="compare-mobile-grid">
-    <div class="compare-mobile-pill"><span>التحسن</span><b class="${cls(x.delta)}">${pp(x.delta)}</b></div>
-    <div class="compare-mobile-pill"><span>النسبة</span><b class="${cls(x.delta)}">${rel(x.relative)}</b></div>
+    <div class="compare-mobile-pill"><span>الفصل الدراسي الأول</span><b>${pct(x.term1)}</b></div>
+    <div class="compare-mobile-pill"><span>الفصل الدراسي الثاني</span><b>${pct(x.term2)}</b></div>
+    <div class="compare-mobile-pill"><span>مقدار التحسن</span><b class="${cls(x.delta)}">${pp(x.delta)}</b></div>
+    <div class="compare-mobile-pill"><span>نسبة التحسن</span><b class="${cls(x.delta)}">${rel(x.relative)}</b></div>
     <div class="compare-mobile-pill"><span>الحالة</span><b class="${cls(x.delta)}">${x.delta===null?'وصفي':x.trend}</b></div>
+    <div class="compare-mobile-pill full"><span>الاستجابات 1 / 2</span><b>${x.responses1?ar(x.responses1):'—'} / ${x.responses2?ar(x.responses2):'—'}</b></div>
   </div>
-  <div class="compare-mobile-foot">الاستجابات: ${x.responses1?ar(x.responses1):'—'} / ${x.responses2?ar(x.responses2):'—'}</div>
 </div>`).join('');
 document.getElementById('compareCardsMobile').innerHTML = compareCardsMobileRows;
 
@@ -774,10 +2406,243 @@ questionGroups.forEach(group => {
       marker:{color:['#1C78A8','#00A19A'], line:{color:'#fff',width:1.5}},
       text:[pct(x.term1),pct(x.term2)], textposition:'outside',
       hovertemplate:'%{x}<br>%{y:.1f}%<extra></extra>'
-    }], {...baseLayout, height:miniChartHeight, margin:isMobileView?{t:10,r:8,b:22,l:22}:{t:20,r:20,b:35,l:35}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:isMobileView?8:12}}, xaxis:{tickfont:{size:isMobileView?7:12}}, bargap:0.45, showlegend:false}, cfg);
+    }], {...baseLayout, height:miniChartHeight, margin:isMobileView?{t:10,r:8,b:22,l:22}:{t:20,r:20,b:35,l:35}, yaxis:{range:[0,100],ticksuffix:'%',gridcolor:'#E8F0EE',tickfont:{size:isMobileView?6:12}}, xaxis:{tickfont:{size:isMobileView?6:12}}, bargap:0.45, showlegend:false}, cfg);
   });
 });
-window.addEventListener('resize',()=>document.querySelectorAll('.js-plotly-plot').forEach(el=>Plotly.Plots.resize(el)));
+window.addEventListener('resize',()=>{document.querySelectorAll('.js-plotly-plot').forEach(el=>Plotly.Plots.resize(el)); fitSurveyGridMobile();});
 </script>
+
+<style>
+@media(max-width:620px){
+  /* مقارنة نسب الرضا حسب المحور: تعديل للجوال فقط */
+  .axis-panel #axisCardsMobile{display:none !important}
+  .axis-panel #axisChart{
+    display:block !important;
+    height:auto !important;
+    min-height:0 !important;
+  }
+  .axis-unified-figure{
+    background:#FBFCFC;
+    border:1px solid rgba(0,107,94,.12);
+    border-radius:16px;
+    padding:10px 8px;
+    box-shadow:0 6px 14px rgba(0,84,77,.05);
+  }
+  .axis-unified-legend{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .axis-unified-legend span{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-size:7px;
+    color:#073B4C;
+    line-height:1;
+  }
+  .axis-unified-dot{width:9px;height:9px;border-radius:2px;display:inline-block}
+  .axis-unified-grid{display:grid;gap:8px}
+  .axis-unified-item{
+    background:#fff;
+    border:1px solid rgba(0,107,94,.08);
+    border-radius:12px;
+    padding:8px 7px;
+  }
+  .axis-unified-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:6px;
+    margin-bottom:6px;
+  }
+  .axis-unified-title{
+    font-size:8px;
+    font-weight:700;
+    color:#073B4C;
+    line-height:1.25;
+  }
+  .axis-unified-delta{
+    font-size:6.2px;
+    font-weight:700;
+    color:#00A878;
+    background:#F4FBF8;
+    border:1px solid rgba(0,168,120,.12);
+    border-radius:999px;
+    padding:3px 6px;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .axis-unified-row{
+    display:grid;
+    grid-template-columns:28px 1fr 33px;
+    align-items:center;
+    gap:5px;
+    margin:4px 0;
+  }
+  .axis-unified-label{font-size:6px;color:#5B6B73;line-height:1}
+  .axis-unified-track{height:10px;background:#EDF5F3;border-radius:999px;overflow:hidden;position:relative}
+  .axis-unified-fill{display:block;height:100%;border-radius:999px}
+  .axis-unified-fill1{background:#1C78A8}
+  .axis-unified-fill2{background:#00A19A}
+  .axis-unified-val{font-size:6.6px;font-weight:700;color:#073B4C;line-height:1;direction:ltr;text-align:left}
+}
+
+@media(max-width:620px){
+  /* أعلى تحسن + أقل مؤشر: اجعل البطاقات الثلاث في صف واحد */
+  .metric-badges{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important}
+  .metric-badge{padding:7px 4px !important;border-radius:12px !important}
+  .metric-badge:last-child{grid-column:auto !important}
+  .metric-badge span{font-size:6.6px !important;font-weight:400 !important;line-height:1.1 !important;margin-bottom:1px !important}
+  .metric-badge b{font-size:9px !important;font-weight:800 !important;line-height:1.1 !important}
+
+  /* جدول المقارنة التفصيلي: اجعل آخر بطاقة مع البطاقتين اللي فوقها */
+  .compare-mobile-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:5px !important}
+  .compare-mobile-pill{padding:5px 3px !important;border-radius:8px !important}
+  .compare-mobile-pill.full{grid-column:auto !important}
+  .compare-mobile-pill span{font-size:5.6px !important;line-height:1.05 !important;font-weight:400 !important;margin-bottom:1px !important}
+  .compare-mobile-pill b{font-size:7.8px !important;line-height:1.1 !important;font-weight:700 !important}
+}
+
+
+@media(max-width:620px){
+  .logo-title{font-size:8px !important;font-weight:600 !important;line-height:1.05 !important}
+  .logo-sub{font-size:6px !important;font-weight:500 !important;line-height:1.05 !important;margin-top:1px !important}
+  .logo-panel{min-height:54px !important;padding:6px !important;border-radius:12px !important}
+}
+
+
+@media(max-width:620px){
+  /* تحسين صندوق الهوية في الهيدر - للجوال فقط */
+  .hero-inner{grid-template-columns:1fr auto !important;align-items:start !important;gap:8px !important}
+  .logo-panel{
+    width:112px !important;
+    min-height:40px !important;
+    padding:5px 7px !important;
+    border-radius:14px !important;
+    background:linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(245,250,249,.96) 100%) !important;
+    box-shadow:0 6px 14px rgba(0,84,77,.10), inset 0 0 0 1px rgba(0,107,94,.08) !important;
+    justify-self:end !important;
+  }
+  .logo-panel > div{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important}
+  .logo-title{
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1.02 !important;
+    letter-spacing:0 !important;
+    color:var(--moe-primary) !important;
+  }
+  .logo-sub{
+    font-size:5.4px !important;
+    font-weight:500 !important;
+    line-height:1.02 !important;
+    margin-top:1px !important;
+    color:var(--moe-blue) !important;
+  }
+}
+
+
+@media(max-width:620px){
+  /* تحسين نهائي لصندوق الهوية في الهيدر - أوضح وأخف */
+  .hero-inner{
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+  }
+  .logo-panel{
+    width:118px !important;
+    min-height:34px !important;
+    padding:4px 7px !important;
+    border-radius:12px !important;
+    background:rgba(255,255,255,.92) !important;
+    box-shadow:0 5px 12px rgba(0,84,77,.10), inset 0 0 0 1px rgba(0,107,94,.07) !important;
+    justify-self:start !important;
+    margin-top:4px !important;
+  }
+  .logo-title{
+    font-size:6.8px !important;
+    font-weight:700 !important;
+    line-height:1.05 !important;
+    color:#006B5E !important;
+  }
+  .logo-sub{
+    font-size:4.8px !important;
+    font-weight:500 !important;
+    line-height:1.05 !important;
+    margin-top:1px !important;
+    color:#0B5E67 !important;
+  }
+}
+
+</style>
+<script>
+(function(){
+  function axisName(name){
+    if(name.includes('الصيانة')) return 'الصيانة والنظافة والخدمات التشغيلية';
+    if(name.includes('النقل')) return 'خدمات النقل والسلامة والالتزام';
+    if(name.includes('التغذية')) return 'التغذية المدرسية';
+    if(name.includes('التقنيات')) return 'التقنيات';
+    return name;
+  }
+  function drawUnifiedAxisFigure(){
+    try{
+      if(!window.matchMedia('(max-width:620px)').matches) return;
+      const chart = document.getElementById('axisChart');
+      const cards = document.getElementById('axisCardsMobile');
+      if(cards) cards.style.display = 'none';
+      if(!chart) return;
+      if(typeof DATA === 'undefined' || !Array.isArray(DATA.axes)) return;
+      const rows = DATA.axes.map(a => ({
+        title: axisName(a.axis),
+        term1: Number(a.term1 || 0),
+        term2: Number(a.term2 || 0),
+        delta: Number(a.delta || 0)
+      }));
+      chart.innerHTML = `
+        <div class="axis-unified-figure">
+          <div class="axis-unified-legend">
+            <span><i class="axis-unified-dot" style="background:#1C78A8"></i>الفصل الدراسي الأول</span>
+            <span><i class="axis-unified-dot" style="background:#00A19A"></i>الفصل الدراسي الثاني</span>
+            <span><i class="axis-unified-dot" style="background:#00A878"></i>التحسن</span>
+          </div>
+          <div class="axis-unified-grid">
+            ${rows.map(r => `
+              <div class="axis-unified-item">
+                <div class="axis-unified-head">
+                  <span class="axis-unified-title">${r.title}</span>
+                  <span class="axis-unified-delta">${r.delta >= 0 ? '+' : ''}${r.delta.toFixed(1)}</span>
+                </div>
+                <div class="axis-unified-row">
+                  <span class="axis-unified-label">الأول</span>
+                  <div class="axis-unified-track"><span class="axis-unified-fill axis-unified-fill1" style="width:${Math.max(0, Math.min(100, r.term1))}%"></span></div>
+                  <span class="axis-unified-val">${r.term1.toFixed(1)}%</span>
+                </div>
+                <div class="axis-unified-row">
+                  <span class="axis-unified-label">الثاني</span>
+                  <div class="axis-unified-track"><span class="axis-unified-fill axis-unified-fill2" style="width:${Math.max(0, Math.min(100, r.term2))}%"></span></div>
+                  <span class="axis-unified-val">${r.term2.toFixed(1)}%</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>`;
+      chart.classList.remove('chart');
+      chart.style.height = 'auto';
+    } catch (e) {
+      console.error('Unified axis render failed', e);
+    }
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(drawUnifiedAxisFigure, 600); });
+  } else {
+    setTimeout(drawUnifiedAxisFigure, 600);
+  }
+  window.addEventListener('load', function(){ setTimeout(drawUnifiedAxisFigure, 700); });
+  window.addEventListener('resize', function(){ setTimeout(drawUnifiedAxisFigure, 120); });
+})();
+</script>
+
 </body>
 </html>
