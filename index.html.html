@@ -6289,5 +6289,122 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 }
 </style>
+
+<style>
+@media(max-width:620px){
+  /* عدد الاستجابات: الفصل الأول ونسبته + الفصل الثاني ونسبته في سطر واحد جنب بعض */
+  #surveyData .survey-card-responses .survey-donut-legend.response-legend-mobile{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    width:100% !important;
+    margin-top:4px !important;
+    align-items:start !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-item{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    min-height:20px !important;
+    padding:4px 6px !important;
+    gap:4px !important;
+    box-sizing:border-box !important;
+    justify-content:center !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-label{
+    font-size:4.6px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-pct{
+    font-size:4.6px !important;
+    line-height:1 !important;
+    font-weight:700 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-dot{
+    width:7px !important;
+    height:7px !important;
+    flex:0 0 7px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* إلغاء قصّ النصوص وإظهارها كاملة في شاشة الجوال */
+  #surveyData *,
+  .survey-section *,
+  #questionCards *,
+  .question-group *,
+  .question-meta *,
+  .response-pair *,
+  .compare-mobile-grid *,
+  .compare-mobile-pill *{
+    text-overflow:clip !important;
+  }
+
+  /* بيانات الاستطلاع: لا تقص النصوص */
+  #surveyData .survey-card,
+  #surveyData .survey-chart-wrap,
+  #surveyData .survey-donut-legend,
+  #surveyData .survey-legend-item,
+  #surveyData .survey-legend-label,
+  #surveyData .survey-legend-pct,
+  #surveyData .survey-card-title span,
+  #surveyData .survey-summary-badge,
+  #surveyData .survey-summary-number,
+  #surveyData .survey-summary-sub{
+    overflow:visible !important;
+    text-overflow:clip !important;
+  }
+
+  #surveyData .survey-legend-label,
+  #surveyData .survey-card-title span,
+  #surveyData .survey-summary-badge,
+  #surveyData .survey-summary-sub{
+    white-space:normal !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+  }
+
+  #surveyData .survey-legend-pct,
+  #surveyData .survey-summary-number{
+    white-space:nowrap !important;
+  }
+
+  /* البيانات أسفل الأعمدة / بطاقات الأسئلة: لا تقص النصوص */
+  #questionCards .response-chip,
+  #questionCards .response-chip-label,
+  #questionCards .response-chip-value,
+  #questionCards .question-meta,
+  #questionCards .question-note,
+  #questionCards .question-note-label,
+  #questionCards .question-note-value,
+  #questionCards .question-title,
+  #questionCards .q-title,
+  #questionCards .simple-chart-label,
+  #questionCards .simple-chart-value{
+    overflow:visible !important;
+    text-overflow:clip !important;
+  }
+
+  #questionCards .response-chip-label,
+  #questionCards .question-note-label,
+  #questionCards .question-note-value,
+  #questionCards .question-title,
+  #questionCards .q-title,
+  #questionCards .simple-chart-label{
+    white-space:normal !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+  }
+
+  #questionCards .response-chip-value,
+  #questionCards .simple-chart-value{
+    white-space:nowrap !important;
+  }
+}
+</style>
 </body>
 </html>
