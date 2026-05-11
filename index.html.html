@@ -2877,7 +2877,7 @@ const cfg = {responsive:false, displayModeBar:false, displaylogo:false, staticPl
 const isMobileView = window.matchMedia('(max-width:620px)').matches;
 const plotFontSize = isMobileView ? 13 : 16;
 const mainChartHeight = isMobileView ? 230 : 430;
-const gaugeChartHeight = isMobileView ? 320 : 430;
+const gaugeChartHeight = isMobileView ? 380 : 430;
 const axisChartHeight = isMobileView ? 300 : 460;
 const miniChartHeight = isMobileView ? 120 : 260;
 const miniChartBoxHeight = isMobileView ? 146 : 300;
@@ -2986,7 +2986,7 @@ function renderSurveySummary(){
     annotations:[{
       x:0.5, y:0.5, xref:'paper', yref:'paper', showarrow:false,
       text:'<b>الاستجابات</b>', align:'center',
-      font:{family:'Cairo, Tahoma, Arial', size:isMobileView?2.8:16, color:'#6E8086'}
+      font:{family:'Cairo, Tahoma, Arial', size:isMobileView?4.8:16, color:'#6E8086'}
     }]
   }, {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true});
 }
@@ -3013,7 +3013,7 @@ function renderSurveyDonut(containerId, q, centerLabel=''){
     annotations:centerLabel ? [{
       x:0.5, y:0.5, xref:'paper', yref:'paper', showarrow:false,
       text:'<b>' + centerLabel + '</b>', align:'center',
-      font:{family:'Cairo, Tahoma, Arial', size:isMobileView?2.8:16, color:'#6E8086'}
+      font:{family:'Cairo, Tahoma, Arial', size:isMobileView?4.8:16, color:'#6E8086'}
     }] : []
   }, {responsive:false, displayModeBar:false, displaylogo:false, staticPlot:true});
 }
@@ -3088,7 +3088,7 @@ function renderSurveyData(){
     annotations:[{
       x:0.5, y:0.5, xref:'paper', yref:'paper', showarrow:false,
       text:'<b>الاستجابات</b>', align:'center',
-      font:{family:'Cairo, Tahoma, Arial', size:isMobileView?2.8:16, color:'#6E8086'}
+      font:{family:'Cairo, Tahoma, Arial', size:isMobileView?4.8:16, color:'#6E8086'}
     }]
   }, cfg);
 
@@ -3142,7 +3142,7 @@ Plotly.newPlot('trendChart', [
   },
   number:{
     suffix:'%',
-    font:{size:isMobileView?16:42,color:'#006B5E',family:'Cairo'}
+    font:{size:isMobileView?18:42,color:'#006B5E',family:'Cairo'}
   },
   title:{
     text:isMobileView ? '' : 'مستوى الرضا الحالي',
@@ -3165,12 +3165,12 @@ Plotly.newPlot('trendChart', [
       value: DATA.overall.term1
     }
   },
-  domain:isMobileView?{x:[0.12,0.88],y:[0.14,0.92]}:{x:[0,1],y:[0,1]}
+  domain:isMobileView?{x:[0.08,0.92],y:[0.10,0.97]}:{x:[0,1],y:[0,1]}
 }
 ], {
   ...baseLayout,
   height:gaugeChartHeight,
-  margin:isMobileView?{t:18,r:56,b:18,l:56}:{t:40,r:30,b:20,l:30},
+  margin:isMobileView?{t:10,r:44,b:10,l:44}:{t:40,r:30,b:20,l:30},
   annotations:[]
 }, cfg);
 const trendSummaryMobile = document.getElementById('trendSummaryMobile');
@@ -4715,6 +4715,210 @@ document.addEventListener('DOMContentLoaded', function(){
     font-weight:400 !important;
     line-height:1.15 !important;
     white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ترتيب بطاقة عدد الاستجابات في بيانات الاستطلاع - للجوال فقط */
+  .survey-card-responses .survey-summary-meta{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    align-items:stretch !important;
+  }
+
+  .survey-card-responses .survey-summary-pill{
+    min-height:74px !important;
+    padding:9px 6px !important;
+    border-radius:16px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+  }
+
+  .survey-card-responses .survey-summary-badge{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding:5px 4px !important;
+    margin:0 0 6px !important;
+    border-radius:12px !important;
+    font-size:7.6px !important;
+    font-weight:800 !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+    text-align:center !important;
+  }
+
+  .survey-card-responses .survey-summary-number{
+    display:block !important;
+    width:100% !important;
+    font-size:12px !important;
+    font-weight:800 !important;
+    line-height:1.05 !important;
+    margin:0 0 3px !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+  }
+
+  .survey-card-responses .survey-summary-sub{
+    display:block !important;
+    width:100% !important;
+    font-size:6.2px !important;
+    font-weight:500 !important;
+    line-height:1.05 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تحسين نهائي لبطاقة عدد الاستجابات في بيانات الاستطلاع */
+  .survey-card-responses .survey-summary-meta{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin-top:6px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    min-height:64px !important;
+    height:auto !important;
+    padding:6px 4px !important;
+    border-radius:12px !important;
+    overflow:visible !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    padding:4px 2px !important;
+    margin:0 0 5px 0 !important;
+    border-radius:999px !important;
+    font-size:5.8px !important;
+    font-weight:800 !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    text-align:center !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:10px !important;
+    font-weight:900 !important;
+    line-height:1.05 !important;
+    margin-bottom:2px !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:5.3px !important;
+    font-weight:600 !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    text-align:center !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  #trendChart.chart{
+    height:380px !important;
+    min-height:380px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* توسيع بطاقتي الفصل الأول والثاني أسفل قسم الاستجابات - للجوال فقط */
+  .survey-card-responses .survey-summary-meta{
+    width:calc(100% + 10px) !important;
+    margin-right:-5px !important;
+    margin-left:-5px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:4px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    width:100% !important;
+    min-height:66px !important;
+    padding:6px 3px !important;
+    border-radius:14px !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    font-size:6px !important;
+    padding:4px 2px !important;
+    margin-bottom:4px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تكبير الكلمات داخل دوائر بيانات الاستطلاع - للجوال فقط */
+  #surveyData .js-plotly-plot .annotation-text,
+  #surveyData .js-plotly-plot .annotation-text tspan,
+  #surveyFitWrap .js-plotly-plot .annotation-text,
+  #surveyFitWrap .js-plotly-plot .annotation-text tspan,
+  .survey-donut .annotation-text,
+  .survey-donut .annotation-text tspan{
+    font-size:4.8px !important;
+    line-height:1.05 !important;
+    font-weight:700 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* توسيع أوضح لبطاقتي الفصل الأول والثاني في قسم الاستجابات - للجوال فقط */
+  .survey-card-responses .survey-summary-meta{
+    width:calc(100% + 26px) !important;
+    margin-right:-13px !important;
+    margin-left:-13px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    width:100% !important;
+    min-height:68px !important;
+    padding:7px 3px !important;
+    border-radius:15px !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* قسم الاستجابات في بيانات الاستطلاع: تصغير عنواني الفصلين وتخفيف الأرقام */
+  .survey-card-responses .survey-summary-badge{
+    font-size:5.2px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    padding:3px 2px !important;
+    margin-bottom:3px !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:8.4px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    margin-bottom:2px !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:4.8px !important;
+    font-weight:500 !important;
+    line-height:1 !important;
   }
 }
 </style>
