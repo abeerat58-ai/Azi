@@ -2877,7 +2877,7 @@ const cfg = {responsive:false, displayModeBar:false, displaylogo:false, staticPl
 const isMobileView = window.matchMedia('(max-width:620px)').matches;
 const plotFontSize = isMobileView ? 13 : 16;
 const mainChartHeight = isMobileView ? 230 : 430;
-const gaugeChartHeight = isMobileView ? 380 : 430;
+const gaugeChartHeight = isMobileView ? 430 : 430;
 const axisChartHeight = isMobileView ? 300 : 460;
 const miniChartHeight = isMobileView ? 120 : 260;
 const miniChartBoxHeight = isMobileView ? 146 : 300;
@@ -2964,7 +2964,10 @@ function renderSurveySummary(){
     {label:'الفصل الأول', value:DATA.term1.participants, pct:(DATA.term1.participants/(DATA.term1.participants+DATA.term2.participants))*100},
     {label:'الفصل الثاني', value:DATA.term2.participants, pct:(DATA.term2.participants/(DATA.term1.participants+DATA.term2.participants))*100}
   ];
-  document.getElementById('surveySummary').innerHTML = `<div class="survey-card"><div class="survey-card-title"><span>عدد الاستجابات</span><span class="survey-icon">◔</span></div><div class="survey-chart-wrap"><div class="survey-summary-meta"><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div></div><div class="survey-bars-title"><span></span><b></b></div><div class="survey-donut-wrap"><div class="survey-donut" id="surveyResponsesDonut"></div><div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div></div></div></div>`;
+  const surveyResponsesMeta = (window.innerWidth <= 900)
+    ? `<div class="survey-summary-meta survey-summary-plain-mobile"><div class="survey-summary-plain-title">إجمالي المشاركين</div><div class="survey-summary-plain-line">الفصل الأول ${ar(DATA.term1.participants)}</div><div class="survey-summary-plain-line">الفصل الثاني ${ar(DATA.term2.participants)}</div></div>`
+    : `<div class="survey-summary-meta"><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div></div>`;
+  document.getElementById('surveySummary').innerHTML = `<div class="survey-card"><div class="survey-card-title"><span>عدد الاستجابات</span><span class="survey-icon">◔</span></div><div class="survey-chart-wrap">${surveyResponsesMeta}<div class="survey-bars-title"><span></span><b></b></div><div class="survey-donut-wrap"><div class="survey-donut" id="surveyResponsesDonut"></div><div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div></div></div></div>`;
   Plotly.newPlot('surveyResponsesDonut', [{
     type:'pie',
     labels:responseItems.map(x=>x.label),
@@ -3038,18 +3041,16 @@ function renderSurveyData(){
   ];
   document.getElementById('surveyData').innerHTML = items.map(item=>{
     if(item.id === 'responses'){
+      const surveyResponsesMeta = `<div class="survey-summary-meta response-summary-cards"><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div><div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div></div>`;
       return `<div class="survey-card survey-card-responses">
         <div class="survey-card-title"><span>${item.title}</span><span class="survey-icon">${item.icon}</span></div>
         <div class="survey-chart-wrap">
           <div class="survey-bars-title"><span></span><b></b></div>
           <div class="survey-donut-wrap">
             <div class="survey-donut" id="surveyDonut_responses"></div>
-            <div class="survey-donut-legend">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div>
+            <div class="survey-donut-legend response-legend-mobile">${surveyLegendFromItems(responseItems, ['#1C78A8','#00A19A'])}</div>
           </div>
-          <div class="survey-summary-meta">
-            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الأول</span><span class="survey-summary-number">${ar(DATA.term1.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
-            <div class="survey-summary-pill"><span class="survey-summary-badge">الفصل الثاني</span><span class="survey-summary-number">${ar(DATA.term2.participants)}</span><span class="survey-summary-sub">إجمالي المشاركين</span></div>
-          </div>
+          ${surveyResponsesMeta}
         </div>
       </div>`;
     }
@@ -3142,7 +3143,7 @@ Plotly.newPlot('trendChart', [
   },
   number:{
     suffix:'%',
-    font:{size:isMobileView?18:42,color:'#006B5E',family:'Cairo'}
+    font:{size:isMobileView?21:42,color:'#006B5E',family:'Cairo'}
   },
   title:{
     text:isMobileView ? '' : 'مستوى الرضا الحالي',
@@ -3165,12 +3166,12 @@ Plotly.newPlot('trendChart', [
       value: DATA.overall.term1
     }
   },
-  domain:isMobileView?{x:[0.08,0.92],y:[0.10,0.97]}:{x:[0,1],y:[0,1]}
+  domain:isMobileView?{x:[0.05,0.95],y:[0.06,0.98]}:{x:[0,1],y:[0,1]}
 }
 ], {
   ...baseLayout,
   height:gaugeChartHeight,
-  margin:isMobileView?{t:10,r:44,b:10,l:44}:{t:40,r:30,b:20,l:30},
+  margin:isMobileView?{t:4,r:34,b:6,l:34}:{t:40,r:30,b:20,l:30},
   annotations:[]
 }, cfg);
 const trendSummaryMobile = document.getElementById('trendSummaryMobile');
@@ -3365,7 +3366,7 @@ function detailCardMarkup(x){
         <div class="question-meta"><span>مقدار التحسن</span><b class="${trendCls}">${pp(x.delta)}</b></div>
         <div class="question-meta"><span>نسبة التحسن</span><b class="${trendCls}">${rel(x.relative)}</b></div>
         <div class="question-meta status-inline"><span>الحالة</span><div class="status-chip"><span class="question-trend-chip ${trendCls}">${trendText}</span></div></div>
-        <div class="question-meta responses-inline"><span>الاستجابات</span>${responsePairMarkup(x.responses1, x.responses2)}</div>
+        <div class="question-meta responses-inline"><span>الاستجابات</span>${responsePairMarkup(x.responses1, x.responses2, 'question-bottom-inline')}</div>
       </div>
       <div class="question-note">
         <span class="question-note-label">ملخص المقارنة</span>
@@ -4919,6 +4920,1372 @@ document.addEventListener('DOMContentLoaded', function(){
     font-size:4.8px !important;
     font-weight:500 !important;
     line-height:1 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تصغير إضافي لعنواني الفصلين والأرقام في قسم الاستجابات - للجوال فقط */
+  .survey-card-responses .survey-summary-badge{
+    font-size:4.6px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    padding:2px 2px !important;
+    margin-bottom:2px !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:7.2px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    margin-bottom:1px !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    font-size:4.2px !important;
+    font-weight:500 !important;
+    line-height:1 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* إبقاء بطاقتي الفصل الأول والثاني داخل حدود البطاقة الأم - للجوال فقط */
+  .survey-card-responses .survey-summary-meta{
+    width:100% !important;
+    max-width:100% !important;
+    margin:6px 0 0 0 !important;
+    padding:0 6px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    width:100% !important;
+    max-width:100% !important;
+    min-height:60px !important;
+    padding:6px 4px !important;
+    border-radius:14px !important;
+    box-sizing:border-box !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* الاستجابات أسفل الأعمدة والرسومات: كل بطاقة في سطر واحد - للجوال فقط */
+  #questionCards .responses-inline .response-pair-wrap.question-bottom-inline .response-pair{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+  #questionCards .responses-inline .response-pair-wrap.question-bottom-inline .response-chip{
+    min-height:34px !important;
+    height:auto !important;
+    padding:4px 5px !important;
+    border-radius:10px !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:4px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+  }
+  #questionCards .responses-inline .response-pair-wrap.question-bottom-inline .response-chip-label{
+    display:inline !important;
+    font-size:6.1px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+  #questionCards .responses-inline .response-pair-wrap.question-bottom-inline .response-chip-value{
+    display:inline !important;
+    font-size:6.3px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تكبير قسم مستوى التحسن بشكل مناسب للجوال فقط */
+  #trendChart.chart{
+    height:430px !important;
+    min-height:430px !important;
+  }
+  .trend-card .card-title,
+  .trend-card .section-title{
+    font-size:11px !important;
+  }
+  .trend-summary-mobile,
+  .trend-stats,
+  .trend-kpis{
+    gap:10px !important;
+  }
+  .trend-summary-mobile .kpi,
+  .trend-stats .kpi,
+  .trend-kpis .kpi{
+    min-height:72px !important;
+    padding:10px 8px !important;
+  }
+  .trend-summary-mobile .kpi-label,
+  .trend-stats .kpi-label,
+  .trend-kpis .kpi-label{
+    font-size:7.5px !important;
+    font-weight:800 !important;
+  }
+  .trend-summary-mobile .kpi-value,
+  .trend-stats .kpi-value,
+  .trend-kpis .kpi-value{
+    font-size:10.5px !important;
+    font-weight:700 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* في بيانات الاستطلاع > عدد الاستجابات: اجعل الفصل الأول فوق والفصل الثاني تحته */
+  .survey-card-responses .survey-summary-meta,
+  .survey-card-responses .survey-summary-meta.one-line-responses{
+    width:100% !important;
+    max-width:100% !important;
+    margin:6px 0 0 0 !important;
+    padding:0 10px !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    width:100% !important;
+    max-width:100% !important;
+    min-height:46px !important;
+    height:auto !important;
+    padding:6px 8px !important;
+    border-radius:14px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    font-size:5.2px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:7.2px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    display:none !important;
+  }
+  .survey-card-responses .survey-response-inline{
+    display:block !important;
+    width:100% !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    font-size:5.6px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    color:#006B5E !important;
+  }
+  .survey-card-responses .survey-response-inline b{
+    font-size:6.1px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    color:#073B4C !important;
+    direction:ltr !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تقليل ارتفاع بطاقتي الفصل الأول والثاني في عدد الاستجابات لأدنى حد ممكن */
+  .survey-card-responses .survey-summary-meta,
+  .survey-card-responses .survey-summary-meta.one-line-responses{
+    width:76% !important;
+    max-width:76% !important;
+    margin:4px auto 0 !important;
+    padding:0 !important;
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+  }
+  .survey-card-responses .survey-summary-pill{
+    min-height:30px !important;
+    height:30px !important;
+    padding:2px 6px !important;
+    border-radius:12px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-badge{
+    font-size:4.4px !important;
+    line-height:1 !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-number{
+    font-size:6.2px !important;
+    line-height:1 !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-sub{
+    display:none !important;
+  }
+  .survey-card-responses .survey-response-inline{
+    font-size:4.8px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-response-inline b{
+    font-size:5.3px !important;
+    line-height:1 !important;
+    font-weight:400 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* عدد الاستجابات في بيانات الاستطلاع: عرض كتابي بدون بطاقات */
+  .survey-card-responses .survey-summary-meta.survey-summary-plain-mobile{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    gap:4px !important;
+    width:100% !important;
+    margin:4px 0 8px !important;
+    padding:0 4px !important;
+  }
+  .survey-card-responses .survey-summary-plain-title{
+    font-size:6.2px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    color:#5F757D !important;
+  }
+  .survey-card-responses .survey-summary-plain-line{
+    font-size:6.2px !important;
+    font-weight:600 !important;
+    line-height:1.15 !important;
+    color:#073B4C !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:900px){
+  /* عرض إجمالي المشاركين كنص فقط بدون بطاقات */
+  .survey-card-responses .survey-summary-meta.survey-summary-plain-mobile{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+    gap:5px !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:4px 0 10px !important;
+    padding:0 8px !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-plain-title{
+    font-size:8px !important;
+    font-weight:800 !important;
+    line-height:1.15 !important;
+    color:#5F757D !important;
+  }
+  .survey-card-responses .survey-summary-plain-line{
+    font-size:8px !important;
+    font-weight:600 !important;
+    line-height:1.15 !important;
+    color:#073B4C !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تصحيح فعلي: عدد الاستجابات في بيانات الاستطلاع كنص فقط بدون بطاقات */
+  .survey-card-responses .survey-summary-meta.survey-summary-text-only{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:8px 0 0 !important;
+    padding:0 8px !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    box-sizing:border-box !important;
+    text-align:right !important;
+  }
+  .survey-card-responses .survey-summary-text-title{
+    font-size:7px !important;
+    font-weight:900 !important;
+    line-height:1.25 !important;
+    color:#5F757D !important;
+    margin-bottom:4px !important;
+  }
+  .survey-card-responses .survey-summary-text-line{
+    font-size:7px !important;
+    font-weight:600 !important;
+    line-height:1.3 !important;
+    color:#073B4C !important;
+    white-space:nowrap !important;
+    margin:2px 0 !important;
+  }
+  .survey-card-responses .survey-summary-text-line span{
+    font-weight:400 !important;
+    direction:ltr !important;
+    unicode-bidi:embed !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* عدد الاستجابات في بيانات الاستطلاع: مستطيل عريض منخفض الارتفاع بنص فقط - للجوال فقط */
+  .survey-card-responses .survey-summary-meta.survey-summary-text-only{
+    width:92% !important;
+    max-width:92% !important;
+    margin:10px auto 0 !important;
+    padding:10px 14px !important;
+    min-height:58px !important;
+    background:#F6FBFA !important;
+    border:2px solid #D6E7E5 !important;
+    border-radius:22px !important;
+    box-shadow:none !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:4px !important;
+    text-align:center !important;
+  }
+  .survey-card-responses .survey-summary-text-title{
+    font-size:6.8px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    color:#5F757D !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-text-line{
+    font-size:6.6px !important;
+    font-weight:700 !important;
+    line-height:1.15 !important;
+    color:#0E5350 !important;
+    white-space:nowrap !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-text-line span{
+    font-size:6.6px !important;
+    font-weight:400 !important;
+    color:#073B4C !important;
+    direction:ltr !important;
+    unicode-bidi:embed !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:900px){
+  /* بيانات الاستطلاع > عدد الاستجابات: مستطيل عريض منخفض الارتفاع بنص فقط للجوال */
+  .survey-card-responses .survey-summary-meta:not(.survey-summary-text-only){
+    display:none !important;
+  }
+  .survey-card-responses .survey-summary-meta.survey-summary-text-only{
+    width:90% !important;
+    max-width:90% !important;
+    margin:10px auto 0 !important;
+    padding:8px 12px !important;
+    min-height:64px !important;
+    background:#F6FBFA !important;
+    border:2px solid #D6E7E5 !important;
+    border-radius:22px !important;
+    box-shadow:none !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:4px !important;
+    text-align:center !important;
+  }
+  .survey-card-responses .survey-summary-text-title{
+    font-size:7.2px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    color:#5F757D !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-text-line{
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1.15 !important;
+    color:#0E5350 !important;
+    white-space:nowrap !important;
+    margin:0 !important;
+  }
+  .survey-card-responses .survey-summary-text-line span{
+    font-size:7px !important;
+    font-weight:400 !important;
+    color:#073B4C !important;
+    direction:ltr !important;
+    unicode-bidi:embed !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* بيانات الاستطلاع > عدد الاستجابات: عنوان ثم مستطيلان عريضان منخفضا الارتفاع */
+  .survey-card-responses .survey-summary-meta.survey-summary-mobile-rects{
+    width:92% !important;
+    max-width:92% !important;
+    margin:10px auto 0 !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+    box-sizing:border-box !important;
+  }
+  .survey-card-responses .survey-summary-text-title{
+    font-size:7px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    color:#5F757D !important;
+    text-align:center !important;
+    margin:0 0 2px 0 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-line-pill{
+    width:100% !important;
+    min-height:34px !important;
+    padding:7px 10px !important;
+    border:2px solid #D6E7E5 !important;
+    border-radius:18px !important;
+    background:#F6FBFA !important;
+    box-sizing:border-box !important;
+    text-align:center !important;
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1.1 !important;
+    color:#0E5350 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-line-pill span{
+    font-size:7px !important;
+    font-weight:400 !important;
+    color:#073B4C !important;
+    direction:ltr !important;
+    unicode-bidi:embed !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ضبط نهائي حسب الطلب: إجمالي المشاركين + مستطيلين عريضين منخفضين */
+  .survey-card-responses .survey-summary-meta.survey-summary-mobile-rects{
+    width:88% !important;
+    max-width:88% !important;
+    margin:8px auto 0 !important;
+    padding:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:6px !important;
+    align-items:stretch !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+  .survey-card-responses .survey-summary-text-title{
+    text-align:center !important;
+    font-size:6.8px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    margin:0 0 2px 0 !important;
+    color:#5F757D !important;
+  }
+  .survey-card-responses .survey-summary-line-pill{
+    width:100% !important;
+    height:30px !important;
+    min-height:30px !important;
+    padding:0 10px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border:2px solid #D6E7E5 !important;
+    border-radius:16px !important;
+    background:#F6FBFA !important;
+    box-sizing:border-box !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    font-size:6.8px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    color:#0E5350 !important;
+  }
+  .survey-card-responses .survey-summary-line-pill span{
+    font-size:6.8px !important;
+    font-weight:400 !important;
+    color:#073B4C !important;
+    direction:ltr !important;
+    unicode-bidi:embed !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ضبط نهائي ومخصص للجوال فقط: إجمالي المشاركين + مستطيلين عريضين منخفضي الارتفاع */
+  .survey-card-responses .survey-summary-meta.survey-summary-mobile-flat{
+    width:90% !important;
+    max-width:90% !important;
+    margin:10px auto 0 !important;
+    padding:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:6px !important;
+    align-items:stretch !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+  .survey-card-responses .survey-summary-mobile-title{
+    text-align:center !important;
+    font-size:7px !important;
+    font-weight:800 !important;
+    line-height:1.1 !important;
+    color:#5F757D !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-summary-mobile-pill{
+    width:100% !important;
+    height:32px !important;
+    min-height:32px !important;
+    padding:0 10px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border:2px solid #D6E7E5 !important;
+    border-radius:16px !important;
+    background:#F6FBFA !important;
+    box-sizing:border-box !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    color:#0E5350 !important;
+  }
+  .survey-card-responses .survey-summary-mobile-pill span{
+    font-size:7px !important;
+    font-weight:400 !important;
+    color:#073B4C !important;
+    direction:ltr !important;
+    unicode-bidi:embed !important;
+    margin-right:4px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* بيانات الاستطلاع > عدد الاستجابات: الفصل الأول ونسبته في صف، والثاني تحته */
+  .survey-card-responses .survey-donut-legend{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+    width:100% !important;
+    margin-top:6px !important;
+  }
+  .survey-card-responses .survey-donut-legend .survey-legend-item{
+    width:88% !important;
+    max-width:88% !important;
+    min-height:30px !important;
+    padding:6px 10px !important;
+    border-radius:999px !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    box-sizing:border-box !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-donut-legend .survey-legend-label{
+    font-size:7px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+  .survey-card-responses .survey-donut-legend .survey-legend-pct{
+    font-size:7px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+    direction:ltr !important;
+  }
+  .survey-card-responses .survey-donut-legend .survey-legend-dot{
+    width:10px !important;
+    height:10px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ضبط بطاقة عدد الاستجابات في بيانات الاستطلاع لتطابق المرجع */
+  .survey-card-responses .survey-donut-wrap{
+    gap:10px !important;
+  }
+
+  .survey-card-responses .survey-donut-legend{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    width:100% !important;
+    margin-top:4px !important;
+  }
+
+  .survey-card-responses .survey-donut-legend .survey-legend-item{
+    width:72% !important;
+    max-width:72% !important;
+    min-height:34px !important;
+    padding:7px 12px !important;
+    border-radius:999px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    background:#F6FBFA !important;
+    border:2px solid #D6E7E5 !important;
+    box-sizing:border-box !important;
+    white-space:nowrap !important;
+  }
+
+  .survey-card-responses .survey-donut-legend .survey-legend-label{
+    font-size:8px !important;
+    font-weight:900 !important;
+    line-height:1 !important;
+    color:#203E49 !important;
+    white-space:nowrap !important;
+  }
+
+  .survey-card-responses .survey-donut-legend .survey-legend-pct{
+    font-size:8px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    color:var(--moe-primary) !important;
+    direction:ltr !important;
+    white-space:nowrap !important;
+  }
+
+  .survey-card-responses .survey-donut-legend .survey-legend-dot{
+    width:11px !important;
+    height:11px !important;
+    flex:0 0 11px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ترتيب نهائي لبطاقة عدد الاستجابات في بيانات الاستطلاع - الجوال فقط */
+  #surveyData.survey-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+  #surveyData .survey-card-responses{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  #surveyData .survey-card-responses .survey-card-title{
+    font-size:10px !important;
+    margin-bottom:8px !important;
+  }
+  #surveyData .survey-card-responses .survey-icon{
+    width:18px !important;
+    height:18px !important;
+    border-radius:7px !important;
+    font-size:9px !important;
+    flex:0 0 18px !important;
+  }
+  #surveyData .survey-card-responses .survey-chart-wrap{
+    padding:8px !important;
+    border-radius:14px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-wrap{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut{
+    height:165px !important;
+    max-width:180px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    width:100% !important;
+    margin-top:4px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-item{
+    width:78% !important;
+    max-width:78% !important;
+    min-height:32px !important;
+    padding:7px 12px !important;
+    border-radius:999px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    background:#F6FBFA !important;
+    border:2px solid #D6E7E5 !important;
+    box-sizing:border-box !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-label{
+    font-size:7.8px !important;
+    font-weight:900 !important;
+    line-height:1 !important;
+    color:#203E49 !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-pct{
+    font-size:7.8px !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+    color:var(--moe-primary) !important;
+    direction:ltr !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-dot{
+    width:11px !important;
+    height:11px !important;
+    flex:0 0 11px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* بيانات الاستطلاع: كل بطاقتين جنب بعض - للجوال فقط */
+  #surveyData.survey-grid,
+  .survey-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    align-items:start !important;
+  }
+
+  #surveyData .survey-card,
+  #surveyData .survey-card-responses{
+    grid-column:auto !important;
+    width:auto !important;
+    max-width:none !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  /* إلغاء تمدد بطاقة عدد الاستجابات بعرض كامل */
+  #surveyData .survey-card-responses{
+    width:auto !important;
+  }
+
+  /* ضبط داخلي مناسب لبطاقة عدد الاستجابات داخل شبكة عمودين */
+  #surveyData .survey-card-responses .survey-card-title{
+    font-size:8.5px !important;
+    margin-bottom:6px !important;
+  }
+  #surveyData .survey-card-responses .survey-icon{
+    width:15px !important;
+    height:15px !important;
+    font-size:7px !important;
+    border-radius:6px !important;
+    flex:0 0 15px !important;
+  }
+  #surveyData .survey-card-responses .survey-chart-wrap{
+    padding:6px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut{
+    height:82px !important;
+    max-width:92px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-wrap{
+    gap:6px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:6px !important;
+    width:100% !important;
+    margin-top:4px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-item{
+    width:88% !important;
+    max-width:88% !important;
+    min-height:24px !important;
+    padding:4px 8px !important;
+    border-radius:999px !important;
+    gap:5px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-label,
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-pct{
+    font-size:5.8px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend .survey-legend-dot{
+    width:9px !important;
+    height:9px !important;
+    flex:0 0 9px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* بطاقة عدد الاستجابات مثل بقية البطاقات مع إضافة إجمالي المشاركين */
+  #surveyData.survey-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    align-items:start !important;
+  }
+  #surveyData .survey-card-responses{
+    grid-column:auto !important;
+    width:auto !important;
+    max-width:none !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  #surveyData .survey-card-responses .survey-card-title{
+    font-size:8.8px !important;
+    margin-bottom:8px !important;
+  }
+  #surveyData .survey-card-responses .survey-icon{
+    width:16px !important;
+    height:16px !important;
+    font-size:8px !important;
+    border-radius:7px !important;
+    flex:0 0 16px !important;
+  }
+  #surveyData .survey-card-responses .survey-chart-wrap{
+    background:#FCFEFD !important;
+    border:1px dashed rgba(0,107,94,.18) !important;
+    border-radius:18px !important;
+    padding:10px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-wrap{
+    display:grid !important;
+    justify-items:center !important;
+    gap:8px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut{
+    height:112px !important;
+    max-width:138px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend.response-legend-mobile{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:7px !important;
+    width:100% !important;
+    margin-top:2px !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-item{
+    width:92% !important;
+    max-width:92% !important;
+    min-height:24px !important;
+    padding:5px 8px !important;
+    border-radius:999px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:6px !important;
+    background:#F6FAF9 !important;
+    border:1px solid rgba(0,107,94,.10) !important;
+    box-sizing:border-box !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-label{
+    font-size:6px !important;
+    font-weight:900 !important;
+    color:#203E49 !important;
+    line-height:1 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-pct{
+    font-size:6px !important;
+    font-weight:700 !important;
+    color:var(--moe-primary) !important;
+    direction:ltr !important;
+    line-height:1 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-dot{
+    width:9px !important;
+    height:9px !important;
+    flex:0 0 9px !important;
+  }
+  #surveyData .survey-card-responses .survey-summary-meta.response-summary-cards{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin-top:10px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-pill{
+    background:#F3F8F7 !important;
+    border:1px solid rgba(0,107,94,.10) !important;
+    border-radius:16px !important;
+    padding:8px 6px 7px !important;
+    text-align:center !important;
+    box-sizing:border-box !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-badge{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:3px 8px !important;
+    border-radius:999px !important;
+    background:rgba(0,107,94,.10) !important;
+    color:var(--moe-primary) !important;
+    font-size:7px !important;
+    font-weight:900 !important;
+    margin-bottom:6px !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-number{
+    display:block !important;
+    font-size:12px !important;
+    font-weight:900 !important;
+    color:var(--moe-dark) !important;
+    direction:ltr !important;
+    line-height:1.2 !important;
+    margin-bottom:3px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-sub{
+    display:block !important;
+    font-size:7px !important;
+    font-weight:800 !important;
+    color:var(--muted) !important;
+    line-height:1.2 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ضبط بطاقة عدد الاستجابات لتصبح مثل بقية بطاقات بيانات الاستطلاع */
+  #surveyData.survey-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    align-items:start !important;
+  }
+
+  #surveyData .survey-card-responses{
+    grid-column:auto !important;
+    width:auto !important;
+    max-width:none !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+
+  #surveyData .survey-card-responses .survey-card-title{
+    font-size:8px !important;
+    font-weight:900 !important;
+    margin-bottom:8px !important;
+    line-height:1.4 !important;
+  }
+  #surveyData .survey-card-responses .survey-icon{
+    width:15px !important;
+    height:15px !important;
+    border-radius:6px !important;
+    font-size:7px !important;
+    flex:0 0 15px !important;
+  }
+
+  #surveyData .survey-card-responses .survey-chart-wrap{
+    background:#FCFEFD !important;
+    border:1px dashed rgba(0,107,94,.18) !important;
+    border-radius:18px !important;
+    padding:8px !important;
+  }
+
+  #surveyData .survey-card-responses .survey-donut-wrap{
+    display:grid !important;
+    justify-items:center !important;
+    gap:7px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut{
+    height:96px !important;
+    max-width:110px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+
+  #surveyData .survey-card-responses .survey-donut-legend.response-legend-mobile{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:6px !important;
+    width:100% !important;
+    margin-top:2px !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-item{
+    width:88% !important;
+    max-width:88% !important;
+    min-height:22px !important;
+    padding:4px 8px !important;
+    border-radius:999px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:5px !important;
+    background:#F6FAF9 !important;
+    border:1px solid rgba(0,107,94,.10) !important;
+    box-sizing:border-box !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-label{
+    font-size:5.8px !important;
+    font-weight:900 !important;
+    color:#203E49 !important;
+    line-height:1 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-pct{
+    font-size:5.8px !important;
+    font-weight:700 !important;
+    color:var(--moe-primary) !important;
+    direction:ltr !important;
+    line-height:1 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-dot{
+    width:8px !important;
+    height:8px !important;
+    flex:0 0 8px !important;
+  }
+
+  /* بطاقتا إجمالي المشاركين بنفس روح بقية البطاقات وبمقاسات متناسقة */
+  #surveyData .survey-card-responses .survey-summary-meta.response-summary-cards{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    margin-top:8px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-pill{
+    background:#F3F8F7 !important;
+    border:1px solid rgba(0,107,94,.10) !important;
+    border-radius:14px !important;
+    padding:6px 5px !important;
+    text-align:center !important;
+    box-sizing:border-box !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-badge{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:3px 7px !important;
+    border-radius:999px !important;
+    background:rgba(0,107,94,.10) !important;
+    color:var(--moe-primary) !important;
+    font-size:6px !important;
+    font-weight:900 !important;
+    margin-bottom:4px !important;
+    white-space:nowrap !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-number{
+    display:block !important;
+    font-size:9.5px !important;
+    font-weight:900 !important;
+    color:var(--moe-dark) !important;
+    direction:ltr !important;
+    line-height:1.15 !important;
+    margin-bottom:2px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-sub{
+    display:block !important;
+    font-size:5.6px !important;
+    font-weight:800 !important;
+    color:var(--muted) !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* ضبط التناسق النهائي: بطاقة عدد الاستجابات تكون بنفس روح وحجم باقي بطاقات بيانات الاستطلاع */
+  #surveyData.survey-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    align-items:stretch !important;
+  }
+
+  #surveyData .survey-card{
+    min-height:220px !important;
+  }
+
+  #surveyData .survey-card-responses{
+    grid-column:auto !important;
+    min-height:220px !important;
+    height:auto !important;
+    overflow:hidden !important;
+  }
+
+  #surveyData .survey-card-responses .survey-card-title{
+    font-size:7.6px !important;
+    line-height:1.2 !important;
+    margin-bottom:6px !important;
+  }
+
+  #surveyData .survey-card-responses .survey-chart-wrap{
+    padding:6px !important;
+    border-radius:14px !important;
+    min-height:176px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    gap:5px !important;
+  }
+
+  #surveyData .survey-card-responses .survey-donut-wrap{
+    gap:5px !important;
+  }
+
+  #surveyData .survey-card-responses .survey-donut{
+    height:74px !important;
+    max-width:82px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+
+  #surveyData .survey-card-responses .survey-donut-legend.response-legend-mobile{
+    gap:4px !important;
+    margin-top:1px !important;
+  }
+
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-item{
+    width:92% !important;
+    max-width:92% !important;
+    min-height:18px !important;
+    padding:3px 5px !important;
+    border-radius:999px !important;
+    gap:4px !important;
+  }
+
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-label,
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-pct{
+    font-size:4.8px !important;
+    line-height:1 !important;
+  }
+
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-dot{
+    width:7px !important;
+    height:7px !important;
+    flex:0 0 7px !important;
+  }
+
+  #surveyData .survey-card-responses .survey-summary-meta.response-summary-cards{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:5px !important;
+    margin-top:5px !important;
+  }
+
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-pill{
+    border-radius:12px !important;
+    padding:5px 3px !important;
+    min-height:44px !important;
+  }
+
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-badge{
+    font-size:4.8px !important;
+    padding:2px 5px !important;
+    margin-bottom:3px !important;
+    max-width:100% !important;
+  }
+
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-number{
+    font-size:8px !important;
+    line-height:1 !important;
+    margin-bottom:2px !important;
+  }
+
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-sub{
+    font-size:4.6px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تقليل فراغات كل بطاقات بيانات الاستطلاع لتصبح متوازنة أكثر */
+  #surveyData.survey-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    align-items:start !important;
+  }
+
+  /* كل البطاقات */
+  #surveyData .survey-card{
+    min-height:170px !important;
+    height:auto !important;
+    padding:7px !important;
+    box-sizing:border-box !important;
+  }
+  #surveyData .survey-card .survey-card-title{
+    font-size:8px !important;
+    line-height:1.25 !important;
+    margin-bottom:6px !important;
+  }
+  #surveyData .survey-card .survey-icon{
+    width:15px !important;
+    height:15px !important;
+    font-size:7px !important;
+    border-radius:6px !important;
+    flex:0 0 15px !important;
+  }
+  #surveyData .survey-card .survey-chart-wrap{
+    min-height:auto !important;
+    padding:7px !important;
+    border-radius:15px !important;
+  }
+
+  /* البطاقات العادية: كبر المحتوى قليلاً وقلل الفراغ */
+  #surveyData .survey-card:not(.survey-card-responses) .survey-chart-wrap{
+    padding:8px !important;
+  }
+  #surveyData .survey-card:not(.survey-card-responses) .survey-donut,
+  #surveyData .survey-card:not(.survey-card-responses) [id^="surveyDonut_"]{
+    height:90px !important;
+    max-width:105px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+  #surveyData .survey-card:not(.survey-card-responses) .survey-donut-legend{
+    gap:5px !important;
+    margin-top:4px !important;
+  }
+  #surveyData .survey-card:not(.survey-card-responses) .survey-legend-item{
+    min-height:18px !important;
+    padding:3px 6px !important;
+  }
+  #surveyData .survey-card:not(.survey-card-responses) .survey-legend-label,
+  #surveyData .survey-card:not(.survey-card-responses) .survey-legend-pct{
+    font-size:4.8px !important;
+    line-height:1 !important;
+  }
+
+  /* بطاقة عدد الاستجابات: تصغير بسيط حتى تتوازن مع الباقي */
+  #surveyData .survey-card-responses{
+    min-height:170px !important;
+    height:auto !important;
+    overflow:hidden !important;
+  }
+  #surveyData .survey-card-responses .survey-chart-wrap{
+    min-height:auto !important;
+    padding:7px !important;
+    gap:5px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut{
+    height:84px !important;
+    max-width:96px !important;
+    width:100% !important;
+    margin-inline:auto !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-wrap{
+    gap:5px !important;
+  }
+  #surveyData .survey-card-responses .survey-donut-legend.response-legend-mobile{
+    gap:5px !important;
+    margin-top:2px !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-item{
+    width:90% !important;
+    max-width:90% !important;
+    min-height:20px !important;
+    padding:4px 7px !important;
+    gap:4px !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-label,
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-pct{
+    font-size:5px !important;
+    line-height:1 !important;
+  }
+  #surveyData .survey-card-responses .response-legend-mobile .survey-legend-dot{
+    width:8px !important;
+    height:8px !important;
+    flex:0 0 8px !important;
+  }
+  #surveyData .survey-card-responses .survey-summary-meta.response-summary-cards{
+    gap:5px !important;
+    margin-top:6px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-pill{
+    min-height:40px !important;
+    padding:4px 3px !important;
+    border-radius:12px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-badge{
+    font-size:4.8px !important;
+    padding:2px 5px !important;
+    margin-bottom:3px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-number{
+    font-size:8.2px !important;
+    line-height:1 !important;
+    margin-bottom:2px !important;
+  }
+  #surveyData .survey-card-responses .response-summary-cards .survey-summary-sub{
+    font-size:4.7px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
   }
 }
 </style>
