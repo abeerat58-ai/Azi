@@ -2803,6 +2803,143 @@ td{font-size:13px;color:#203E49}
   }
 }
 </style>
+
+<style>
+/* إنزال قسم بيانات الاستطلاع حتى لا يغطي على الهيدر - للكمبيوتر والجوال */
+.wrap{
+  margin:18px auto 36px !important;
+}
+
+/* زوايا الهيدر حادة */
+.hero{
+  border-bottom-left-radius:0 !important;
+  border-bottom-right-radius:0 !important;
+}
+.logo-panel{
+  border-radius:0 !important;
+}
+
+@media(max-width:900px){
+  .wrap{
+    margin:14px auto 28px !important;
+  }
+}
+
+@media(max-width:620px){
+  .wrap{
+    margin:12px auto 24px !important;
+  }
+  .hero{
+    padding-bottom:26px !important;
+  }
+}
+</style>
+
+<style>
+@media (min-width: 621px){
+  .logo-title{
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+  .logo-sub{
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin-top: 3px !important;
+  }
+}
+</style>
+
+<style>
+@media (min-width: 621px){
+  .logo-title{
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+  }
+  .logo-sub{
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+    margin-top: 2px !important;
+  }
+}
+</style>
+
+<style>
+@media (min-width: 621px){
+  .logo-title{
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+  }
+  .logo-sub{
+    font-size: 8px !important;
+    line-height: 1.3 !important;
+    margin-top: 1px !important;
+  }
+}
+</style>
+
+<style>
+@media (min-width: 621px){
+  .logo-title{
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+  .logo-sub{
+    font-size: 7px !important;
+    line-height: 1.25 !important;
+    margin-top: 1px !important;
+    white-space: nowrap !important;
+  }
+}
+</style>
+
+<style>
+/* إصلاح خروج نص شعار إدارة جودة الخدمات من الإطار */
+@media (min-width: 621px){
+  .logo-panel{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:14px !important;
+    padding:14px 18px !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+  .logo-panel .moe-logo-img{
+    width:116px !important;
+    max-width:42% !important;
+    height:auto !important;
+    flex:0 0 auto !important;
+  }
+  .logo-panel .logo-text-block{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    max-width:calc(100% - 130px) !important;
+    overflow:hidden !important;
+    text-align:right !important;
+    align-items:flex-start !important;
+  }
+  .logo-title{
+    font-size:10px !important;
+    line-height:1.2 !important;
+    white-space:nowrap !important;
+    margin:0 !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+    text-overflow:clip !important;
+  }
+  .logo-sub{
+    font-size:6.5px !important;
+    line-height:1.2 !important;
+    white-space:nowrap !important;
+    margin-top:2px !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+    text-overflow:clip !important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="hero">
@@ -2877,7 +3014,7 @@ const cfg = {responsive:false, displayModeBar:false, displaylogo:false, staticPl
 const isMobileView = window.matchMedia('(max-width:620px)').matches;
 const plotFontSize = isMobileView ? 13 : 16;
 const mainChartHeight = isMobileView ? 230 : 430;
-const gaugeChartHeight = isMobileView ? 430 : 430;
+const gaugeChartHeight = isMobileView ? 300 : 430;
 const axisChartHeight = isMobileView ? 300 : 460;
 const miniChartHeight = isMobileView ? 120 : 260;
 const miniChartBoxHeight = isMobileView ? 146 : 300;
@@ -3146,8 +3283,8 @@ Plotly.newPlot('trendChart', [
     font:{size:isMobileView?21:42,color:'#006B5E',family:'Cairo'}
   },
   title:{
-    text:isMobileView ? '' : 'مستوى الرضا الحالي',
-    font:{size:isMobileView?11:20,color:'#073B4C',family:'Cairo'}
+    text:'مستوى الرضا الحالي',
+    font:{size:isMobileView?15:20,color:'#073B4C',family:'Cairo'}
   },
   gauge:{
     axis:{range:[0,100],tickwidth:1,tickcolor:'#073B4C',tickfont:{size:isMobileView?8:12}},
@@ -3166,7 +3303,7 @@ Plotly.newPlot('trendChart', [
       value: DATA.overall.term1
     }
   },
-  domain:isMobileView?{x:[0.05,0.95],y:[0.06,0.98]}:{x:[0,1],y:[0,1]}
+  domain:isMobileView?{x:[0.03,0.97],y:[0.14,0.96]}:{x:[0,1],y:[0,1]}
 }
 ], {
   ...baseLayout,
@@ -3201,7 +3338,7 @@ if(isMobileView){
     {type:'scatter', mode:'lines', x:connectorX, y:connectorY, line:{color:'#C9D9D5', width:4}, hoverinfo:'skip', showlegend:false},
     {type:'scatter', mode:'markers+text', name:'الفصل الأول', x:axes.map(x=>x.term1), y:axisMobileLabels, marker:{color:'#1C78A8', size:10}, text:axes.map(x=>pct(x.term1)), textposition:'middle left', textfont:{size:8, color:'#1C78A8', family:'Cairo'}},
     {type:'scatter', mode:'markers+text', name:'الفصل الثاني', x:axes.map(x=>x.term2), y:axisMobileLabels, marker:{color:'#00A19A', size:10}, text:axes.map(x=>pct(x.term2)), textposition:'middle right', textfont:{size:8, color:'#00A19A', family:'Cairo'}},
-    {type:'scatter', mode:'text', name:'التحسن', x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+10), y:axisMobileLabels, text:axes.map(x=>pp(x.delta)), textfont:{size:8, color:'#00A878', family:'Cairo'}, hoverinfo:'skip', showlegend:false}
+    {type:'scatter', mode:'text', name:'', x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+10), y:axisMobileLabels, text:axes.map(x=>pp(x.delta)), textfont:{size:8, color:'#00A878', family:'Cairo'}, hoverinfo:'skip', showlegend:false}
   ], {
     font:{family:'Cairo, Tahoma, Arial',size:9,color:'#073B4C'},
     paper_bgcolor:'rgba(0,0,0,0)',
@@ -3217,7 +3354,7 @@ if(isMobileView){
   Plotly.newPlot('axisChart', [
     {type:'bar', orientation:'h', name:'الفصل الأول', y:axes.map(x=>x.axis), x:axes.map(x=>x.term1), width:thinBarWidthH, marker:{color:'#1C78A8'}, text:axes.map(x=>pct(x.term1)), textposition:'auto'},
     {type:'bar', orientation:'h', name:'الفصل الثاني', y:axes.map(x=>x.axis), x:axes.map(x=>x.term2), width:thinBarWidthH, marker:{color:'#00A19A'}, text:axes.map(x=>pct(x.term2)), textposition:'auto'},
-    {type:'scatter', mode:'markers+text', name:'التحسن', y:axes.map(x=>x.axis), x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+14), text:axes.map(x=>pp(x.delta)), textfont:{color:axes.map(x=>x.delta>=0?'#00A878':'#D62828'), family:'Cairo', size:13}, marker:{size:2,color:'rgba(0,0,0,0)'}, hoverinfo:'skip'}
+    {type:'scatter', mode:'markers+text', name:'', y:axes.map(x=>x.axis), x:axes.map(x=>Math.max(x.term1||0,x.term2||0)+14), text:axes.map(x=>pp(x.delta)), textfont:{color:axes.map(x=>x.delta>=0?'#00A878':'#D62828'), family:'Cairo', size:13}, marker:{size:2,color:'rgba(0,0,0,0)'}, hoverinfo:'skip', showlegend:false}
   ], {...baseLayout, height:460, barmode:'group', margin:{t:25,r:130,b:45,l:360}, xaxis:{range:[0,115],ticksuffix:'%',gridcolor:'#E8F0EE'}, yaxis:{automargin:true}, legend:{orientation:'h',x:.02,y:1.12}}, cfg);
 }
 function metricBox(x, rankLabel){
@@ -6403,6 +6540,142 @@ document.addEventListener('DOMContentLoaded', function(){
   #questionCards .response-chip-value,
   #questionCards .simple-chart-value{
     white-space:nowrap !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* إظهار كلمة الفصل الأول والفصل الثاني كاملة في بطاقات الاستجابات تحت الأعمدة */
+  #questionCards .response-chip,
+  #questionCards .response-chip-label,
+  #questionCards .response-chip-value,
+  #questionCards .responses-inline .response-chip,
+  #questionCards .responses-inline .response-chip-label,
+  #questionCards .responses-inline .response-chip-value,
+  #questionCards .question-meta.responses-inline .response-chip,
+  #questionCards .question-meta.responses-inline .response-chip-label,
+  #questionCards .question-meta.responses-inline .response-chip-value{
+    overflow:visible !important;
+    text-overflow:clip !important;
+  }
+
+  #questionCards .response-chip{
+    min-width:0 !important;
+    padding-inline:6px !important;
+  }
+
+  #questionCards .response-chip-label,
+  #questionCards .responses-inline .response-chip-label,
+  #questionCards .question-meta.responses-inline .response-chip-label{
+    white-space:nowrap !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+    display:inline-block !important;
+    width:auto !important;
+    max-width:none !important;
+    font-size:5.4px !important;
+    letter-spacing:-0.15px !important;
+  }
+
+  #questionCards .response-chip-value,
+  #questionCards .responses-inline .response-chip-value,
+  #questionCards .question-meta.responses-inline .response-chip-value{
+    white-space:nowrap !important;
+    display:inline-block !important;
+    width:auto !important;
+    max-width:none !important;
+    font-size:5.6px !important;
+    font-weight:400 !important;
+  }
+
+  /* في حالة السطر الواحد داخل الاستجابات */
+  #questionCards .response-pair-wrap.question-bottom-inline .response-chip{
+    justify-content:center !important;
+    gap:3px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* إصلاح قسم مستوى التحسن للجوال فقط */
+  #trendChart.chart{
+    height:300px !important;
+    min-height:300px !important;
+  }
+  .panel:has(#trendChart),
+  .panel #trendChart{
+    overflow:hidden !important;
+  }
+  .panel:has(#trendChart) .panel-title{
+    margin-bottom:4px !important;
+  }
+  .trend-summary-mobile{
+    margin-top:2px !important;
+  }
+  .trend-summary-mobile .tbox{
+    padding:5px 4px !important;
+    min-height:unset !important;
+  }
+  .trend-summary-mobile .tbox span{
+    font-size:6.4px !important;
+    margin-bottom:1px !important;
+  }
+  .trend-summary-mobile .tbox b{
+    font-size:9px !important;
+    line-height:1.15 !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* تقليل ارتفاع تصنيفات الأقسام في الجوال فقط */
+  .question-group-head{
+    padding:10px 14px !important;
+    margin-bottom:10px !important;
+    border-radius:18px !important;
+    gap:8px !important;
+    min-height:auto !important;
+  }
+  .question-group-title{
+    font-size:11px !important;
+    line-height:1.25 !important;
+    margin:0 !important;
+  }
+  .question-group-sub{
+    font-size:7px !important;
+    line-height:1.35 !important;
+    margin-top:3px !important;
+  }
+  .question-group{
+    margin-top:12px !important;
+    padding:10px !important;
+    border-radius:20px !important;
+  }
+}
+</style>
+
+<style>
+@media(max-width:620px){
+  /* العناوين الأساسية بولد على الجوال فقط */
+  .panel-title,
+  .panel-title span,
+  .panel-title b,
+  .detail-section-title h2,
+  .section-title,
+  .card-title{
+    font-weight:900 !important;
+  }
+
+  /* تأكيد خاص للأقسام المطلوبة */
+  .grid > .panel:nth-child(1) .panel-title span:first-child,
+  .grid > .panel:nth-child(2) .panel-title span:first-child,
+  .axis-panel .panel-title span:first-child,
+  #bestBox ~ *,
+  #worstBox ~ *{
+    font-weight:900 !important;
   }
 }
 </style>
